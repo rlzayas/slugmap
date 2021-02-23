@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 //import 'package:google_maps_flutter/google_maps_flutter.dart';
 //import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
+import 'package:testing_app/widgets/slugSearch.dart';
 
 class slugMapMain extends StatefulWidget {
   @override
@@ -74,9 +75,9 @@ class _MapState extends State<slugMapMain> {
               ),
               child: TextButton(
                 onPressed: () {
-                  // Navigator.push(
-                  // context,
-                  //MaterialPageRoute(builder: (context) => slugMapMain()), );
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => slugSearch()), );
 
                 },
               ),
