@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:testing_app/widgets/slugMapMain.dart';
 
 class slugTitle extends StatelessWidget {
   @override
@@ -66,15 +67,17 @@ class slugTitle extends StatelessWidget {
                 onPressed: () {
                   //PAGE NAV HERE
                   //Syntax
-                  // Navigator.push(
-                  //           context,
-                  //           PageRouteBuilder(
-                  //             pageBuilder: (context, animation1, animation2) => NewPageName(),
-                  //             transitionsBuilder: (context, animation1, animation2, child) =>
+                  Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation1, animation2) => slugMapMain(),
+                  //           transitionsBuilder: (context, animation1, animation2, child) =>
                   //                 FadeTransition(opacity: animation1, child: child),
                   //             transitionDuration: Duration(milliseconds: 300),
                   //           ),
                   //         );
+                  ),
+                  );
                 },
                 //CONTAINER FOR STYLING OF LETS GO BUTTON
                 child: Container(
