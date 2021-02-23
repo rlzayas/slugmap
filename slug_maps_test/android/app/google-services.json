@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "96780533694",
+    "project_id": "stoked-outlook-304909",
+    "storage_bucket": "stoked-outlook-304909.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96780533694:android:4345477f111a7d3ddf83ef",
+        "android_client_info": {
+          "package_name": "reyzayas.testing_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96780533694-chio1lk6dvpgcukv49dhfv2ls1sd6bjn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_y1cPeGwFFjZbc6JcW0Gs222LEb0muMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96780533694-chio1lk6dvpgcukv49dhfv2ls1sd6bjn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
