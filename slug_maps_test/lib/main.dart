@@ -6,6 +6,7 @@ void main() {
   runApp(SlugApp());
 }
 
+//Sizes in all are from iphone 11 pro
 class SlugApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
