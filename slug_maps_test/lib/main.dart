@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testing_app/widgets/slugTitle.dart';
 
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   runApp(SlugApp());
