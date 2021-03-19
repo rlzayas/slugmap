@@ -12,10 +12,7 @@ class slugSearch extends StatefulWidget {
 class _SearchState extends State<slugSearch> {
   Widget build(BuildContext context) {
     //phone dimensions
-    double phoneWidth = MediaQuery
-        .of(context)
-        .size
-        .width; //375
+    double phoneWidth = MediaQuery.of(context).size.width; //375
     double phoneHeight = MediaQuery
         .of(context)
         .size

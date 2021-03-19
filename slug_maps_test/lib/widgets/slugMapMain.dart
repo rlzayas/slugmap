@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 //import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
@@ -14,6 +15,21 @@ class slugMapMain extends StatefulWidget {
   _MapState createState() => _MapState();
 }
 class _MapState extends State<slugMapMain> {
+  //GoogleMapController mapController;
+  Completer<GoogleMapController> _controller = Completer();
+  static const LatLng _center = const LatLng(36.989043, -122.058611);
+  LatLng _lastMapPosition = _center;
+  MapType _currentMapType = MapType.normal;
+
+  _onMapCreated(GoogleMapController controller) {
+     _controller.complete(controller);
+   }
+
+   _onCameraMove(CameraPosition position){
+      _lastMapPosition = position.target;
+   }
+
+  @override
   Widget build(BuildContext context) {
     //phone dimensions
     double phoneWidth = MediaQuery.of(context).size.width; //375
@@ -21,16 +37,25 @@ class _MapState extends State<slugMapMain> {
 
     return Scaffold(
       body: Container(
-        height: phoneHeight,
-        width: phoneWidth,
-        color: Colors.greenAccent,
-
         //Stack: Map, Search/filter selection
         child: Stack(
           children: <Widget>[
+            //Google map background
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+              target: _center,
+              zoom: 14.35,
+              ),
+              mapType: _currentMapType,
+              onCameraMove: _onCameraMove,
+              myLocationButtonEnabled: true,
+              myLocationEnabled: true,
+            ),
+
             //Container 2: Full Search bar container
             Container(
-              margin: EdgeInsets.only(top: phoneHeight *.05665024631, left: phoneWidth * .048),
+              margin: EdgeInsets.only(top: phoneHeight * .05665024631, left: phoneWidth * .048),
               width: phoneWidth * .904,
               height: phoneHeight * .04310344828,
               decoration: BoxDecoration(
