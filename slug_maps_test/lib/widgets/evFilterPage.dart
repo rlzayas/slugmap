@@ -23,14 +23,14 @@ class _EVFilterPageState extends State<EVFilterPage> {
     // TODO: implement initState
     super.initState();
     allMarkers.add(Marker(
-        markerId: MarkerId('OceanST'),
-        position: LatLng(36.9788943336269, -122.0223634179128),
-        infoWindow: InfoWindow(
-          title: 'EV ChargePoint Charging Station',
-          snippet: '701 Ocean St, Santa Cruz, CA 95060',
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange)
-    )
+      markerId: MarkerId('CowellStevensonDH'),
+      position: LatLng(36.99684124370638, -122.05303038435036),
+      infoWindow: InfoWindow(
+        title: 'Cowell/Stevenson Dining Hall',
+        snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+    ),
     );
     allMarkers.add(Marker(
         markerId: MarkerId('McLaughlinDr'),
@@ -44,13 +44,13 @@ class _EVFilterPageState extends State<EVFilterPage> {
       );
 
       allMarkers.add(Marker(
-        markerId: MarkerId('Soquel Ave'),
-        position: LatLng(36.98174810947192, -122.01507687519172),
+        markerId: MarkerId('CrownMerrillDH'),
+        position: LatLng(37.00014429303811, -122.05440605538377),
         infoWindow: InfoWindow(
-          title: 'EV ChargePoint Charging Station',
-          snippet: '911 Soquel Ave, Santa Cruz, CA 95062',
+          title: 'Crown/Merrill Dining Hall',
+          snippet: '630 Crown Rd, Santa Cruz, CA 95064',
         ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
       ),
       );
   }

@@ -10,6 +10,7 @@ import 'package:testing_app/widgets/CollegesFilter.dart';
 import 'package:testing_app/widgets/evFilterMap.dart';
 import 'package:testing_app/widgets/evFilterPage.dart';
 import 'package:testing_app/widgets/evPage.dart';
+import 'package:testing_app/widgets/evScreen.dart';
 //import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
@@ -433,8 +434,9 @@ class _MapState extends State<slugMapMain> {
                           // showPinsOnMap(),
                           // MaterialPageRoute(builder: (context) => CollegesFilter()),
                           // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                          // MaterialPageRoute(builder: (context) => EVFilterPage()),
-                          MaterialPageRoute(builder: (context) => EVMap()),
+                          MaterialPageRoute(builder: (context) => EVFilterPage()),
+                          // MaterialPageRoute(builder: (context) => EVMap()),
+                          // MaterialPageRoute(builder: (context) => EVScreen()),
                         );
                       }
                   )
