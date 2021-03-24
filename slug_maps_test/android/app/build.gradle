@@ -38,7 +38,7 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         multiDexEnabled true
         applicationId "reyzayas.testing_app"
-        minSdkVersion 16
+        minSdkVersion 16 // Encountered possible error with min needing to be 21 (multidex support)
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
