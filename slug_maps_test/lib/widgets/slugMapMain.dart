@@ -6,11 +6,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:testing_app/widgets/CollegesFilter.dart';
 import 'package:testing_app/widgets/evFilterMap.dart';
 import 'package:testing_app/widgets/evFilterPage.dart';
 import 'package:testing_app/widgets/evPage.dart';
 import 'package:testing_app/widgets/evScreen.dart';
+
 //import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
@@ -27,6 +29,7 @@ class _MapState extends State<slugMapMain> {
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
+
 
   Set<Marker> _markers = {}; // replace {} w/ Set<Marker>()?
   // BitmapDescriptor CollegesIcon;
@@ -346,8 +349,9 @@ class _MapState extends State<slugMapMain> {
             GoogleMap(
               onMapCreated: _onMapCreated,
               initialCameraPosition: CameraPosition(
-                target: _center,
-                zoom: 14.35,
+              target: _center,
+              zoom: 14.35,
+
               ),
               mapType: _currentMapType,
               onCameraMove: _onCameraMove,
@@ -357,8 +361,10 @@ class _MapState extends State<slugMapMain> {
 
             //Container 2: Full Search bar container
             Container(
+
               margin: EdgeInsets.only(
                   top: phoneHeight * .05665024631, left: phoneWidth * .048),
+
               width: phoneWidth * .904,
               height: phoneHeight * .04310344828,
               decoration: BoxDecoration(
