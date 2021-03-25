@@ -438,11 +438,20 @@ class _MapState extends State<slugMapMain> {
                         Navigator.push(
                           context,
                           // showPinsOnMap(),
+<<<<<<< Updated upstream
                           // MaterialPageRoute(builder: (context) => CollegesFilter()),
                           // MaterialPageRoute(builder: (context) => EVFilterMap()),
                           // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
                           // MaterialPageRoute(builder: (context) => EVMap()),
                           MaterialPageRoute(builder: (context) => EVScreen()), //works
+=======
+
+                          MaterialPageRoute(builder: (context) => Colleges()),
+                          // MaterialPageRoute(builder: (context) => DiningHalls()),
+                          // MaterialPageRoute(builder: (context) => EVChargeStation()),
+                          // MaterialPageRoute(builder: (context) => WaterFillStation()),
+                          // MaterialPageRoute(builder: (context) => Views()),
+>>>>>>> Stashed changes
                         );
                       }
                   )
