@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:testing_app/widgets/CollegesFilter.dart';
-import 'package:testing_app/widgets/evFilterMap.dart';
-import 'package:testing_app/widgets/evFilterPage.dart';
-import 'package:testing_app/widgets/evPage.dart';
+import 'package:testing_app/widgets/Colleges.dart';
+import 'package:testing_app/widgets/DiningHalls.dart';
+import 'package:testing_app/widgets/EVChargeStation.dart';
+import 'package:testing_app/widgets/WaterFillStation.dart';
+import 'package:testing_app/widgets/Views.dart';
 
 //import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
@@ -437,10 +438,12 @@ class _MapState extends State<slugMapMain> {
                         Navigator.push(
                           context,
                           // showPinsOnMap(),
-                          // MaterialPageRoute(builder: (context) => CollegesFilter()),
-                          // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                          // MaterialPageRoute(builder: (context) => EVFilterPage()),
-                          MaterialPageRoute(builder: (context) => EVMap()),
+
+                          // MaterialPageRoute(builder: (context) => Colleges()),
+                          // MaterialPageRoute(builder: (context) => DiningHalls()),
+                          // MaterialPageRoute(builder: (context) => EVChargeStation()),
+                          // MaterialPageRoute(builder: (context) => WaterFillStation()),
+                          MaterialPageRoute(builder: (context) => Views()),
                         );
                       }
                   )
