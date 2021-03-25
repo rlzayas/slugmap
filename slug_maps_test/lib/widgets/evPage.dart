@@ -53,40 +53,43 @@ class _EVMapState extends State<EVMap> {
     );
   }
 
+
+
+
+
   void showPinsOnMap() {
     // _markers.addAll(DiningHallList)
 
     _markers.add(Marker(
-      markerId: MarkerId('OceanST'),
-      position: LatLng(36.9788943336269, -122.0223634179128),
+      markerId: MarkerId('9&10DH'),
+      position: LatLng(37.00074493904557, -122.05776568771819),
       infoWindow: InfoWindow(
-        title: 'EV ChargePoint Charging Station',
-        snippet: '701 Ocean St, Santa Cruz, CA 95060',
+        title: 'Colleges 9 & 10 Dining Hall',
+        snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
-    )
-    );
-
-
-    _markers.add(Marker(
-      markerId: MarkerId('McLaughlinDr'),
-      position: LatLng(36.999324250111506, -122.0632982467481),
-      infoWindow: InfoWindow(
-        title: 'EV ChargePoint Charging Station',
-        snippet: ' McLaughlin Dr, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
     );
 
     _markers.add(Marker(
-      markerId: MarkerId('Soquel Ave'),
-      position: LatLng(36.98174810947192, -122.01507687519172),
+      markerId: MarkerId('CowellStevensonDH'),
+      position: LatLng(36.99684124370638, -122.05303038435036),
       infoWindow: InfoWindow(
-        title: 'EV ChargePoint Charging Station',
-        snippet: '911 Soquel Ave, Santa Cruz, CA 95062',
+        title: 'Cowell/Stevenson Dining Hall',
+        snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+    ),
+    );
+
+    _markers.add(Marker(
+      markerId: MarkerId('CrownMerrillDH'),
+      position: LatLng(37.00014429303811, -122.05440605538377),
+      infoWindow: InfoWindow(
+        title: 'Crown/Merrill Dining Hall',
+        snippet: '630 Crown Rd, Santa Cruz, CA 95064',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
     );
   }

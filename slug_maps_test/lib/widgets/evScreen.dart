@@ -45,38 +45,39 @@ class _EVScreenState extends State<EVScreen> {
               onMapCreated: (GoogleMapController controller) {
                 setState(() {
                   myMarkers.add(Marker(
-                  markerId: MarkerId('OceanST'),
-                  position: LatLng(36.9788943336269, -122.0223634179128),
-                  infoWindow: InfoWindow(
-                  title: 'EV ChargePoint Charging Station',
-                  snippet: '701 Ocean St, Santa Cruz, CA 95060',
-                  ),
-                  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
-                  )
-                  );
-
-                  myMarkers.add(Marker(
-                  markerId: MarkerId('McLaughlinDr'),
-                  position: LatLng(36.999324250111506, -122.0632982467481),
-                  infoWindow: InfoWindow(
-                  title: 'EV ChargePoint Charging Station',
-                  snippet: ' McLaughlin Dr, Santa Cruz, CA 95064',
-                  ),
-                  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+                    markerId: MarkerId('9&10DH'),
+                    position: LatLng(37.00074493904557, -122.05776568771819),
+                    infoWindow: InfoWindow(
+                      title: 'Colleges 9 & 10 Dining Hall',
+                      snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
+                    ),
+                    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
                   ),
                   );
 
                   myMarkers.add(Marker(
-                  markerId: MarkerId('Soquel Ave'),
-                  position: LatLng(36.98174810947192, -122.01507687519172),
+                  markerId: MarkerId('CrownMerrillDH'),
+                  position: LatLng(37.00014429303811, -122.05440605538377),
                   infoWindow: InfoWindow(
-                  title: 'EV ChargePoint Charging Station',
-                  snippet: '911 Soquel Ave, Santa Cruz, CA 95062',
+                  title: 'Crown/Merrill Dining Hall',
+                  snippet: '630 Crown Rd, Santa Cruz, CA 95064',
                   ),
-                  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+                  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
                   ),
-
                   );
+
+                  myMarkers.add(Marker(
+                  markerId: MarkerId('CowellStevensonDH'),
+                  position: LatLng(36.99684124370638, -122.05303038435036),
+                  infoWindow: InfoWindow(
+                  title: 'Cowell/Stevenson Dining Hall',
+                  snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
+                  ),
+                  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+                  ),
+                  );
+
+
                 }//setState
                 );
               },
@@ -87,3 +88,52 @@ class _EVScreenState extends State<EVScreen> {
     );
   }
 }
+
+//
+// List<Marker> DiningHallList = [
+//   Marker(
+//     markerId: MarkerId('9&10DH'),
+//     position: LatLng(37.00074493904557, -122.05776568771819),
+//     infoWindow: InfoWindow(
+//       title: 'Colleges 9 & 10 Dining Hall',
+//       snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
+//     ),
+//     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+//   ),
+//   Marker(
+//     markerId: MarkerId('CrownMerrillDH'),
+//     position: LatLng(37.00014429303811, -122.05440605538377),
+//     infoWindow: InfoWindow(
+//       title: 'Crown/Merrill Dining Hall',
+//       snippet: '630 Crown Rd, Santa Cruz, CA 95064',
+//     ),
+//     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+//   ),
+//   Marker(
+//     markerId: MarkerId('CowellStevensonDH'),
+//     position: LatLng(36.99684124370638, -122.05303038435036),
+//     infoWindow: InfoWindow(
+//       title: 'Cowell/Stevenson Dining Hall',
+//       snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
+//     ),
+//     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+//   ),
+//   Marker(
+//     markerId: MarkerId('PorterKresgeDH'),
+//     position: LatLng(36.99431757933324, -122.06594174458701),
+//     infoWindow: InfoWindow(
+//       title: 'Porter/Kresge Dining Hall',
+//       snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
+//     ),
+//     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+//   ),
+//   Marker(
+//     markerId: MarkerId('RCCOaksDH'),
+//     position: LatLng(36.99169329799685, -122.06539542111443),
+//     infoWindow: InfoWindow(
+//       title: 'Rachel Carson/Oaks Dining Hall',
+//       snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
+//     ),
+//     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+//   ),
+// ];
