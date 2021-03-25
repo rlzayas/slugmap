@@ -440,9 +440,9 @@ class _MapState extends State<slugMapMain> {
                           // showPinsOnMap(),
                           // MaterialPageRoute(builder: (context) => CollegesFilter()),
                           // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                          MaterialPageRoute(builder: (context) => EVFilterPage()),
+                          // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
                           // MaterialPageRoute(builder: (context) => EVMap()),
-                          // MaterialPageRoute(builder: (context) => EVScreen()),
+                          MaterialPageRoute(builder: (context) => EVScreen()), //works
                         );
                       }
                   )
