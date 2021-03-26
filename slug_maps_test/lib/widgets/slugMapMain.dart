@@ -433,8 +433,8 @@ class _MapState extends State<slugMapMain> {
                   FloatingActionButton(
                     // backgroundColor: Color(0xffececec),
                       elevation: 0,
-                      child: SvgPicture.asset('assets/images/Filter_menu.svg',),
-
+                      child: SvgPicture.asset('assets/images/Filter_menu.svg',
+                      ),
                       onPressed: () {
                         Navigator.push(
                           context,
