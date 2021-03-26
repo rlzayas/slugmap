@@ -50,7 +50,7 @@ class _EVFilterPageState extends State<EVFilterPage> {
           title: 'Crown/Merrill Dining Hall',
           snippet: '630 Crown Rd, Santa Cruz, CA 95064',
         ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
       ),
       );
   }

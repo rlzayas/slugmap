@@ -7,14 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:testing_app/widgets/CollegesFilter.dart';
-import 'package:testing_app/widgets/evFilterMap.dart';
-import 'package:testing_app/widgets/evFilterPage.dart';
-import 'package:testing_app/widgets/evPage.dart';
-import 'package:testing_app/widgets/evScreen.dart';
-// import 'package:testing_app/widgets/slugMapFilter.dart';
+import 'package:testing_app/widgets/Colleges.dart';
+import 'package:testing_app/widgets/DiningHalls.dart';
+import 'package:testing_app/widgets/EVChargeStation.dart';
+import 'package:testing_app/widgets/Views.dart';
+import 'package:testing_app/widgets/WaterFillStation.dart';
 
-//import 'package:testing_app/widgets/slugMapFilter.dart';
+// import 'package:testing_app/widgets/CollegesFilter.dart';
+// import 'package:testing_app/widgets/evFilterMap.dart';
+// import 'package:testing_app/widgets/evFilterPage.dart';
+// import 'package:testing_app/widgets/evPage.dart';
+// import 'package:testing_app/widgets/evScreen.dart';
+
+
+// import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
 
@@ -101,7 +107,7 @@ class _MapState extends State<slugMapMain> {
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
         //   BitmapDescriptor.fromAssetImage(
         //       ImageConfiguration(devicePixelRatio: 2.0),
-        //       'assets/marker_icons/College.svg'
+        //       'assets/marker_icons/College.svg')
         // icon: BitmapDescriptor.fromAssetImage(ImageConfiguration(devicePixelRatio: 2.0), 'assets/marker_icons/College.svg')
       ),
       Marker(
@@ -439,26 +445,25 @@ class _MapState extends State<slugMapMain> {
                         Navigator.push(
                           context,
                           // MaterialPageRoute(
-                              // builder: (context) => slugMapFilter()),
+                          //     builder: (context) => slugMapFilter()),
+
                           // showPinsOnMap(),
-<<<<<<< Updated upstream
+
                           // MaterialPageRoute(builder: (context) => CollegesFilter()),
                           // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                          MaterialPageRoute(builder: (context) => EVFilterPage()), //works
+                          // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
                           // MaterialPageRoute(builder: (context) => EVMap()),
-<<<<<<< Updated upstream
-                          MaterialPageRoute(builder: (context) => EVScreen()), //works
-=======
 
-                          MaterialPageRoute(builder: (context) => Colleges()),
-                          // MaterialPageRoute(builder: (context) => DiningHalls()),
+                          // MaterialPageRoute(builder: (context) => EVScreen()), //works
+
+                          // MaterialPageRoute(builder: (context) => Colleges()),
+                          MaterialPageRoute(builder: (context) => DiningHalls()),
                           // MaterialPageRoute(builder: (context) => EVChargeStation()),
                           // MaterialPageRoute(builder: (context) => WaterFillStation()),
                           // MaterialPageRoute(builder: (context) => Views()),
->>>>>>> Stashed changes
-=======
+
                           // MaterialPageRoute(builder: (context) => EVScreen()), //works
->>>>>>> Stashed changes
+
                         );
                       }
                   )
