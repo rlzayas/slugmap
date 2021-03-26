@@ -12,6 +12,7 @@ import 'package:testing_app/widgets/evFilterMap.dart';
 import 'package:testing_app/widgets/evFilterPage.dart';
 import 'package:testing_app/widgets/evPage.dart';
 import 'package:testing_app/widgets/evScreen.dart';
+// import 'package:testing_app/widgets/slugMapFilter.dart';
 
 //import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
@@ -437,12 +438,15 @@ class _MapState extends State<slugMapMain> {
                       onPressed: () {
                         Navigator.push(
                           context,
+                          // MaterialPageRoute(
+                              // builder: (context) => slugMapFilter()),
                           // showPinsOnMap(),
 <<<<<<< Updated upstream
                           // MaterialPageRoute(builder: (context) => CollegesFilter()),
                           // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                          // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
+                          MaterialPageRoute(builder: (context) => EVFilterPage()), //works
                           // MaterialPageRoute(builder: (context) => EVMap()),
+<<<<<<< Updated upstream
                           MaterialPageRoute(builder: (context) => EVScreen()), //works
 =======
 
@@ -451,6 +455,9 @@ class _MapState extends State<slugMapMain> {
                           // MaterialPageRoute(builder: (context) => EVChargeStation()),
                           // MaterialPageRoute(builder: (context) => WaterFillStation()),
                           // MaterialPageRoute(builder: (context) => Views()),
+>>>>>>> Stashed changes
+=======
+                          // MaterialPageRoute(builder: (context) => EVScreen()), //works
 >>>>>>> Stashed changes
                         );
                       }
