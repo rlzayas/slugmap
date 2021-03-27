@@ -6,138 +6,83 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 
-import 'dart:convert';
-import 'package:flutter/services.dart';
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-class Places {
-  String keyword;
-  int id;
-  String autocompleteterm;
-  String country;
-
-  Places({
-    this.keyword,
-    this.id,
-    this.autocompleteterm,
-    this.country
-  });
-
-  factory Places.fromJson(Map<String, dynamic> parsedJson) {
-    return Places(
-        keyword: parsedJson['keyword'] as String,
-        id: parsedJson['id'],
-        autocompleteterm: parsedJson['autocompleteTerm'] as String,
-        country: parsedJson['country'] as String
-    );
-  }
-}
-
-class PlacesViewModel {
-  static List<Places> places;
-
-  static Future loadPlaces() async {
-    try {
-      places = new List<Places>();
-      String jsonString = await rootBundle.loadString('assets/places.json');
-      Map parsedJson = json.decode(jsonString);
-      var categoryJson = parsedJson['places'] as List;
-      for (int i = 0; i < categoryJson.length; i++) {
-        places.add(new Places.fromJson(categoryJson[i]));
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
-}
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 class slugSearch extends StatefulWidget {
   @override
   _SearchState createState() => new _SearchState();
 }
+
 class _SearchState extends State<slugSearch> {
-  //-------------------------------------------------------------------------------
-  GlobalKey<AutoCompleteTextFieldState<Places>> key = new GlobalKey();
+  List<String> added = [];
+  String currentText = "";
+  GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
 
-  AutoCompleteTextField searchTextField;
-
-  TextEditingController controller = new TextEditingController();
-
-  _SearchState();
-
-  void _loadData() async {
-    await PlacesViewModel.loadPlaces();
+  _SearchState() {
+    textField = SimpleAutoCompleteTextField(
+      key: key,
+      style: TextStyle(fontSize: 18.0, color: Colors.black),
+      decoration: new InputDecoration(
+        hintText: "Search",
+        border: InputBorder.none,
+        focusedBorder: InputBorder.none,
+        enabledBorder: InputBorder.none,
+        errorBorder: InputBorder.none,
+        disabledBorder: InputBorder.none,
+      ),
+      controller: TextEditingController(text: ""),
+      suggestions: suggestions,
+      textChanged: (text) => currentText = text,
+      clearOnSubmit: false,
+      textSubmitted: (text) => setState(() {
+        if (text != "") {
+          added.add(text);
+        }
+      }),
+    );
   }
 
-  @override
-  void initState() {
-    _loadData();
-    super.initState();
-  }
+  List<String> suggestions = [
+    "Apple",
+    "Armidillo",
+    "Actual",
+    "Actuary",
+    "America",
+    "Argentina",
+    "Australia",
+    "Antarctica",
+    "Blueberry",
+    "Cheese",
+    "Danish",
+    "Eclair",
+    "Fudge",
+    "Granola",
+    "Hazelnut",
+    "Ice Cream",
+    "Jely",
+    "Kiwi Fruit",
+    "Lamb",
+    "Macadamia",
+    "Nachos",
+    "Oatmeal",
+    "Palm Oil",
+    "Quail",
+    "Rabbit",
+    "Salad",
+    "T-Bone Steak",
+    "Urid Dal",
+    "Vanilla",
+    "Waffles",
+    "Yam",
+    "Zest"
+  ];
 
-  //-------------------------------------------------------------------------------
+  SimpleAutoCompleteTextField textField;
+  bool showWhichErrorText = false;
+
   Widget build(BuildContext context) {
     //phone dimensions
-    double phoneWidth = MediaQuery
-        .of(context)
-        .size
-        .width; //375
-    double phoneHeight = MediaQuery
-        .of(context)
-        .size
-        .height; //812
-    return Scaffold(
-        resizeToAvoidBottomPadding: false,
-        body: new Center(
-            child: new Column(children: <Widget>[
-              new Column(children: <Widget>[
-                searchTextField = AutoCompleteTextField<Places>(
-                    style: new TextStyle(color: Colors.black, fontSize: 16.0),
-                    decoration: new InputDecoration(
-                        suffixIcon: Container(
-                          width: 85.0,
-                          height: 60.0,
-                        ),
-                        contentPadding: EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 20.0),
-                        filled: true,
-                        hintText: 'Search Player Name',
-                        hintStyle: TextStyle(color: Colors.black)),
-                    itemSubmitted: (item) {
-                      setState(() => searchTextField.textField.controller.text =
-                          item.autocompleteterm);
-                    },
-                    clearOnSubmit: false,
-                    key: key,
-                    suggestions: PlacesViewModel.places,
-                    itemBuilder: (context, item) {
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(item.autocompleteterm,
-                            style: TextStyle(
-                                fontSize: 16.0
-                            ),),
-                          Padding(
-                            padding: EdgeInsets.all(15.0),
-                          ),
-                          Text(item.country,
-                          )
-                        ],
-                      );
-                    },
-                    itemSorter: (a, b) {
-                      return a.autocompleteterm.compareTo(b.autocompleteterm);
-                    },
-                    itemFilter: (item, query) {
-                      return item.autocompleteterm
-                          .toLowerCase()
-                          .startsWith(query.toLowerCase());
-                    }),
-              ]),
-            ])));
-/*
+    double phoneWidth = MediaQuery.of(context).size.width; //375
+    double phoneHeight = MediaQuery.of(context).size.height; //812
+
     return Scaffold(
       body: Container(
         height: phoneHeight,
@@ -148,17 +93,14 @@ class _SearchState extends State<slugSearch> {
         child: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(
-                  top: 0),
+              margin: EdgeInsets.only(top: 0),
               width: phoneWidth,
               height: phoneHeight * .2130541872,
               decoration: BoxDecoration(
                 color: Color(0xffececec),
                 borderRadius: BorderRadius.circular(5),
                 boxShadow: [
-                  BoxShadow(
-                      color: Color(0xffe5e2e2)
-                  ),
+                  BoxShadow(color: Color(0xffe5e2e2)),
                   BoxShadow(
                     color: Color(0xffe2e0e0),
                     blurRadius: 12,
@@ -168,17 +110,14 @@ class _SearchState extends State<slugSearch> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(
-                  top: phoneHeight * .2192118227),
+              margin: EdgeInsets.only(top: phoneHeight * .2192118227),
               width: phoneWidth,
               height: phoneHeight * .7807881773,
               decoration: BoxDecoration(
                 color: Color(0xffececec),
                 borderRadius: BorderRadius.circular(5),
                 boxShadow: [
-                  BoxShadow(
-                      color: Color(0xffe5e2e2)
-                  ),
+                  BoxShadow(color: Color(0xffe5e2e2)),
                   BoxShadow(
                     color: Color(0xffe2e0e0),
                     blurRadius: 12,
@@ -186,7 +125,6 @@ class _SearchState extends State<slugSearch> {
                   ),
                 ],
               ),
-
             ),
             //Container 2: Full Search bar container
             Container(
@@ -209,51 +147,93 @@ class _SearchState extends State<slugSearch> {
             //Container 3: container for search option with search text
             Container(
               width: phoneWidth * .8106666667,
-              height: phoneHeight * .04310344828,
+              height: phoneHeight * .14310344828,
               margin: EdgeInsets.only(
-                  top: phoneHeight * .05665024631, left: phoneWidth * .048),
-
+                  top: phoneHeight * .037, left: phoneWidth * .048),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
               ),
-              child: TextButton(
-                onPressed: () {
-                  // Navigator.push(
-                  // context,
-                  //MaterialPageRoute(builder: (context) => slugMapMain()), );
+              child: new Column(children: [
+                new ListTile(
+                  title: textField,
+                  leading:
 
-                },
-              ),
+                      // Rey's back button
+                      // FloatingActionButton(
+                      //     backgroundColor: Color(0xffececec),
+                      //     elevation: 0,
+                      //     child: SvgPicture.asset(
+                      //       'assets/images/Go_back.svg',
+                      //     ),
+                      //     onPressed: () {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //             builder: (context) => slugMapMain()),
+                      //       );
+                      //     }),
+
+                      // New back button implementation
+                      new IconButton(
+                          icon: new Icon(Icons.arrow_back_ios),
+                          color: Colors.black,
+                          splashColor: Colors.blue,
+                          iconSize: 18.0,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => slugMapMain()),
+                            );
+                          }),
+                ),
+              ]),
+
+              // Older implementation (ignore)
+              //textField,
+
+              // new IconButton(
+              //   icon: new Icon(Icons.arrow_back_ios),
+              //   iconSize: 18.0,
+              //   onPressed: () {})
+
+              //     TextButton(
+              //   onPressed: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => slugMapMain()),
+              //     );
+              //   },
+              // ),
             ),
-            Container(
-              margin: EdgeInsets.only(
-                  left: phoneWidth * .05866666667,
-                  top: phoneHeight * .05911330049),
-              width: phoneWidth * .08,
-              height: phoneHeight * .03694581281,
-              child: Stack(
-                children: <Widget> [
-                  FloatingActionButton(
-                      backgroundColor: Color(0xffececec),
-                      elevation: 0,
-                      child: SvgPicture.asset('assets/images/Go_back.svg',),
-                      onPressed:() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => slugMapMain()),
-                        );
-                      }
-                  ),
 
-                ],
-
-
-              ),
-            ),
-
+            // Container(
+            //   margin: EdgeInsets.only(
+            //       left: phoneWidth * .05866666667,
+            //       top: phoneHeight * .05911330049),
+            //   width: phoneWidth * .08,
+            //   height: phoneHeight * .03694581281,
+            //   child: Stack(
+            //     children: <Widget>[
+            // FloatingActionButton(
+            //     backgroundColor: Color(0xffececec),
+            //     elevation: 0,
+            //     child: SvgPicture.asset(
+            //       'assets/images/Go_back.svg',
+            //     ),
+            //     onPressed: () {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) => slugMapMain()),
+            //       );
+            //     }),
+            //   ],
+            // ),
+            // ),
           ],
         ),
       ),
-    );*/
+    );
   }
 }
