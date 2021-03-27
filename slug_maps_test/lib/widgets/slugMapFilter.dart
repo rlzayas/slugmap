@@ -7,6 +7,13 @@ import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+<<<<<<< Updated upstream
+=======
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+>>>>>>> Stashed changes
 
 class slugMapFilter extends StatefulWidget {
   @override
@@ -16,6 +23,29 @@ class slugMapFilter extends StatefulWidget {
 class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
   ScrollController scrollController;
   bool dialVisible = true;
+<<<<<<< Updated upstream
+=======
+  Completer<GoogleMapController> _controller = Completer();
+  static const LatLng _center = const LatLng(36.989043, -122.058611);
+  LatLng _lastMapPosition = _center;
+  MapType _currentMapType = MapType.normal;
+
+  Set<Marker> _markers = {}; // replace {} w/ Set<Marker>()?
+  // BitmapDescriptor CollegesIcon;
+  // BitmapDescriptor DiningHallIcon;
+  // BitmapDescriptor LibrariesIcon;
+  // BitmapDescriptor ParkingIcon;
+  // BitmapDescriptor WaterStationIcon;
+  // BitmapDescriptor EVStationIcon;
+
+  _onMapCreated(GoogleMapController controller) {
+    _controller.complete(controller);
+  }
+
+  _onCameraMove(CameraPosition position) {
+    _lastMapPosition = position.target;
+  }
+>>>>>>> Stashed changes
 
   @override
   void initState() {
@@ -34,6 +64,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
     });
   }
 
+<<<<<<< Updated upstream
   // Widget buildBody() {
   //   return ListView.builder(
   //     controller: scrollController,
@@ -41,6 +72,26 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
   //     itemBuilder: (ctx, i) => ListTile(title: Text('Item $i')),
   //   );
   // }
+=======
+  Widget buildBody() {
+    return Scaffold(
+        body: Stack(
+      children: <Widget>[
+        GoogleMap(
+          onMapCreated: _onMapCreated,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 14.35,
+          ),
+          mapType: _currentMapType,
+          onCameraMove: _onCameraMove,
+          myLocationButtonEnabled: true,
+          myLocationEnabled: true,
+        ),
+      ],
+    ));
+  }
+>>>>>>> Stashed changes
 
   SpeedDial buildSpeedDial() {
     return SpeedDial(
@@ -67,12 +118,25 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
 
       /// If true user is forced to close dial manually
       /// by tapping main button and overlay is not rendered.
+<<<<<<< Updated upstream
       closeManually: false,
+=======
+      closeManually: true,
+>>>>>>> Stashed changes
       curve: Curves.bounceIn,
       overlayColor: Colors.black,
       overlayOpacity: 0.5,
       onOpen: () => print('OPENING DIAL'),
+<<<<<<< Updated upstream
       onClose: () => print('DIAL CLOSED'),
+=======
+      onClose: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => slugMapMain()),
+        );
+      },
+>>>>>>> Stashed changes
       tooltip: 'Speed Dial',
       heroTag: 'speed-dial-hero-tag',
       backgroundColor: Colors.white,
@@ -226,13 +290,21 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< Updated upstream
     return Scaffold(
       //appBar: AppBar(title: Text('Flutter Speed Dial')),
       //body: buildBody(),
+=======
+    ValueNotifier<bool> isDialOpen = ValueNotifier(false);
+    return Scaffold(
+      //   //appBar: AppBar(title: Text('Flutter Speed Dial')),
+      body: buildBody(),
+>>>>>>> Stashed changes
       floatingActionButton: buildSpeedDial(),
     );
   }
 }
+<<<<<<< Updated upstream
 
 // class _FilterState extends State<slugMapFilter> {
 //   Widget build(BuildContext context) {
@@ -255,3 +327,5 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
 //     );
 //   }
 // }
+=======
+>>>>>>> Stashed changes

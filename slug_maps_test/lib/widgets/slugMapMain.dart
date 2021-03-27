@@ -13,6 +13,7 @@ import 'package:testing_app/widgets/EVChargeStation.dart';
 import 'package:testing_app/widgets/WaterFillStation.dart';
 import 'package:testing_app/widgets/Views.dart';
 
+<<<<<<< Updated upstream
 
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
@@ -21,6 +22,12 @@ import 'package:testing_app/widgets/slugSearch.dart';
 
 
 
+=======
+import 'package:testing_app/widgets/slugMapFilter.dart';
+import 'package:testing_app/widgets/slugMapMain.dart';
+import 'package:testing_app/widgets/slugSearch.dart';
+
+>>>>>>> Stashed changes
 class slugMapMain extends StatefulWidget {
   @override
   _MapState createState() => _MapState();
@@ -32,7 +39,6 @@ class _MapState extends State<slugMapMain> {
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
-
 
   Set<Marker> _markers = {}; // replace {} w/ Set<Marker>()?
   // BitmapDescriptor CollegesIcon;
@@ -83,14 +89,8 @@ class _MapState extends State<slugMapMain> {
   @override
   Widget build(BuildContext context) {
     //phone dimensions
-    double phoneWidth = MediaQuery
-        .of(context)
-        .size
-        .width; //375
-    double phoneHeight = MediaQuery
-        .of(context)
-        .size
-        .height; //812
+    double phoneWidth = MediaQuery.of(context).size.width; //375
+    double phoneHeight = MediaQuery.of(context).size.height; //812
 
     List<Marker> CollegesList = [
       Marker(
@@ -342,7 +342,6 @@ class _MapState extends State<slugMapMain> {
       ),
     ];
 
-
     return Scaffold(
       body: Container(
         //Stack: Map, Search/filter selection
@@ -352,9 +351,8 @@ class _MapState extends State<slugMapMain> {
             GoogleMap(
               onMapCreated: _onMapCreated,
               initialCameraPosition: CameraPosition(
-              target: _center,
-              zoom: 14.35,
-
+                target: _center,
+                zoom: 14.35,
               ),
               mapType: _currentMapType,
               onCameraMove: _onCameraMove,
@@ -364,11 +362,13 @@ class _MapState extends State<slugMapMain> {
 
             //Container 2: Full Search bar container
             Container(
-
               margin: EdgeInsets.only(
                   top: phoneHeight * .05665024631, left: phoneWidth * .048),
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
               width: phoneWidth * .904,
               height: phoneHeight * .04310344828,
               decoration: BoxDecoration(
@@ -416,7 +416,8 @@ class _MapState extends State<slugMapMain> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => slugSearch()),);
+                    MaterialPageRoute(builder: (context) => slugSearch()),
+                  );
                 },
               ),
             ),
@@ -428,33 +429,46 @@ class _MapState extends State<slugMapMain> {
               height: phoneHeight * .02463054187,
               width: phoneWidth * .05866666667,
               margin: EdgeInsets.only(
+<<<<<<< Updated upstream
                 top: phoneHeight * .06650246305,
                 left: phoneWidth * .8693333333),
+=======
+                  top: phoneHeight * .06650246305,
+                  left: phoneWidth * .8693333333),
+>>>>>>> Stashed changes
               child: Stack(
                 children: <Widget>[
                   FloatingActionButton(
                       backgroundColor: Color(0xffececec),
                       elevation: 0,
-                      child: SvgPicture.asset('assets/images/Filter_menu.svg',),
-
+                      child: SvgPicture.asset(
+                        'assets/images/Filter_menu.svg',
+                      ),
                       onPressed: () {
                         Navigator.push(
                           context,
+                          MaterialPageRoute(
+                              builder: (context) => slugMapFilter()),
                           // showPinsOnMap(),
+<<<<<<< Updated upstream
                              MaterialPageRoute(builder: (context) => slugMapFilter()),);
                           // MaterialPageRoute(builder: (context) => Colleges()),
                           // MaterialPageRoute(builder: (context) => DiningHalls()),
                           // MaterialPageRoute(builder: (context) => EVChargeStation()),
                           // MaterialPageRoute(builder: (context) => WaterFillStation()),
                           // MaterialPageRoute(builder: (context) => Views()),
+=======
+                          // MaterialPageRoute(builder: (context) => CollegesFilter()),
+                          // MaterialPageRoute(builder: (context) => EVFilterMap()),
+                          // MaterialPageRoute(
+                          //     builder: (context) => EVFilterPage()),
+                          // MaterialPageRoute(builder: (context) => EVMap()),
+                          // MaterialPageRoute(builder: (context) => EVScreen()),
+>>>>>>> Stashed changes
                         );
-                      }
-                  )
-
+                      })
                 ],
-
               ),
-
             ),
 
             Container(
@@ -473,4 +487,7 @@ class _MapState extends State<slugMapMain> {
     ); //812 x 375
   }
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
