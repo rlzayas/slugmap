@@ -6,9 +6,24 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-//import 'package:testing_app/widgets/slugMapFilter.dart';
+
+// Filter files
+import 'package:testing_app/widgets/Colleges.dart';
+import 'package:testing_app/widgets/DiningHalls.dart';
+import 'package:testing_app/widgets/EVChargeStation.dart';
+import 'package:testing_app/widgets/WaterFillStation.dart';
+import 'package:testing_app/widgets/Views.dart';
+
+import 'package:testing_app/widgets/HikingTrails.dart';
+import 'package:testing_app/widgets/Libraries.dart';
+import 'package:testing_app/widgets/Parking.dart';
+import 'package:testing_app/widgets/BusStops.dart';
+
+import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HikingTrails extends StatefulWidget {
   @override
@@ -59,17 +74,6 @@ class _HikingTrailsState extends State<HikingTrails> {
     ),
     );
 
-    // Tree 9
-    allMarkers.add(Marker(
-      markerId: MarkerId('Tree9'),
-      position: LatLng(37.004851356158554, -122.06020253899865),
-      infoWindow: InfoWindow(
-        title: 'Tree 9',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-    ),
-    );
 
     // Speed Zone Interpretive Trail
     allMarkers.add(Marker(
@@ -215,17 +219,7 @@ class _HikingTrailsState extends State<HikingTrails> {
     ),
     );
 
-    // Buddha Statue
-    allMarkers.add(Marker(
-      markerId: MarkerId('Buddha Statue'),
-      position: LatLng(37.00640001041473, -122.05983770638275),
-      infoWindow: InfoWindow(
-        title: 'Buddha Statue',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-    ),
-    );
+
   }
 
   @override

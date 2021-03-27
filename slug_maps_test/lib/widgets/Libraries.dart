@@ -6,9 +6,24 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-//import 'package:testing_app/widgets/slugMapFilter.dart';
+
+// Filter files
+import 'package:testing_app/widgets/Colleges.dart';
+import 'package:testing_app/widgets/DiningHalls.dart';
+import 'package:testing_app/widgets/EVChargeStation.dart';
+import 'package:testing_app/widgets/WaterFillStation.dart';
+import 'package:testing_app/widgets/Views.dart';
+
+import 'package:testing_app/widgets/HikingTrails.dart';
+import 'package:testing_app/widgets/Libraries.dart';
+import 'package:testing_app/widgets/Parking.dart';
+import 'package:testing_app/widgets/BusStops.dart';
+
+import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Libraries extends StatefulWidget {
   @override

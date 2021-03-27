@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:testing_app/widgets/BusStops.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -18,7 +19,8 @@ import 'package:testing_app/widgets/Libraries.dart';
 import 'package:testing_app/widgets/Parking.dart';
 import 'package:testing_app/widgets/Views.dart';
 
-// import 'package:testing_app/widgets/CollegesFilter.dart';
+import 'package:testing_app/widgets/CollegesFilter.dart';
+import 'package:testing_app/widgets/newTestMap.dart';
 // import 'package:testing_app/widgets/evFilterMap.dart';
 // import 'package:testing_app/widgets/evFilterPage.dart';
 // import 'package:testing_app/widgets/evPage.dart';
@@ -27,6 +29,7 @@ import 'package:testing_app/widgets/Views.dart';
 import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
+
 
 
 
@@ -41,8 +44,8 @@ class _MapState extends State<slugMapMain> {
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
 
-
-  Set<Marker> _markers = {}; // replace {} w/ Set<Marker>()?
+  List<Marker> allMarkers= [];
+  // Set<Marker> _markers = {}; // replace {} w/ Set<Marker>()?
   // BitmapDescriptor CollegesIcon;
   // BitmapDescriptor DiningHallIcon;
   // BitmapDescriptor LibrariesIcon;
@@ -54,16 +57,18 @@ class _MapState extends State<slugMapMain> {
     _controller.complete(controller);
   }
 
+
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // this.setCustomMarker(); //remove this.
-  }
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   // this.setCustomMarker(); //remove this.
+  // }
 
   // void setCustomMarker() async {
   //   CollegesIcon = await BitmapDescriptor.fromAssetImage(
@@ -461,16 +466,18 @@ class _MapState extends State<slugMapMain> {
 
                           // MaterialPageRoute(builder: (context) => EVScreen()), //works
 
-                          MaterialPageRoute(builder: (context) => Colleges()),
+                          // MaterialPageRoute(builder: (context) => Colleges()),
                           // MaterialPageRoute(builder: (context) => DiningHalls()),
                           // MaterialPageRoute(builder: (context) => EVChargeStation()),
                           // MaterialPageRoute(builder: (context) => WaterFillStation()),
                           // MaterialPageRoute(builder: (context) => Views()),
-                          
+
                           // MaterialPageRoute(builder: (context) => BusStops())
                           // MaterialPageRoute(builder: (context) => Parking())
                           // MaterialPageRoute(builder: (context) => Libraries())
                           // MaterialPageRoute(builder: (context) => HikingTrails())
+
+                          MaterialPageRoute(builder: (context) => NewTestMap()),
 
                           // MaterialPageRoute(builder: (context) => EVScreen()), //works
 
