@@ -34,6 +34,7 @@ class slugTitle extends StatelessWidget {
               margin: EdgeInsets.only(
                   left: phoneWidth * .1187335092,
                   top: phoneHeight * .1231527094),
+              
               width: phoneWidth * .728,
               height: phoneHeight * .3041871921,
               child: Image.asset(
