@@ -48,15 +48,15 @@ class _HikingTrailsState extends State<HikingTrails> {
   double zoomVal=5.0;
 
   List<Marker> hikingTrailList = [
-  // Cave Gulch
-  Marker(
-  markerId: MarkerId('CaveGulch'),
-  position: LatLng(36.99403252521436, -122.0690402904878),
-  infoWindow: InfoWindow(
-  title: 'Cave Gulch',
-  ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-  ),
+    // Cave Gulch Trailhead
+    Marker(
+      markerId: MarkerId('GreatMeadow'),
+      position: LatLng(36.98786124866043, -122.06890251669269),
+      infoWindow: InfoWindow(
+        title: 'Cave Gulch Trailhead',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+    ),
 
   // Great Meadow
   Marker(
@@ -68,22 +68,12 @@ class _HikingTrailsState extends State<HikingTrails> {
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
   ),
 
-  // Heller Hill Road Trailhead
+  // Heller Drive Trailhead
   Marker(
   markerId: MarkerId('HellerHillRoadTrailhead'),
   position: LatLng(37.00348848930636, -122.06596338499335),
   infoWindow: InfoWindow(
-  title: 'Heller Hill Road Trailhead',
-  ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-  ),
-
-  // Speed Zone Interpretive Trail
-  Marker(
-  markerId: MarkerId('SpeedZoneInterpretiveTrail'),
-  position: LatLng(37.00336248460905, -122.06083630318761),
-  infoWindow: InfoWindow(
-  title: 'Speed Zone Interpretive Trail',
+  title: 'Heller Drive  Trailhead',
   ),
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
   ),
@@ -94,7 +84,6 @@ class _HikingTrailsState extends State<HikingTrails> {
   position: LatLng(37.00196297615762, -122.05787660963959),
   infoWindow: InfoWindow(
   title: 'College 9 Trailhead',
-  // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
   ),
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
   ),
@@ -151,10 +140,10 @@ class _HikingTrailsState extends State<HikingTrails> {
 
   // Empire Cave
   Marker(
-  markerId: MarkerId('Empire Cave'),
+  markerId: MarkerId('EmpireCave'),
   position: LatLng(36.99617636224744, -122.06883543180497),
   infoWindow: InfoWindow(
-  title: 'EmpireCave',
+  title: 'Empire Cave',
   ),
   icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
   ),
@@ -310,7 +299,9 @@ class _HikingTrailsState extends State<HikingTrails> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => slugMapFilter()),
+                          // MaterialPageRoute(builder: (context) => slugMapFilter()),
+                          MaterialPageRoute(builder: (context) => Views()),
+
                         );
                       }
                   )
@@ -353,22 +344,99 @@ class _HikingTrailsState extends State<HikingTrails> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern", 'hola'),
+                  "https://lh5.googleusercontent.com/p/AF1QipNV2EASZ1r2d7sqiIoATtob5X6TbcOc1gK1599E=w408-h306-k-no",
+                  37.00457530902208, -122.05735124061187,"Crown Meadow", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin", 'wassup'),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kWYAvhy8jAbbn09wgOczlg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=39.63612&pitch=0&thumbfov=100",
+                  37.002720138086666, -122.05264625461085,"Crown Meadow", ""),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Slug Maps", "DSC Solution Challenge"),
+                  "https://lh5.googleusercontent.com/p/AF1QipOSUXXSw0BZnjnuJu7FT18OMs0-wtjNnx7B6CBj=w408-h306-k-no",
+                  36.99420990009598, -122.06536281070382,"Porter Koi Pond", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipPqSfA7hQahboiKZrKQ-3foIkwmIMrR3RxiLVk8=w408-h272-k-no",
+                  36.99617636224744, -122.06883543180497,"Empire Cave", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOpm9lF4mlqHVtgekifhteeOYmtIraNj8l-KM2v=w408-h306-k-no",
+                  37.001319840045156, -122.04933310285453,"Pogonip Historic Limekiln", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOWpeQWQQf9MDphEQVoLeP4LaI1mNZFlZx_hmGN=w408-h544-k-no",
+                  37.00024830740773, -122.04829250486237,"Koi Pond", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOC_IAby6ud2BAna3UoctR6uMzzcHQGo7ET2QkC=w408-h725-k-no",
+                  37.00225807152155, -122.05200633736733,"U-Con Trail Trailhead", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=zhkfbQr0s1joFOHDMC05KQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=294.63983&pitch=0&thumbfov=100",
+                  37.002261789871916, -122.05607049993415,"Chinquapin Road Trailhead", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=eeitTZLxkwoUNQvK6sEXMA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=17.917072&pitch=0&thumbfov=100",
+                  37.003746885938995, -122.05874986883879,"College 10 Trailhead", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6FUAOnpO5DXa8KBiHpFzNg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=40.259354&pitch=0&thumbfov=100",
+                  37.00196297615762, -122.05787660963959,"College 9 Trailhead", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOaIRzm9bNkX5dZQdfhhPCKS79vYUo3_SfdZ6MM=w408-h306-k-no",
+                  37.00336248460905, -122.06083630318761,"Seep Zone Interpretive Trail", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6oV1bTg6ORsn7XOZ43yFfA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=352.02844&pitch=0&thumbfov=100",
+                  37.00348848930636, -122.06596338499335,"Heller Drive  Trailhead", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMcXF_5rz-Dk85CaEkaeZ0uVHU8atUhibZjqh6T=w574-h240-k-no",
+                  36.99232292142072, -122.05782280429814,"Great Meadow", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMuDhKBg5y2al4IqdGC_ug0cOHb54NAzDrLpt4h=w408-h240-k-no-pi-20-ya339-ro-0-fo100",
+                  36.98786124866043, -122.06890251669269,"Cave Gulch Trailhead", ''),
             ),
           ],
         ),

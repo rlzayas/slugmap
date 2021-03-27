@@ -285,17 +285,6 @@ class _EVChargeStationState extends State<EVChargeStation> {
                         image: NetworkImage(_image),
                       ),
                     ),),
-                  // Container(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child:
-                  //       myDetailsContainer1(restaurantName),
-                  //   ),
-                  // child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: myDetailsContainer1(info),
-                  // ),
-                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

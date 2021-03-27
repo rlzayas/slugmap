@@ -123,7 +123,7 @@ class _ParkingState extends State<Parking> {
       markerId: MarkerId('NorthPerimeter'),
       position: LatLng(37.00254987296524, -122.06590202346045),
       infoWindow: InfoWindow(
-        title: 'North Perimeter',
+        title: 'North Perimeter Parking Lot 150',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -249,7 +249,9 @@ class _ParkingState extends State<Parking> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            MaterialPageRoute(builder: (context) => HikingTrails()),
+
                         );
                       }
                   )
@@ -292,22 +294,64 @@ class _ParkingState extends State<Parking> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern", 'hola'),
+                  "https://geo1.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJqc3s6XRBjoARG5Dso9ZUKTQqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.001553656934625, -122.06244957438545,"Parking Lot 139A", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin", 'wassup'),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kVkqVqDR6BQpkriwNIDF4g&cb_client=search.gws-prod.gps&w=408&h=240&yaw=94.35598&pitch=0&thumbfov=100",
+                  37.00254987296524, -122.06590202346045,"North Perimeter Parking Lot 150", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Slug Maps", "DSC Solution Challenge"),
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJZ392kQpBjoARs9UJ7qw7LHgqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.000142793660984, -122.05899759905863,"ZipCar", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJZ392kQpBjoARs9UJ7qw7LHgqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.00018773303434, -122.05896582287743,"Parking Lot 114", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "",
+                  36.99894224131143, -122.06073235461466,"BikeLink - Science Library", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "",
+                  37.000448611438934, -122.06263563208518,"BikeLink - UCSC Baskin", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMZg93kzYRE5QvAoxVuug4Cp-7v81GhwyI3K7Tb=w426-h240-k-no",
+                  37.00091361781477, -122.06214367853134,"BikeLink - UCSC Engineering 2", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "",
+                  37.003064125211885, -122.05382987511449,"Vadim Parking", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "",
+                  36.99203741631251, -122.05312085074124,"East Remote Parking Lot", ""),
             ),
           ],
         ),
@@ -340,17 +384,6 @@ class _ParkingState extends State<Parking> {
                         image: NetworkImage(_image),
                       ),
                     ),),
-                  // Container(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child:
-                  //       myDetailsContainer1(restaurantName),
-                  //   ),
-                  // child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: myDetailsContainer1(info),
-                  // ),
-                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

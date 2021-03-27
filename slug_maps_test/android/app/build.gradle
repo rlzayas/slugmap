@@ -39,6 +39,7 @@ android {
         multiDexEnabled true
         applicationId "reyzayas.testing_app"
         minSdkVersion 16 // Encountered possible error with min needing to be 21 (multidex support)
+//        minsdkVersion 21
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

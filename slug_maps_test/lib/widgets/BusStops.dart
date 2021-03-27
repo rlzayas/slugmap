@@ -54,7 +54,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(37.00233042537575, -122.05514425728445),
       infoWindow: InfoWindow(
         title: 'Crown Merrill Apartments',
-        // snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -65,7 +64,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(37.000633900624976, -122.0547259697124),
       infoWindow: InfoWindow(
         title: 'Crown College',
-        // snippet: '630 Crown Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -76,7 +74,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99916009310121, -122.05526242543144),
       infoWindow: InfoWindow(
         title: 'McLaughlin Dr - Crown & Merrill',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -87,7 +84,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(37.000111176968524, -122.05834161731674),
       infoWindow: InfoWindow(
         title: 'McLaughlin Dr - College 9 & 10',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -98,7 +94,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99759205669758, -122.05506932708317),
       infoWindow: InfoWindow(
         title: 'Hagar Dr - Bookstore Cowell & Stevenson',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -109,18 +104,16 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.999819851908974, -122.05836306140019),
       infoWindow: InfoWindow(
         title: 'College 9 & 10 - Health Ctr',
-        // snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
 
     // Quarry Plaza
     Marker(
-      markerId: MarkerId('Crown'),
+      markerId: MarkerId('QuarryPlaza'),
       position: LatLng(36.997550441702685, -122.05559345078998),
       infoWindow: InfoWindow(
-        title: 'Crown College',
-        // snippet: '630 Crown Rd, Santa Cruz, CA 95064',
+        title: 'Quarry Plaza',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -131,7 +124,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99662498686069, -122.05872747625124),
       infoWindow: InfoWindow(
         title: 'McHenry Library',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -142,7 +134,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99673078123862, -122.05542792797192),
       infoWindow: InfoWindow(
         title: 'Hagar Dr - Bookstore, Cowell & Stevenson',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -153,7 +144,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.997656186652065, -122.05316566865447),
       infoWindow: InfoWindow(
         title: 'Cowell College',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -164,7 +154,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.997726688461306, -122.05195179562119),
       infoWindow: InfoWindow(
         title: 'Stevenson College',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -175,7 +164,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.994357248831975, -122.05555567118188),
       infoWindow: InfoWindow(
         title: 'East Field House',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -186,7 +174,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99083982740803, -122.05214599406385),
       infoWindow: InfoWindow(
         title: 'East Remote Lot Interior',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -197,7 +184,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99143835860411, -122.05467777622509),
       infoWindow: InfoWindow(
         title: 'Hagar Dr - East Remote Parking',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -208,7 +194,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99132284464544, -122.05493213962976),
       infoWindow: InfoWindow(
         title: 'Hagar Dr - East Remote Parking',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -219,7 +204,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.98611771147566, -122.053570734405),
       infoWindow: InfoWindow(
         title: 'Hagar Dr & Village Rd',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -230,7 +214,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.985659456324726, -122.05360260590832),
       infoWindow: InfoWindow(
         title: 'Hagar Dr & Village Rd',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -241,7 +224,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99999517999754, -122.06239580451114),
       infoWindow: InfoWindow(
         title: 'Sciences Hill',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -252,7 +234,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99998015013614, -122.06210014694774),
       infoWindow: InfoWindow(
         title: 'Science Hill',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -263,7 +244,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.999405465723854, -122.06458358781089),
       infoWindow: InfoWindow(
         title: 'Kresge',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -274,7 +254,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99930624365153, -122.0643754201617),
       infoWindow: InfoWindow(
         title: 'Heller Dr - MacLaughlin Dr',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -285,29 +264,26 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99758050992469, -122.06186820419856),
       infoWindow: InfoWindow(
         title: 'Thimann Labs',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
 
-    // Ker Hall
+    // Kerr Hall
     Marker(
       markerId: MarkerId('KerHall'),
       position: LatLng(36.996460411746426, -122.06172636265032),
       infoWindow: InfoWindow(
-        title: 'Ker Hall',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
+        title: 'Kerr Hall',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
 
-    // Ker Hall 2
+    // Kerr Hall 2
     Marker(
       markerId: MarkerId('KerHall2'),
       position: LatLng(36.99687373686239, -122.06354222067843),
       infoWindow: InfoWindow(
-        title: 'Ker Hall',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
+        title: 'Kerr Hall',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -318,7 +294,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.995057927907524, -122.06147665236111),
       infoWindow: InfoWindow(
         title: 'Media Theater',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -329,7 +304,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.993328278997105, -122.06108488372507),
       infoWindow: InfoWindow(
         title: 'Recital Hall',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -340,18 +314,16 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.99314401014827, -122.06527673418728),
       infoWindow: InfoWindow(
         title: 'Heller Dr - Rachel Carson & Porter',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
 
     // Heller Dr - RCC & Porter 2
     Marker(
-      markerId: MarkerId('Heller Dr - RCC & Porter'),
+      markerId: MarkerId('Heller Dr - RCC & Porter2'),
       position: LatLng(36.99287781889026, -122.06492693162627),
       infoWindow: InfoWindow(
         title: 'Heller Dr - Rachel Carson & Porter',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -362,29 +334,26 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.991927960465915, -122.06678385499028),
       infoWindow: InfoWindow(
         title: 'Family Student Housing',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
 
-    // Oaks College
+    // Oakes College
     Marker(
       markerId: MarkerId('OaksCollegeStop'),
       position: LatLng(36.99081732602527, -122.06616193340405),
       infoWindow: InfoWindow(
-        title: 'Oaks College',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
+        title: 'Oakes College',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
 
-    // Oaks College 2
+    // Oakes College 2
     Marker(
-      markerId: MarkerId('OaksCollegeStop'),
+      markerId: MarkerId('OakesCollegeStop'),
       position: LatLng(36.990094987857034, -122.06727081180792),
       infoWindow: InfoWindow(
-        title: 'Oaks College',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
+        title: 'Oakes College',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -395,7 +364,6 @@ class _BusStopsState extends State<BusStops> {
       position: LatLng(36.98880072878589, -122.06482455918103),
       infoWindow: InfoWindow(
         title: 'West Remote Lot',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -512,7 +480,9 @@ class _BusStopsState extends State<BusStops> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            MaterialPageRoute(builder: (context) => Parking()),
+
                         );
                       }
                   )
@@ -555,22 +525,224 @@ class _BusStopsState extends State<BusStops> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern", 'hola'),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=JI-ii4HpJkJe8Qe4EdJ8jQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=245.87582&pitch=0&thumbfov=100",
+                  36.98880072878589, -122.06482455918103,"West Remote Lot", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin", 'wassup'),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=Y-ytr_mCRzQuukx8BQ4wDw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=357.60147&pitch=0&thumbfov=100",
+                  36.990094987857034, -122.06727081180792,"Oakes College", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Slug Maps", "DSC Solution Challenge"),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=s5iKd4vWvW08Pl3d7GoGyw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=73.114044&pitch=0&thumbfov=100",
+                  36.99081732602527, -122.06616193340405,"Oakes College", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipN4a0cKBfTBKo6Y-ZqcmROrHjLXdgOWqPXMFHSJ=w408-h306-k-no",
+                  36.991927960465915, -122.06678385499028,"Family Student Housing", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOOGjnx9_iK0BLhA6w6ji75ZjK_7g6hS2_nZ5pj=w408-h306-k-no",
+                  36.99287781889026, -122.06492693162627,"Heller Dr - Rachel Carson & Porter", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipPuUpnAd7gMTwb1fYkddp3iF1yyI7uNbElVxE9O=w408-h278-k-no",
+                  36.99314401014827, -122.06527673418728,"Heller Dr - Rachel Carson & Porter", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=fqFDUlHxAWh-I40PqJqUPQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=44.243114&pitch=0&thumbfov=100",
+                  36.993328278997105, -122.06108488372507,"Recital Hall", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=8z1efXHNo9fLwoyCcXY3QA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=24.267426&pitch=0&thumbfov=100",
+                  36.995057927907524, -122.06147665236111,"Media Theater", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipN8Q3M8TG4IKeBJ4DIrH_Cpjsafj22K4m04StUl=w408-h544-k-no",
+                  36.99687373686239, -122.06354222067843,"Kerr Hall", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=1zDvAj3GbJOappnladqjsg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=296.77664&pitch=0&thumbfov=100",
+                  36.996460411746426, -122.06172636265032,"Kerr Hall", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=cQ29bqmgUN5DFQ-fzbmWOg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=86.94409&pitch=0&thumbfov=100",
+                  36.99758050992469, -122.06186820419856,"Thimann Labs", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=nkmUu03b6TRQt1Tx_RPmHQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=105.52248&pitch=0&thumbfov=100",
+                  36.99930624365153, -122.0643754201617,"Heller Dr - MacLaughlin Dr", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=nkmUu03b6TRQt1Tx_RPmHQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=304.8354&pitch=0&thumbfov=100",
+                  36.999405465723854, -122.06458358781089,"Kresge", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMitcDDJGGTsFsfyQ1t8QBs3PxavsOc7GxHvd5I=w408-h306-k-no",
+                  36.99998015013614, -122.06210014694774,"Science Hill", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=chd-yazcn9lIhGeB7u8pRQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=338.7489&pitch=0&thumbfov=100",
+                  36.99999517999754, -122.06239580451114,"Sciences Hill", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=0WgzER3sRuTLcIg4gKASFg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=252.50029&pitch=0&thumbfov=100",
+                  36.985659456324726, -122.05360260590832,"Hagar Dr & Village Rd", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=wWjJl1Xds-RdcpON5uQ9uQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=20.00979&pitch=0&thumbfov=100",
+                  36.98611771147566, -122.053570734405,"Hagar Dr & Village Rd", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=xgGTFeYrl1_4a8ZnKVZN-w&cb_client=search.gws-prod.gps&w=408&h=240&yaw=323.62112&pitch=0&thumbfov=100",
+                  36.99083982740803, -122.05214599406385,"Hagar Dr - East Remote Parking", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=nrYx_HmX8FWjO8D2lGPjuQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=249.40878&pitch=0&thumbfov=100",
+                  36.99132284464544, -122.05493213962976,"Hagar Dr - East Remote Parking", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=RW60RXmK92xLYOFRM-mG4A&cb_client=search.gws-prod.gps&w=408&h=240&yaw=28.494568&pitch=0&thumbfov=100",
+                  36.99143835860411, -122.05467777622509,"Hagar Dr - East Remote Parking", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=2QW-heRHczQSJeNiAwpcJQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=45.4681&pitch=0&thumbfov=100",
+                  36.994357248831975, -122.05555567118188,"East Field House", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=xuYAcdsV7yCATgpS3TlrXQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=132.44197&pitch=0&thumbfov=100",
+                  36.997726688461306, -122.05195179562119,"Stevenson College", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipNXc3L4sgSK2ge4tup28iF3CxcQ8sdjnHzjUkur=w408-h240-k-no-pi-20-ya340-ro-0-fo100",
+                  36.997656186652065, -122.05316566865447,"Cowell College", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMG5kVCZp7OsHWgbEGOMtgwa15lFRXLrEztFjZX=w408-h306-k-no",
+                  36.99673078123862, -122.05542792797192,"Hagar Dr - Bookstore, Cowell & Stevenson", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipPtp8tjul8akWv4dcVnst-3o65Q5CPB3Pt0Tawd=w408-h306-k-no",
+                  36.99759205669758, -122.05506932708317,"Hagar Dr - Bookstore, Cowell & Stevenson", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=u3gp4mnfB9UYZ5pgqkLJJA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=203.7028&pitch=0&thumbfov=100",
+                  36.99662498686069, -122.05872747625124,"McHenry Library", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJIenOLaFBjoAR-P1-_8grKFAqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  36.997550441702685, -122.05559345078998,"Quarry Plaza", ''),
+            ),SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIsChIJ81nAgApBjoARkX5_VAnmeBkSCg1Pug0WFUtgP7cqCg34tg0WFTphP7caBgjwARCYAw&gl=US",
+                  36.999819851908974, -122.05836306140019,"College 9 & 10 - Health Ctr", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=-JdMwdnf7tkucbkbHE7mtg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=298.38712&pitch=0&thumbfov=100",
+                  37.000111176968524, -122.05834161731674,"McLaughlin Dr - College 9 & 10", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=BviDwl1a67yiOLkgcz_SMA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=73.50622&pitch=0&thumbfov=100",
+                  36.99916009310121, -122.05526242543144,"McLaughlin Dr - Crown & Merill", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=t4SnokAWPBDa0VefaAqTTg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=298.86865&pitch=0&thumbfov=100",
+                  37.000633900624976, -122.0547259697124,"Crown College", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=POyZ6zHmoCne9xncgLLh2A&cb_client=search.gws-prod.gps&w=408&h=240&yaw=122.84465&pitch=0&thumbfov=100",
+                  37.00233042537575, -122.05514425728445,"Crown Merrill Apartments", ''),
             ),
           ],
         ),
@@ -603,17 +775,6 @@ class _BusStopsState extends State<BusStops> {
                         image: NetworkImage(_image),
                       ),
                     ),),
-                  // Container(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child:
-                  //       myDetailsContainer1(restaurantName),
-                  //   ),
-                  // child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: myDetailsContainer1(info),
-                  // ),
-                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

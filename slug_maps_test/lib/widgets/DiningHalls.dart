@@ -94,10 +94,10 @@ class _DiningHallsState extends State<DiningHalls> {
 
     // Rachel Carson/Oaks College Dining Hall
     Marker(
-      markerId: MarkerId('RCCOaksDH'),
+      markerId: MarkerId('RCCOakesDH'),
       position: LatLng(36.99169329799685, -122.06539542111443),
       infoWindow: InfoWindow(
-        title: 'Rachel Carson/Oaks Dining Hall',
+        title: 'Rachel Carson/Oakes Dining Hall',
         snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
@@ -215,7 +215,9 @@ class _DiningHallsState extends State<DiningHalls> {
                         Navigator.push(
                             context,
 
-                          MaterialPageRoute(builder: (context) => slugMapFilter()),
+                          // MaterialPageRoute(builder: (context) => slugMapFilter()),
+                          MaterialPageRoute(builder: (context) => Libraries()),
+
                         );
                       }
                   )
@@ -259,7 +261,7 @@ class _DiningHallsState extends State<DiningHalls> {
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://lh5.googleusercontent.com/p/AF1QipP5mognyo-FvIKU1jNOFGC0eLwkIuAkipfzb36s=w408-h544-k-no",
-                  36.99169329799685, -122.06539542111443,"Rachel Carson/Oaks Dining Hall", '6 College Eight Service Rd, Santa Cruz, CA 95064'),
+                  36.99169329799685, -122.06539542111443,"Rachel Carson/Oakes Dining Hall", '6 College Eight Service Rd, Santa Cruz, CA 95064'),
             ),
             SizedBox(width: 10.0),
             Padding(
@@ -320,17 +322,6 @@ class _DiningHallsState extends State<DiningHalls> {
                         image: NetworkImage(_image),
                       ),
                     ),),
-                  // Container(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child:
-                  //       myDetailsContainer1(restaurantName),
-                  //   ),
-                  // child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: myDetailsContainer1(info),
-                  // ),
-                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

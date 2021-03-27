@@ -119,7 +119,7 @@ class _CollegesState extends State<Colleges> {
       markerId: MarkerId('OaksCollege'),
       position: LatLng(36.989929657499914, -122.06277255820748),
       infoWindow: InfoWindow(
-        title: 'Oaks College',
+        title: 'Oakes College',
         snippet: '231 Oakes Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
@@ -270,7 +270,8 @@ class _CollegesState extends State<Colleges> {
                         Navigator.push(
                             context,
 
-                            MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            MaterialPageRoute(builder: (context) => DiningHalls()),
 
                         );
                       }
@@ -361,7 +362,7 @@ class _CollegesState extends State<Colleges> {
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://lh5.googleusercontent.com/p/AF1QipOLheqUoXkrxh7dCib6JHR6m2D7zjmjSCMvI9tu=w408-h240-k-no-pi-0-ya88-ro-0-fo100",
-                  36.989929657499914, -122.06277255820748,"Oaks College", '231 Oakes Rd, Santa Cruz, CA 95064'),
+                  36.989929657499914, -122.06277255820748,"Oakes College", '231 Oakes Rd, Santa Cruz, CA 95064'),
             ),
 
             SizedBox(width: 10.0),
@@ -416,17 +417,6 @@ class _CollegesState extends State<Colleges> {
                         image: NetworkImage(_image),
                       ),
                     ),),
-                  // Container(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child:
-                  //       myDetailsContainer1(restaurantName),
-                  //   ),
-                  // child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: myDetailsContainer1(info),
-                  // ),
-                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

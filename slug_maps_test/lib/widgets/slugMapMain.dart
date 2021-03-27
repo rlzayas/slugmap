@@ -150,7 +150,7 @@ class _MapState extends State<slugMapMain> {
                 children: <Widget>[
 
                   FloatingActionButton(
-                    // backgroundColor: Color(0xffececec),
+                    backgroundColor: Color(0xffececec),
                       elevation: 0,
                       child: SvgPicture.asset('assets/images/Filter_menu.svg',
                       ),
@@ -160,14 +160,6 @@ class _MapState extends State<slugMapMain> {
                           // MaterialPageRoute(builder: (context) => slugMapFilter()),
 
                           MaterialPageRoute(builder: (context) => Colleges()),
-                          // MaterialPageRoute(builder: (context) => DiningHalls()),
-                          // MaterialPageRoute(builder: (context) => EVChargeStation()),
-                          // MaterialPageRoute(builder: (context) => WaterFillStation()),
-                          // MaterialPageRoute(builder: (context) => Views()),
-                          // MaterialPageRoute(builder: (context) => HikingTrails()),
-                          // MaterialPageRoute(builder: (context) => Libraries()),
-                          // MaterialPageRoute(builder: (context) => Parking()),
-                          // MaterialPageRoute(builder: (context) => BusStop()),
                         );
                       }
                   )

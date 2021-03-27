@@ -54,7 +54,6 @@ class _LibrariesState extends State<Libraries> {
       position: LatLng(36.99722897221115, -122.05151323142576),
       infoWindow: InfoWindow(
         title: 'Adlai E. Stevenson Library',
-        // snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -65,7 +64,6 @@ class _LibrariesState extends State<Libraries> {
       position: LatLng(36.99716490316114, -122.0536526692152),
       infoWindow: InfoWindow(
         title: 'Page Smith Library',
-        // snippet: '630 Crown Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -76,7 +74,6 @@ class _LibrariesState extends State<Libraries> {
       position: LatLng(36.999711831435256, -122.05336351136583),
       infoWindow: InfoWindow(
         title: 'Merrill Library',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -87,7 +84,6 @@ class _LibrariesState extends State<Libraries> {
       position: LatLng(36.99993912279547, -122.05486909133349),
       infoWindow: InfoWindow(
         title: 'Crown Library',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -100,7 +96,7 @@ class _LibrariesState extends State<Libraries> {
         title: 'McHenry Library',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
 
     // Science & Engineering Library
@@ -109,7 +105,6 @@ class _LibrariesState extends State<Libraries> {
       position: LatLng(36.99910517369182, -122.06059399782959),
       infoWindow: InfoWindow(
         title: 'Science & Engineering Library',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -120,7 +115,6 @@ class _LibrariesState extends State<Libraries> {
       position: LatLng(36.997603292930194, -122.06623329784122),
       infoWindow: InfoWindow(
         title: 'Kresge Student Library',
-        // snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -130,8 +124,7 @@ class _LibrariesState extends State<Libraries> {
       markerId: MarkerId('Oaks Library'),
       position: LatLng(36.989953862713904, -122.06289888474468),
       infoWindow: InfoWindow(
-        title: 'Oaks Library',
-        // snippet: '630 Crown Rd, Santa Cruz, CA 95064',
+        title: 'Oakes Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
@@ -247,7 +240,9 @@ class _LibrariesState extends State<Libraries> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => slugMapFilter()),
+                          // MaterialPageRoute(builder: (context) => slugMapFilter()),
+                          MaterialPageRoute(builder: (context) => BusStops()),
+
                         );
                       }
                   )
@@ -290,22 +285,57 @@ class _LibrariesState extends State<Libraries> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern", 'hola'),
+                  "",
+                  36.989953862713904, -122.06289888474468,"Oakes Library", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin", 'wassup'),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=EJHh29hjUbF6q51jbkt_AA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=356.90012&pitch=0&thumbfov=100",
+                  36.997603292930194, -122.06623329784122,"Kresge Student Library", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Slug Maps", "DSC Solution Challenge"),
+                  "https://lh5.googleusercontent.com/p/AF1QipMZDLGPVvuBNpFWzfSRk2ipI2r0ez7bZlfZkG2l=w738-h240-k-no",
+                  36.99910517369182, -122.06059399782959,"Science & Engineering Library", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipN_mpikHGXgPU5572_4u_4GjBl5HVED6eFeAAmE=w742-h240-k-no",
+                  36.99578136536548, -122.05888865898311,"McHenry Library", '1156 High St, Santa Cruz, CA 95064'),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOIl1Ea0Nx8Gyvq7Ho_ncHp2gkneph5KIlnxRKx=w408-h306-k-no",
+                  36.99993912279547, -122.05486909133349,"Crown Library", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipPrP89C45E0KJxyWFzRsKA3w2HLn0Rw-7NG4kYo=w408-h306-k-no",
+                  36.999711831435256, -122.05336351136583,"Merrill Library", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipODJvSj_iAoLa96hbIHsi_G2M_f9zFKJdTrWSM-=w408-h306-k-no",
+                  36.99716490316114, -122.0536526692152,"Page Smith Library", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipN6yv9ZwEYF1HZGR2UB27nDqDnm2ir5JqUw0_E6=w408-h306-k-no",
+                  36.99722897221115, -122.05151323142576,"Adlai E. Stevenson Library", ''),
             ),
           ],
         ),
@@ -338,17 +368,6 @@ class _LibrariesState extends State<Libraries> {
                         image: NetworkImage(_image),
                       ),
                     ),),
-                  // Container(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child:
-                  //       myDetailsContainer1(restaurantName),
-                  //   ),
-                  // child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: myDetailsContainer1(info),
-                  // ),
-                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

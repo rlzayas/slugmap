@@ -248,7 +248,9 @@ class _WaterFillStationState extends State<WaterFillStation> {
                         Navigator.push(
                             context,
 
-                            MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            MaterialPageRoute(builder: (context) => EVChargeStation()),
+
                         );
                       }
                   )
@@ -373,17 +375,6 @@ class _WaterFillStationState extends State<WaterFillStation> {
                         image: NetworkImage(_image),
                       ),
                     ),),
-                  // Container(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child:
-                  //       myDetailsContainer1(restaurantName),
-                  //   ),
-                  // child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: myDetailsContainer1(info),
-                  // ),
-                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

@@ -48,6 +48,16 @@ class _ViewsState extends State<Views> {
   double zoomVal=5.0;
 
   List<Marker> viewsList = [
+    // Cave Gulch
+    Marker(
+      markerId: MarkerId('CaveGulch'),
+      position: LatLng(36.99403252521436, -122.0690402904878),
+      infoWindow: InfoWindow(
+        title: 'Cave Gulch',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+    ),
+
   // Stevenson Knoll Marker
     Marker(
         markerId: MarkerId('Stevenson Knoll'),
@@ -247,8 +257,9 @@ class _ViewsState extends State<Views> {
                         Navigator.push(
                             context,
 
-                            MaterialPageRoute(
-                                builder: (context) => slugMapFilter()),
+                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
+                            MaterialPageRoute(builder: (context) => WaterFillStation()),
+
                         );
                       }
                   )
@@ -343,6 +354,13 @@ class _ViewsState extends State<Views> {
                   "https://lh5.googleusercontent.com/p/AF1QipMWbGItmUxm723i7lxgGrdWV-utM1jHcatQMnmE=w408-h240-k-no-pi-0-ya155.2-ro-0-fo100",
                   36.996041133200166, -122.05165615971505,"Stevenson Knoll", "Casa Sexta, Santa Cruz, CA 95064"),
             ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMjeePUYmsJo-2hu2D6DL-bzd8IGLf0Tzd_wTzq=w408-h544-k-no",
+                  36.99403252521436, -122.0690402904878,"Cave Gulch", ''),
+            ),
           ],
         ),
       ),
@@ -374,17 +392,6 @@ class _ViewsState extends State<Views> {
                         image: NetworkImage(_image),
                       ),
                     ),),
-                  // Container(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child:
-                  //       myDetailsContainer1(restaurantName),
-                  //   ),
-                  // child: Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: myDetailsContainer1(info),
-                  // ),
-                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

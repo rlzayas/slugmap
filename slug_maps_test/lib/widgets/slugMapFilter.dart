@@ -9,25 +9,16 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:testing_app/widgets/BusStops.dart';
-
 import 'package:testing_app/widgets/Colleges.dart';
 import 'package:testing_app/widgets/DiningHalls.dart';
 import 'package:testing_app/widgets/EVChargeStation.dart';
 import 'package:testing_app/widgets/WaterFillStation.dart';
+import 'package:testing_app/widgets/Views.dart';
 
 import 'package:testing_app/widgets/HikingTrails.dart';
 import 'package:testing_app/widgets/Libraries.dart';
 import 'package:testing_app/widgets/Parking.dart';
-import 'package:testing_app/widgets/Views.dart';
-
-import 'package:testing_app/widgets/CollegesFilter.dart';
-import 'package:testing_app/widgets/newTestMap.dart';
-// import 'package:testing_app/widgets/evFilterMap.dart';
-// import 'package:testing_app/widgets/evFilterPage.dart';
-// import 'package:testing_app/widgets/evPage.dart';
-// import 'package:testing_app/widgets/evScreen.dart';
-
+import 'package:testing_app/widgets/BusStops.dart';
 
 import 'package:testing_app/widgets/slugMapFilter.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
@@ -41,6 +32,19 @@ class slugMapFilter extends StatefulWidget {
 class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
   ScrollController scrollController;
   bool dialVisible = true;
+
+  Completer<GoogleMapController> _controller = Completer();
+  static const LatLng _center = const LatLng(36.989043, -122.058611);
+  LatLng _lastMapPosition = _center;
+  MapType _currentMapType = MapType.normal;
+
+  _onMapCreated(GoogleMapController controller) {
+    _controller.complete(controller);
+  }
+
+  _onCameraMove(CameraPosition position) {
+    _lastMapPosition = position.target;
+  }
 
   @override
   void initState() {
@@ -59,13 +63,24 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
     });
   }
 
-  // Widget buildBody() {
-  //   return ListView.builder(
-  //     controller: scrollController,
-  //     itemCount: 30,
-  //     itemBuilder: (ctx, i) => ListTile(title: Text('Item $i')),
-  //   );
-  // }
+  Widget buildBody() {
+    return Scaffold(
+        body: Stack(
+          children: <Widget>[
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: _center,
+                zoom: 14.35,
+              ),
+              mapType: _currentMapType,
+              onCameraMove: _onCameraMove,
+              myLocationButtonEnabled: true,
+              myLocationEnabled: true,
+            ),
+          ],
+        ));
+  }
 
   SpeedDial buildSpeedDial() {
     return SpeedDial(
@@ -92,12 +107,15 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
 
       /// If true user is forced to close dial manually
       /// by tapping main button and overlay is not rendered.
-      closeManually: false,
+      closeManually: true,
       curve: Curves.bounceIn,
       overlayColor: Colors.black,
       overlayOpacity: 0.5,
       onOpen: () => print('OPENING DIAL'),
-      onClose: () => print('DIAL CLOSED'),
+      onClose: () { // => print('DIAL CLOSED'),
+        Navigator.push(context, MaterialPageRoute(builder:(context) => slugMapMain())
+        );
+      },
       tooltip: 'Speed Dial',
       heroTag: 'speed-dial-hero-tag',
       backgroundColor: Colors.white,
@@ -142,7 +160,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/Library_Icon.svg'),
+          child: SvgPicture.asset('assets/marker_icons/Library_Icon.svg'),
           //backgroundColor: Colors.green,
           label: 'Libraries',
           labelStyle: TextStyle(
@@ -155,7 +173,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
           onLongPress: () => print('THIRD CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/Bus_Stop_Icon.svg'),
+          child: SvgPicture.asset('assets/marker_icons/Bus_Stop_Icon.svg'),
           //backgroundColor: Colors.blue,
           label: 'Bus stops',
           labelStyle: TextStyle(
@@ -168,7 +186,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/Parking_Icon.svg'),
+          child: SvgPicture.asset('assets/marker_icons/Parking_Icon.svg'),
           //backgroundColor: Colors.blue,
           label: 'Parking',
           labelStyle: TextStyle(
@@ -181,7 +199,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/Hiking_Trail_Icon.svg'),
+          child: SvgPicture.asset('assets/marker_icons/Hiking_Trail_Icon.svg'),
           //backgroundColor: Colors.blue,
           label: 'Hiking Trails',
           labelStyle: TextStyle(
@@ -194,7 +212,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/Views_Icon.svg'),
+          child: SvgPicture.asset('assets/marker_icons/Views_Icon.svg'),
           //backgroundColor: Colors.blue,
           label: 'Views',
           labelStyle: TextStyle(
@@ -207,7 +225,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/Water_Station_Icon.svg'),
+          child: SvgPicture.asset('assets/marker_icons/Water_Station_Icon.svg'),
           //backgroundColor: Colors.blue,
           label: 'Water fill station',
           labelStyle: TextStyle(
@@ -220,7 +238,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/EV_Station_Icon.svg'),
+          child: SvgPicture.asset('assets/marker_icons/EV_Station_Icon.svg'),
           //backgroundColor: Colors.blue,
           label: 'EV charge station',
           labelStyle: TextStyle(
@@ -233,7 +251,7 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/School_Tour_Icon.svg'),
+          child: SvgPicture.asset('assets/marker_icons/School_Tour_Icon.svg'),
           //backgroundColor: Colors.blue,
           label: 'School Tour',
           labelStyle: TextStyle(
@@ -251,10 +269,11 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    ValueNotifier<bool> isDialOpen = ValueNotifier(false);
     return Scaffold(
       //appBar: AppBar(title: Text('Flutter Speed Dial')),
-      //body: buildBody(),
-      floatingActionButton: buildSpeedDial(),
+      body: buildBody(),
+      // floatingActionButton: buildSpeedDial(),
     );
   }
 }
