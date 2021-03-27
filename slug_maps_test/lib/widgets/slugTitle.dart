@@ -24,21 +24,23 @@ class slugTitle extends StatelessWidget {
               width: phoneWidth,
               decoration: new BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/Main_Screen_Background.jpg'),
+                    image:
+                        AssetImage('assets/images/Main_Screen_Background.jpg'),
                     fit: BoxFit.fill),
               ),
             ),
             //Container 2: Logo!
             Container(
-              margin:  EdgeInsets.only(
-                  left: phoneWidth * .1187335092, top: phoneHeight * .1231527094),
+              margin: EdgeInsets.only(
+                  left: phoneWidth * .1187335092,
+                  top: phoneHeight * .1231527094),
+              
               width: phoneWidth * .728,
               height: phoneHeight * .3041871921,
               child: Image.asset(
                 'assets/images/Slug_Logo.png',
                 fit: BoxFit.fitHeight,
               ),
-
             ),
             //Container 3: Slug Maps Title!
             Container(
@@ -68,15 +70,29 @@ class slugTitle extends StatelessWidget {
                   //PAGE NAV HERE
                   //Syntax
                   Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation1, animation2) => slugMapMain(),
-                  //           transitionsBuilder: (context, animation1, animation2, child) =>
-                  //                 FadeTransition(opacity: animation1, child: child),
-                  //             transitionDuration: Duration(milliseconds: 300),
-                  //           ),
-                  //         );
-                  ),
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          slugMapMain(),
+                      transitionsBuilder:
+                          (context, animation1, animation2, child) {
+                        return SlideTransition(
+                          position: animation1.drive(
+                            Tween(
+                              begin: Offset(1, 0),
+                              end: Offset(0, 0),
+                            ).chain(CurveTween(curve: Curves.easeOutCubic)),
+                          ),
+                          child: child,
+                        );
+                      },
+
+                      //           transitionsBuilder: (context, animation1, animation2, child) =>
+                      //                 FadeTransition(opacity: animation1, child: child),
+                      //             transitionDuration: Duration(milliseconds: 300),
+                      //           ),
+                      //         );
+                    ),
                   );
                 },
                 //CONTAINER FOR STYLING OF LETS GO BUTTON
