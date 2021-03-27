@@ -249,9 +249,7 @@ class _ParkingState extends State<Parking> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                            MaterialPageRoute(builder: (context) => HikingTrails()),
-
+                            MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )

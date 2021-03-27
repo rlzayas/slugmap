@@ -299,9 +299,7 @@ class _HikingTrailsState extends State<HikingTrails> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                          MaterialPageRoute(builder: (context) => Views()),
-
+                          MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )

@@ -257,8 +257,7 @@ class _ViewsState extends State<Views> {
                         Navigator.push(
                             context,
 
-                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                            MaterialPageRoute(builder: (context) => WaterFillStation()),
+                            MaterialPageRoute(builder: (context) => slugMapFilter()),
 
                         );
                       }

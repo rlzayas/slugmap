@@ -480,9 +480,7 @@ class _BusStopsState extends State<BusStops> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                            MaterialPageRoute(builder: (context) => Parking()),
-
+                            MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )

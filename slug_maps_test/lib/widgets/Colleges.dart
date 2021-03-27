@@ -270,9 +270,7 @@ class _CollegesState extends State<Colleges> {
                         Navigator.push(
                             context,
 
-                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                            MaterialPageRoute(builder: (context) => DiningHalls()),
-
+                            MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )

@@ -240,9 +240,7 @@ class _LibrariesState extends State<Libraries> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                          MaterialPageRoute(builder: (context) => BusStops()),
-
+                          MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )

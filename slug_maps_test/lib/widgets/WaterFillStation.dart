@@ -248,9 +248,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
                         Navigator.push(
                             context,
 
-                            // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                            MaterialPageRoute(builder: (context) => EVChargeStation()),
-
+                            MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )

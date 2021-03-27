@@ -157,9 +157,7 @@ class _MapState extends State<slugMapMain> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          // MaterialPageRoute(builder: (context) => slugMapFilter()),
-
-                          MaterialPageRoute(builder: (context) => Colleges()),
+                          MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )

@@ -215,8 +215,7 @@ class _DiningHallsState extends State<DiningHalls> {
                         Navigator.push(
                             context,
 
-                          // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                          MaterialPageRoute(builder: (context) => Libraries()),
+                          MaterialPageRoute(builder: (context) => slugMapFilter()),
 
                         );
                       }
