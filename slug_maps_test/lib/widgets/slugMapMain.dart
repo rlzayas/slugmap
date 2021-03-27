@@ -13,9 +13,11 @@ import 'package:testing_app/widgets/EVChargeStation.dart';
 import 'package:testing_app/widgets/WaterFillStation.dart';
 import 'package:testing_app/widgets/Views.dart';
 
-//import 'package:testing_app/widgets/slugMapFilter.dart';
+
+import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
+
 
 
 
@@ -23,6 +25,7 @@ class slugMapMain extends StatefulWidget {
   @override
   _MapState createState() => _MapState();
 }
+
 class _MapState extends State<slugMapMain> {
   //GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
@@ -365,6 +368,7 @@ class _MapState extends State<slugMapMain> {
               margin: EdgeInsets.only(
                   top: phoneHeight * .05665024631, left: phoneWidth * .048),
 
+
               width: phoneWidth * .904,
               height: phoneHeight * .04310344828,
               decoration: BoxDecoration(
@@ -405,7 +409,6 @@ class _MapState extends State<slugMapMain> {
               height: phoneHeight * .04310344828,
               margin: EdgeInsets.only(
                   top: phoneHeight * .05665024631, left: phoneWidth * .048),
-
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
               ),
@@ -424,13 +427,13 @@ class _MapState extends State<slugMapMain> {
             Container(
               height: phoneHeight * .02463054187,
               width: phoneWidth * .05866666667,
-              margin: EdgeInsets.only(top: phoneHeight * .06650246305,
-                  left: phoneWidth * .8693333333),
+              margin: EdgeInsets.only(
+                top: phoneHeight * .06650246305,
+                left: phoneWidth * .8693333333),
               child: Stack(
                 children: <Widget>[
-
                   FloatingActionButton(
-                    // backgroundColor: Color(0xffececec),
+                      backgroundColor: Color(0xffececec),
                       elevation: 0,
                       child: SvgPicture.asset('assets/images/Filter_menu.svg',),
 
@@ -438,12 +441,12 @@ class _MapState extends State<slugMapMain> {
                         Navigator.push(
                           context,
                           // showPinsOnMap(),
-
+                             MaterialPageRoute(builder: (context) => slugMapFilter()),);
                           // MaterialPageRoute(builder: (context) => Colleges()),
                           // MaterialPageRoute(builder: (context) => DiningHalls()),
                           // MaterialPageRoute(builder: (context) => EVChargeStation()),
                           // MaterialPageRoute(builder: (context) => WaterFillStation()),
-                          MaterialPageRoute(builder: (context) => Views()),
+                          // MaterialPageRoute(builder: (context) => Views()),
                         );
                       }
                   )
@@ -454,7 +457,6 @@ class _MapState extends State<slugMapMain> {
 
             ),
 
-
             Container(
               margin: EdgeInsets.only(
                   left: phoneWidth * .05866666667,
@@ -464,7 +466,6 @@ class _MapState extends State<slugMapMain> {
               child: Image.asset(
                 'assets/images/Slug_Logo.png',
               ),
-
             ),
           ],
         ),
@@ -472,3 +473,4 @@ class _MapState extends State<slugMapMain> {
     ); //812 x 375
   }
 }
+
