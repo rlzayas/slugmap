@@ -36,12 +36,10 @@ class _EVChargeStationState extends State<EVChargeStation> {
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
-  List<Marker> allMarkers= [];
 
   _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
-
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
@@ -49,17 +47,17 @@ class _EVChargeStationState extends State<EVChargeStation> {
 
   double zoomVal=5.0;
 
-  List<Marker> EVStationList = [
-        Marker(
-        markerId: MarkerId('OceanST'),
-        position: LatLng(36.9788943336269, -122.0223634179128),
-        infoWindow: InfoWindow(
-          title: 'EV ChargePoint Charging Station',
-          snippet: '701 Ocean St, Santa Cruz, CA 95060',
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange)
+  List<Marker> evStationList = [
+    // EV  Charging Station 1 Marker
+    Marker(
+      markerId: MarkerId('OceanST'),
+      position: LatLng(36.9788943336269, -122.0223634179128),
+      infoWindow: InfoWindow(
+        title: 'EV ChargePoint Charging Station',
+        snippet: '701 Ocean St, Santa Cruz, CA 95060',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange)
     ),
-
 
     // EV Charging Station 2 Marker
     Marker(
@@ -71,7 +69,6 @@ class _EVChargeStationState extends State<EVChargeStation> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
     ),
-
 
     // EV Charging Station 3 Marker
     Marker(
@@ -85,71 +82,6 @@ class _EVChargeStationState extends State<EVChargeStation> {
     ),
 
   ];
-
-//   @override
-//   void initState() {
-//     // TODO: implement initState
-//     super.initState();
-//
-//     // EV Charging Station 1 Marker
-//     allMarkers.add(Marker(
-//         markerId: MarkerId('OceanST'),
-//         position: LatLng(36.9788943336269, -122.0223634179128),
-//         infoWindow: InfoWindow(
-//           title: 'EV ChargePoint Charging Station',
-//           snippet: '701 Ocean St, Santa Cruz, CA 95060',
-//         ),
-//         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange)
-//     )
-//     );
-//
-//     // EV Charging Station 2 Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('McLaughlinDr'),
-//       position: LatLng(36.999324250111506, -122.0632982467481),
-//       infoWindow: InfoWindow(
-//         title: 'EV ChargePoint Charging Station',
-//         snippet: ' McLaughlin Dr, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
-//     ),
-//     );
-//
-//     // EV Charging Station 3 Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('Soquel Ave'),
-//       position: LatLng(36.98174810947192, -122.01507687519172),
-//       infoWindow: InfoWindow(
-//         title: 'EV ChargePoint Charging Station',
-//         snippet: '911 Soquel Ave, Santa Cruz, CA 95062',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
-//     ),
-//     );
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('EV Charge Stations'),
-//       ),
-//       body: Center(
-//         child: Container(
-//           height: MediaQuery.of(context).size.height,
-//           width: MediaQuery.of(context).size.width,
-//           child: GoogleMap(
-//             initialCameraPosition: CameraPosition(
-//               target: LatLng(36.989043, -122.058611),
-//               zoom: 14.35,
-//             ),
-//             markers: Set.from(allMarkers),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
   Widget build(BuildContext context) {
     //phone dimensions
@@ -180,7 +112,7 @@ class _EVChargeStationState extends State<EVChargeStation> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(EVStationList),
+              markers: Set.from(evStationList),
             ),
 
             //Container 2: Full Search bar container
@@ -261,32 +193,7 @@ class _EVChargeStationState extends State<EVChargeStation> {
                       onPressed: () {
                         Navigator.push(
                           context,
-
-                          // MaterialPageRoute(
-                          //     builder: (context) => slugMapFilter()),
-
-                          // showPinsOnMap(),
-
-                          // MaterialPageRoute(builder: (context) => CollegesFilter()),
-                          // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                          // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
-                          // MaterialPageRoute(builder: (context) => EVMap()),
-
-                          // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
-                          // MaterialPageRoute(builder: (context) => Colleges()),
-                          // MaterialPageRoute(builder: (context) => DiningHalls()),
-                          // MaterialPageRoute(builder: (context) => EVChargeStation()),
-                          MaterialPageRoute(builder: (context) => WaterFillStation()),
-                          // MaterialPageRoute(builder: (context) => Views()),
-
-                          // MaterialPageRoute(builder: (context) => BusStops())
-                          // MaterialPageRoute(builder: (context) => Parking())
-                          // MaterialPageRoute(builder: (context) => Libraries())
-                          // MaterialPageRoute(builder: (context) => HikingTrails())
-
-                          // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
+                          MaterialPageRoute( builder: (context) => slugMapFilter()),
                         );
                       }
                   )
@@ -309,50 +216,12 @@ class _EVChargeStationState extends State<EVChargeStation> {
               ),
 
             ),
-            _zoomminusfunction(),
-            _zoomplusfunction(),
             _buildContainer(),
           ],
         ),
       ),
     ); //812 x 375
   }
-
-
-  Widget _zoomminusfunction() {
-
-    return Align(
-      alignment: Alignment.topLeft,
-      child: IconButton(
-          icon: Icon(Icons.home),//Icon(FontAwesomeIcons.searchMinus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal--;
-            _minus( zoomVal);
-          }),
-    );
-  }
-  Widget _zoomplusfunction() {
-
-    return Align(
-      alignment: Alignment.topRight,
-      child: IconButton(
-          icon: Icon(Icons.add),//Icon(FontAwesomeIcons.searchPlus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal++;
-            _plus(zoomVal);
-          }),
-    );
-  }
-
-  Future<void> _minus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.712776, -74.005974), zoom: zoomVal)));
-  }
-  Future<void> _plus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(36.989043, -122.058611), zoom: zoomVal)));
-  }
-
 
   Widget _buildContainer() {
     return Align(
@@ -367,30 +236,31 @@ class _EVChargeStationState extends State<EVChargeStation> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern", 'hola'),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=TGL8DZ23ekiqSC7nusJavw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=162.83861&pitch=0&thumbfov=100",
+                  36.98174810947192, -122.01507687519172,"EV ChargePoint Charging Station", '911 Soquel Ave, Santa Cruz, CA 95062'),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin", 'wassup'),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=BRF4_H-Hm-xXX8Sj43dX2g&cb_client=search.gws-prod.gps&w=408&h=240&yaw=81.27395&pitch=0&thumbfov=100",
+                  36.999324250111506, -122.0632982467481,"EV ChargePoint Charging Station", '701 Ocean St, Santa Cruz, CA 95060'),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Slug Maps", "DSC Solution Challenge"),
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJicLjciRAjoARJnHB89Dp1H8qCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  36.9788943336269, -122.0223634179128,"EV ChargePoint Charging Station", "701 Ocean St, Santa Cruz, CA 95060"),
             ),
+
           ],
         ),
       ),
     );
   }
 
-  Widget _boxes(String _image, double lat,double long,String restaurantName, String info) {
+  Widget _boxes(String _image, double lat,double long,String title, String snippet) {
     return  GestureDetector(
       onTap: () {
         _gotoLocation(lat,long);
@@ -430,7 +300,7 @@ class _EVChargeStationState extends State<EVChargeStation> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child:
-                      myDetailsContainer1(restaurantName, info),),
+                      myDetailsContainer1(title, snippet),),
                   )
 
                 ],)
@@ -440,14 +310,14 @@ class _EVChargeStationState extends State<EVChargeStation> {
     );
   }
 
-  Widget myDetailsContainer1(String restaurantName, String info) {
+  Widget myDetailsContainer1(String title, String snippet) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Container(
-              child: Text(restaurantName,
+              child: Text(title,
                 style: TextStyle(
                     color: Color(0xff6200ee),
                     fontSize: 24.0,
@@ -461,75 +331,14 @@ class _EVChargeStationState extends State<EVChargeStation> {
               children: <Widget>[
                 Container(
                     child: Text(
-                      info,
+                      snippet,
                       style: TextStyle(
                         color: Colors.black54,
                         fontSize: 18.0,
                       ),
                     )),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStarHalf,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //             child: Text(
-                //               "(946)",
-                //               style: TextStyle(
-                //                 color: Colors.black54,
-                //                 fontSize: 18.0,
-                //               ),
-                //             )),
               ],
             )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "American \u00B7 \u0024\u0024 \u00B7 1.6 mi",
-        //       style: TextStyle(
-        //         color: Colors.black54,
-        //         fontSize: 18.0,
-        //       ),
-        //     )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "Closed \u00B7 Opens 17:00 Thu",
-        //       style: TextStyle(
-        //           color: Colors.black54,
-        //           fontSize: 18.0,
-        //           fontWeight: FontWeight.bold),
-        //     )),
       ],
     );
   }

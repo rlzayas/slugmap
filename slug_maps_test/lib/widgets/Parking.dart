@@ -36,12 +36,10 @@ class _ParkingState extends State<Parking> {
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
-  List<Marker> allMarkers= [];
 
   _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
-
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
@@ -49,18 +47,16 @@ class _ParkingState extends State<Parking> {
 
   double zoomVal=5.0;
 
-  List<Marker> ParkingLotList = [
+  List<Marker> parkingLotList = [
     // East Remote Parking Lot
     Marker(
       markerId: MarkerId('EastRemoteParkingLot'),
       position: LatLng(36.99203741631251, -122.05312085074124),
       infoWindow: InfoWindow(
         title: 'East Remote Parking Lot',
-        // snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
 
     // Vadim Parking
     Marker(
@@ -68,11 +64,9 @@ class _ParkingState extends State<Parking> {
       position: LatLng(37.003064125211885, -122.05382987511449),
       infoWindow: InfoWindow(
         title: 'Vadim Parking ',
-        // snippet: '630 Crown Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
 
     // BikeLink - UCSC Engineering 2
     Marker(
@@ -80,11 +74,9 @@ class _ParkingState extends State<Parking> {
       position: LatLng(37.00091361781477, -122.06214367853134),
       infoWindow: InfoWindow(
         title: 'BikeLink - UCSC Engineering 2',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
 
     // BikeLink - UCSC Baskin
     Marker(
@@ -92,11 +84,9 @@ class _ParkingState extends State<Parking> {
       position: LatLng(37.000448611438934, -122.06263563208518),
       infoWindow: InfoWindow(
         title: 'BikeLink - UCSC Baskin',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
 
     // BikeLink - Science Library
     Marker(
@@ -104,11 +94,9 @@ class _ParkingState extends State<Parking> {
       position: LatLng(36.99894224131143, -122.06073235461466),
       infoWindow: InfoWindow(
         title: 'BikeLink - Science Library',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
 
     // Parking Lot 114
     Marker(
@@ -116,11 +104,9 @@ class _ParkingState extends State<Parking> {
       position: LatLng(37.00018773303434, -122.05896582287743),
       infoWindow: InfoWindow(
         title: 'Parking Lot 114',
-        // snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
 
     // Zipcar
     Marker(
@@ -128,11 +114,9 @@ class _ParkingState extends State<Parking> {
       position: LatLng(37.000142793660984, -122.05899759905863),
       infoWindow: InfoWindow(
         title: 'Zipcar',
-        // snippet: '630 Crown Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
 
     // North Perimeter
     Marker(
@@ -140,11 +124,9 @@ class _ParkingState extends State<Parking> {
       position: LatLng(37.00254987296524, -122.06590202346045),
       infoWindow: InfoWindow(
         title: 'North Perimeter',
-        // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
 
     // Parking Lot 139A
     Marker(
@@ -152,149 +134,10 @@ class _ParkingState extends State<Parking> {
       position: LatLng(37.001553656934625, -122.06244957438545),
       infoWindow: InfoWindow(
         title: 'Parking Lot 139A',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
-
   ];
-
-//   @override
-//   void initState() {
-//     // TODO: implement initState
-//     super.initState();
-//
-//     // East Remote Parking Lot
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('EastRemoteParkingLot'),
-//       position: LatLng(36.99203741631251, -122.05312085074124),
-//       infoWindow: InfoWindow(
-//         title: 'East Remote Parking Lot',
-//         // snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Vadim Parking
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('VadimParking'),
-//       position: LatLng(37.003064125211885, -122.05382987511449),
-//       infoWindow: InfoWindow(
-//         title: 'Vadim Parking ',
-//         // snippet: '630 Crown Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // BikeLink - UCSC Engineering 2
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('BikeLinkUCSCEngineering2'),
-//       position: LatLng(37.00091361781477, -122.06214367853134),
-//       infoWindow: InfoWindow(
-//         title: 'BikeLink - UCSC Engineering 2',
-//         // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // BikeLink - UCSC Baskin
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('BikeLinkUCSCBaskin'),
-//       position: LatLng(37.000448611438934, -122.06263563208518),
-//       infoWindow: InfoWindow(
-//         title: 'BikeLink - UCSC Baskin',
-//         // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // BikeLink - Science Library
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('BikeLinkScienceLibrary'),
-//       position: LatLng(36.99894224131143, -122.06073235461466),
-//       infoWindow: InfoWindow(
-//         title: 'BikeLink - Science Library',
-//         // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Parking Lot 114
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('ParkingLot114'),
-//       position: LatLng(37.00018773303434, -122.05896582287743),
-//       infoWindow: InfoWindow(
-//         title: 'Parking Lot 114',
-//         // snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Zipcar
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('Zipcar'),
-//       position: LatLng(37.000142793660984, -122.05899759905863),
-//       infoWindow: InfoWindow(
-//         title: 'Zipcar',
-//         // snippet: '630 Crown Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // North Perimeter
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('NorthPerimeter'),
-//       position: LatLng(37.00254987296524, -122.06590202346045),
-//       infoWindow: InfoWindow(
-//         title: 'North Perimeter',
-//         // snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Parking Lot 139A
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('ParkingLot139A'),
-//       position: LatLng(37.001553656934625, -122.06244957438545),
-//       infoWindow: InfoWindow(
-//         title: 'Parking Lot 139A',
-//         // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Parking Lots'),
-//       ),
-//       body: Center(
-//         child: Container(
-//           height: MediaQuery.of(context).size.height,
-//           width: MediaQuery.of(context).size.width,
-//           child: GoogleMap(
-//             initialCameraPosition: CameraPosition(
-//               target: LatLng(36.989043, -122.058611),
-//               zoom: 14.35,
-//             ),
-//             markers: Set.from(allMarkers),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
   Widget build(BuildContext context) {
     //phone dimensions
@@ -325,7 +168,7 @@ class _ParkingState extends State<Parking> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(ParkingLotList),
+              markers: Set.from(parkingLotList),
             ),
 
             //Container 2: Full Search bar container
@@ -406,32 +249,7 @@ class _ParkingState extends State<Parking> {
                       onPressed: () {
                         Navigator.push(
                             context,
-
-                            // MaterialPageRoute(
-                            //     builder: (context) => slugMapFilter()),
-
-                            // showPinsOnMap(),
-
-                            // MaterialPageRoute(builder: (context) => CollegesFilter()),
-                            // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                            // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
-                            // MaterialPageRoute(builder: (context) => EVMap()),
-
-                            // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
-                            // MaterialPageRoute(builder: (context) => Colleges()),
-                            // MaterialPageRoute(builder: (context) => DiningHalls()),
-                            // MaterialPageRoute(builder: (context) => EVChargeStation()),
-                            // MaterialPageRoute(builder: (context) => WaterFillStation()),
-                            // MaterialPageRoute(builder: (context) => Views()),
-
-                            // MaterialPageRoute(builder: (context) => BusStops())
-                            // MaterialPageRoute(builder: (context) => Parking())
-                          // MaterialPageRoute(builder: (context) => Libraries())
-                          MaterialPageRoute(builder: (context) => HikingTrails())
-
-                          // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
+                            MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )
@@ -454,50 +272,12 @@ class _ParkingState extends State<Parking> {
               ),
 
             ),
-            _zoomminusfunction(),
-            _zoomplusfunction(),
             _buildContainer(),
           ],
         ),
       ),
     ); //812 x 375
   }
-
-
-  Widget _zoomminusfunction() {
-
-    return Align(
-      alignment: Alignment.topLeft,
-      child: IconButton(
-          icon: Icon(Icons.home),//Icon(FontAwesomeIcons.searchMinus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal--;
-            _minus( zoomVal);
-          }),
-    );
-  }
-  Widget _zoomplusfunction() {
-
-    return Align(
-      alignment: Alignment.topRight,
-      child: IconButton(
-          icon: Icon(Icons.add),//Icon(FontAwesomeIcons.searchPlus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal++;
-            _plus(zoomVal);
-          }),
-    );
-  }
-
-  Future<void> _minus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.712776, -74.005974), zoom: zoomVal)));
-  }
-  Future<void> _plus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(36.989043, -122.058611), zoom: zoomVal)));
-  }
-
 
   Widget _buildContainer() {
     return Align(
@@ -535,7 +315,7 @@ class _ParkingState extends State<Parking> {
     );
   }
 
-  Widget _boxes(String _image, double lat,double long,String restaurantName, String info) {
+  Widget _boxes(String _image, double lat,double long,String title, String snippet) {
     return  GestureDetector(
       onTap: () {
         _gotoLocation(lat,long);
@@ -575,7 +355,7 @@ class _ParkingState extends State<Parking> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child:
-                      myDetailsContainer1(restaurantName, info),),
+                      myDetailsContainer1(title, snippet),),
                   )
 
                 ],)
@@ -585,14 +365,14 @@ class _ParkingState extends State<Parking> {
     );
   }
 
-  Widget myDetailsContainer1(String restaurantName, String info) {
+  Widget myDetailsContainer1(String title, String snippet) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Container(
-              child: Text(restaurantName,
+              child: Text(title,
                 style: TextStyle(
                     color: Color(0xff6200ee),
                     fontSize: 24.0,
@@ -606,75 +386,14 @@ class _ParkingState extends State<Parking> {
               children: <Widget>[
                 Container(
                     child: Text(
-                      info,
+                      snippet,
                       style: TextStyle(
                         color: Colors.black54,
                         fontSize: 18.0,
                       ),
                     )),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStarHalf,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //             child: Text(
-                //               "(946)",
-                //               style: TextStyle(
-                //                 color: Colors.black54,
-                //                 fontSize: 18.0,
-                //               ),
-                //             )),
               ],
             )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "American \u00B7 \u0024\u0024 \u00B7 1.6 mi",
-        //       style: TextStyle(
-        //         color: Colors.black54,
-        //         fontSize: 18.0,
-        //       ),
-        //     )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "Closed \u00B7 Opens 17:00 Thu",
-        //       style: TextStyle(
-        //           color: Colors.black54,
-        //           fontSize: 18.0,
-        //           fontWeight: FontWeight.bold),
-        //     )),
       ],
     );
   }

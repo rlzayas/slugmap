@@ -36,12 +36,10 @@ class _DiningHallsState extends State<DiningHalls> {
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
-  List<Marker> allMarkers= [];
 
   _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
-
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
@@ -49,7 +47,8 @@ class _DiningHallsState extends State<DiningHalls> {
 
   double zoomVal=5.0;
 
-  List<Marker> DiningHallList = [
+  List<Marker> diningHallList = [
+    // College 9 & 10 Dining Hall
     Marker(
       markerId: MarkerId('9&10DH'),
       position: LatLng(37.00074493904557, -122.05776568771819),
@@ -59,6 +58,8 @@ class _DiningHallsState extends State<DiningHalls> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
+
+    // Crown/Merrill Dining Hall
     Marker(
       markerId: MarkerId('CrownMerrillDH'),
       position: LatLng(37.00014429303811, -122.05440605538377),
@@ -68,6 +69,8 @@ class _DiningHallsState extends State<DiningHalls> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
+
+    // Cowell/ Stevenson Dining Hall
     Marker(
       markerId: MarkerId('CowellStevensonDH'),
       position: LatLng(36.99684124370638, -122.05303038435036),
@@ -77,6 +80,8 @@ class _DiningHallsState extends State<DiningHalls> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
+
+    // Porter Kresge Dining Hall
     Marker(
       markerId: MarkerId('PorterKresgeDH'),
       position: LatLng(36.99431757933324, -122.06594174458701),
@@ -86,6 +91,8 @@ class _DiningHallsState extends State<DiningHalls> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
+
+    // Rachel Carson/Oaks College Dining Hall
     Marker(
       markerId: MarkerId('RCCOaksDH'),
       position: LatLng(36.99169329799685, -122.06539542111443),
@@ -96,95 +103,6 @@ class _DiningHallsState extends State<DiningHalls> {
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
     ),
   ];
-
-//   @override
-//   void initState() {
-//     // TODO: implement initState
-//     super.initState();
-//
-//     // College 9 and College 10 Dining Hall Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('9&10DH'),
-//       position: LatLng(37.00074493904557, -122.05776568771819),
-//       infoWindow: InfoWindow(
-//         title: 'Colleges 9 & 10 Dining Hall',
-//         snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Crown College and Merill College Dining Hall Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('CrownMerrillDH'),
-//       position: LatLng(37.00014429303811, -122.05440605538377),
-//       infoWindow: InfoWindow(
-//         title: 'Crown/Merrill Dining Hall',
-//         snippet: '630 Crown Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Cowell College and Stevenson College Dining Hall Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('CowellStevensonDH'),
-//       position: LatLng(36.99684124370638, -122.05303038435036),
-//       infoWindow: InfoWindow(
-//         title: 'Cowell/Stevenson Dining Hall',
-//         snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Porter College and Kresge College Dining Hall Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('PorterKresgeDH'),
-//       position: LatLng(36.99431757933324, -122.06594174458701),
-//       infoWindow: InfoWindow(
-//         title: 'Porter/Kresge Dining Hall',
-//         snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Rachel Carson College and Oakes College Dining Hall Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('RCCOaksDH'),
-//       position: LatLng(36.99169329799685, -122.06539542111443),
-//       infoWindow: InfoWindow(
-//         title: 'Rachel Carson/Oaks Dining Hall',
-//         snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('College Dining Halls'),
-//       ),
-//       body: Center(
-//         child: Container(
-//           height: MediaQuery.of(context).size.height,
-//           width: MediaQuery.of(context).size.width,
-//           child: GoogleMap(
-//             initialCameraPosition: CameraPosition(
-//               target: LatLng(36.989043, -122.058611),
-//               zoom: 14.35,
-//             ),
-//             markers: Set.from(allMarkers),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
   Widget build(BuildContext context) {
     //phone dimensions
@@ -215,7 +133,7 @@ class _DiningHallsState extends State<DiningHalls> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(DiningHallList),
+              markers: Set.from(diningHallList),
             ),
 
             //Container 2: Full Search bar container
@@ -297,31 +215,7 @@ class _DiningHallsState extends State<DiningHalls> {
                         Navigator.push(
                             context,
 
-                            // MaterialPageRoute(
-                            //     builder: (context) => slugMapFilter()),
-
-                            // showPinsOnMap(),
-
-                            // MaterialPageRoute(builder: (context) => CollegesFilter()),
-                            // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                            // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
-                            // MaterialPageRoute(builder: (context) => EVMap()),
-
-                            // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
-                            // MaterialPageRoute(builder: (context) => Colleges()),
-                            // MaterialPageRoute(builder: (context) => DiningHalls()),
-                            MaterialPageRoute(builder: (context) => EVChargeStation()),
-                            // MaterialPageRoute(builder: (context) => WaterFillStation()),
-                            // MaterialPageRoute(builder: (context) => Views()),
-
-                            // MaterialPageRoute(builder: (context) => BusStops())
-                            // MaterialPageRoute(builder: (context) => Parking())
-                          // MaterialPageRoute(builder: (context) => Libraries())
-                          // MaterialPageRoute(builder: (context) => HikingTrails())
-
-                          // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
+                          MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )
@@ -344,50 +238,12 @@ class _DiningHallsState extends State<DiningHalls> {
               ),
 
             ),
-            _zoomminusfunction(),
-            _zoomplusfunction(),
             _buildContainer(),
           ],
         ),
       ),
     ); //812 x 375
   }
-
-
-  Widget _zoomminusfunction() {
-
-    return Align(
-      alignment: Alignment.topLeft,
-      child: IconButton(
-          icon: Icon(Icons.home),//Icon(FontAwesomeIcons.searchMinus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal--;
-            _minus( zoomVal);
-          }),
-    );
-  }
-  Widget _zoomplusfunction() {
-
-    return Align(
-      alignment: Alignment.topRight,
-      child: IconButton(
-          icon: Icon(Icons.add),//Icon(FontAwesomeIcons.searchPlus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal++;
-            _plus(zoomVal);
-          }),
-    );
-  }
-
-  Future<void> _minus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.712776, -74.005974), zoom: zoomVal)));
-  }
-  Future<void> _plus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(36.989043, -122.058611), zoom: zoomVal)));
-  }
-
 
   Widget _buildContainer() {
     return Align(
@@ -402,22 +258,36 @@ class _DiningHallsState extends State<DiningHalls> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern", 'hola'),
+                  "https://lh5.googleusercontent.com/p/AF1QipP5mognyo-FvIKU1jNOFGC0eLwkIuAkipfzb36s=w408-h544-k-no",
+                  36.99169329799685, -122.06539542111443,"Rachel Carson/Oaks Dining Hall", '6 College Eight Service Rd, Santa Cruz, CA 95064'),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin", 'wassup'),
+                  "https://lh5.googleusercontent.com/p/AF1QipOeA9tRpkXqf0nm4X_YFgjVcwmMioO2Io740htB=w408-h306-k-no",
+                  36.99431757933324, -122.06594174458701,"Porter/Kresge Dining Hall", '411 Porter-Kresge Rd, Santa Cruz, CA 95064'),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Slug Maps", "DSC Solution Challenge"),
+                  "https://lh5.googleusercontent.com/p/AF1QipP7b_BEmtJi91lrU0F4EGsVftZ3BBHhpNT6rEAo=w195-h120-p-k-no",
+                  36.99684124370638, -122.05303038435036,"Cowell/Stevenson Dining Hall", "520 Cowell-Stevenson Road, Santa Cruz, CA 95064"),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipNLSLmQqoAyuea_WjikR0qF8F19Y-XJPXk1_Gzh=w426-h240-k-no",
+                  37.00014429303811, -122.05440605538377,"Crown/Merrill Dining Hall", '630 Crown Rd, Santa Cruz, CA 95064'),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOLytcXhHeO9EOe-2jWmShft0l2u58T0ayW0mFp=w408-h306-k-no",
+                  37.00074493904557, -122.05776568771819,"Colleges 9 & 10 Dining Hall", "McLaughlin Dr, Santa Cruz, CA 95064"),
             ),
           ],
         ),
@@ -425,7 +295,7 @@ class _DiningHallsState extends State<DiningHalls> {
     );
   }
 
-  Widget _boxes(String _image, double lat,double long,String restaurantName, String info) {
+  Widget _boxes(String _image, double lat,double long,String title, String snippet) {
     return  GestureDetector(
       onTap: () {
         _gotoLocation(lat,long);
@@ -465,7 +335,7 @@ class _DiningHallsState extends State<DiningHalls> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child:
-                      myDetailsContainer1(restaurantName, info),),
+                      myDetailsContainer1(title, snippet),),
                   )
 
                 ],)
@@ -475,14 +345,14 @@ class _DiningHallsState extends State<DiningHalls> {
     );
   }
 
-  Widget myDetailsContainer1(String restaurantName, String info) {
+  Widget myDetailsContainer1(String title, String snippet) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Container(
-              child: Text(restaurantName,
+              child: Text(title,
                 style: TextStyle(
                     color: Color(0xff6200ee),
                     fontSize: 24.0,
@@ -496,75 +366,14 @@ class _DiningHallsState extends State<DiningHalls> {
               children: <Widget>[
                 Container(
                     child: Text(
-                      info,
+                      snippet,
                       style: TextStyle(
                         color: Colors.black54,
                         fontSize: 18.0,
                       ),
                     )),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStarHalf,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //             child: Text(
-                //               "(946)",
-                //               style: TextStyle(
-                //                 color: Colors.black54,
-                //                 fontSize: 18.0,
-                //               ),
-                //             )),
               ],
             )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "American \u00B7 \u0024\u0024 \u00B7 1.6 mi",
-        //       style: TextStyle(
-        //         color: Colors.black54,
-        //         fontSize: 18.0,
-        //       ),
-        //     )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "Closed \u00B7 Opens 17:00 Thu",
-        //       style: TextStyle(
-        //           color: Colors.black54,
-        //           fontSize: 18.0,
-        //           fontWeight: FontWeight.bold),
-        //     )),
       ],
     );
   }

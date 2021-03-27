@@ -36,12 +36,10 @@ class _ViewsState extends State<Views> {
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
-  List<Marker> allMarkers= [];
 
   _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
-
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
@@ -49,7 +47,7 @@ class _ViewsState extends State<Views> {
 
   double zoomVal=5.0;
 
-  List<Marker> ViewsList = [
+  List<Marker> viewsList = [
   // Stevenson Knoll Marker
     Marker(
         markerId: MarkerId('Stevenson Knoll'),
@@ -60,7 +58,6 @@ class _ViewsState extends State<Views> {
         ),
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
     ),
-
 
     // Porter Squiggle Marker
     Marker(
@@ -73,7 +70,6 @@ class _ViewsState extends State<Views> {
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
     ),
 
-
     // Pogonip Vista Point Marker
     Marker(
       markerId: MarkerId('Pogonip Vista Point'),
@@ -85,18 +81,38 @@ class _ViewsState extends State<Views> {
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
     ),
 
+    // Pogonip Historic Limekiln
+    Marker(
+      markerId: MarkerId('PogonipHistoricLimekiln'),
+      position: LatLng(37.00130432638354, -122.04928003710356),
+      infoWindow: InfoWindow(
+        title: 'Pogonip Historic Limekiln',
+        snippet: 'Lime Kiln Trail, Santa Cruz, CA 95060',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+    ),
+
+    // Pogonip
+    Marker(
+      markerId: MarkerId('Pogonip'),
+      position: LatLng(36.99550145357614, -122.04428228370232),
+      infoWindow: InfoWindow(
+        title: 'Pogonip',
+        snippet: '333 Golf Club Dr, Santa Cruz, CA 95060',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+    ),
 
     // Buddha Statue
     Marker(
-      markerId: MarkerId('Buddha Statue'),
-      position: LatLng(37.00640001041473, -122.05983770638275),
+      markerId: MarkerId('BuddhaStatue'),
+      position: LatLng(37.00660409811856, -122.06003603558892),
       infoWindow: InfoWindow(
         title: 'Buddha Statue',
         // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
     ),
-
 
     // Tree 9
     Marker(
@@ -106,99 +122,19 @@ class _ViewsState extends State<Views> {
         title: 'Tree 9',
         // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
     ),
 
+    // Garden of Eden
+    Marker(
+        markerId: MarkerId('GardenOfEden'),
+        position: LatLng(37.024758967944, -122.0580458659901),
+        infoWindow: InfoWindow(
+          title: 'Garden of Eden',
+        ),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+    ),
   ];
-
-//   @override
-//   void initState() {
-//     // TODO: implement initState
-//     super.initState();
-//
-//     // Stevenson Knoll Marker
-//     allMarkers.add(Marker(
-//         markerId: MarkerId('Stevenson Knoll'),
-//         position: LatLng(36.996041133200166, -122.05165615971505),
-//         infoWindow: InfoWindow(
-//           title: 'Stevenson Knoll',
-//           snippet: 'Casa Sexta, Santa Cruz, CA 95064',
-//         ),
-//         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange)
-//     )
-//     );
-//
-//     // Porter Squiggle Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('Porter Squiggle'),
-//       position: LatLng(36.99340877871167, -122.06515297320963),
-//       infoWindow: InfoWindow(
-//         title: 'Porter Squiggle',
-//         snippet: '200 Heller Dr, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
-//     ),
-//     );
-//
-//     // Pogonip Vista Point Marker
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('Pogonip Vista Point'),
-//       position: LatLng(36.99067567820772, -122.04909315971524),
-//       infoWindow: InfoWindow(
-//         title: 'Pogonip Vista Point',
-//         snippet: 'Santa Cruz, CA 95060',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
-//     ),
-//     );
-//
-//     // Buddha Statue
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('Buddha Statue'),
-//       position: LatLng(37.00640001041473, -122.05983770638275),
-//       infoWindow: InfoWindow(
-//         title: 'Buddha Statue',
-//         // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//
-//     // Tree 9
-//     allMarkers.add(Marker(
-//       markerId: MarkerId('Tree9'),
-//       position: LatLng(37.004851356158554, -122.06020253899865),
-//       infoWindow: InfoWindow(
-//         title: 'Tree 9',
-//         // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
-//       ),
-//       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-//     ),
-//     );
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Santa Cruz Views'),
-//       ),
-//       body: Center(
-//         child: Container(
-//           height: MediaQuery.of(context).size.height,
-//           width: MediaQuery.of(context).size.width,
-//           child: GoogleMap(
-//             initialCameraPosition: CameraPosition(
-//               target: LatLng(36.989043, -122.058611),
-//               zoom: 14.35,
-//             ),
-//             markers: Set.from(allMarkers),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
   Widget build(BuildContext context) {
     //phone dimensions
@@ -229,7 +165,7 @@ class _ViewsState extends State<Views> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(ViewsList),
+              markers: Set.from(viewsList),
             ),
 
             //Container 2: Full Search bar container
@@ -311,31 +247,8 @@ class _ViewsState extends State<Views> {
                         Navigator.push(
                             context,
 
-                            // MaterialPageRoute(
-                            //     builder: (context) => slugMapFilter()),
-
-                            // showPinsOnMap(),
-
-                            // MaterialPageRoute(builder: (context) => CollegesFilter()),
-                            // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                            // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
-                            // MaterialPageRoute(builder: (context) => EVMap()),
-
-                            // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
-                            // MaterialPageRoute(builder: (context) => Colleges()),
-                            // MaterialPageRoute(builder: (context) => DiningHalls()),
-                            // MaterialPageRoute(builder: (context) => EVChargeStation()),
-                            // MaterialPageRoute(builder: (context) => WaterFillStation()),
-                            // MaterialPageRoute(builder: (context) => Views()),
-
-                            MaterialPageRoute(builder: (context) => BusStops())
-                            // MaterialPageRoute(builder: (context) => Parking())
-                          // MaterialPageRoute(builder: (context) => Libraries())
-                          // MaterialPageRoute(builder: (context) => HikingTrails())
-
-                          // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
+                            MaterialPageRoute(
+                                builder: (context) => slugMapFilter()),
                         );
                       }
                   )
@@ -358,50 +271,12 @@ class _ViewsState extends State<Views> {
               ),
 
             ),
-            _zoomminusfunction(),
-            _zoomplusfunction(),
             _buildContainer(),
           ],
         ),
       ),
     ); //812 x 375
   }
-
-
-  Widget _zoomminusfunction() {
-
-    return Align(
-      alignment: Alignment.topLeft,
-      child: IconButton(
-          icon: Icon(Icons.home),//Icon(FontAwesomeIcons.searchMinus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal--;
-            _minus( zoomVal);
-          }),
-    );
-  }
-  Widget _zoomplusfunction() {
-
-    return Align(
-      alignment: Alignment.topRight,
-      child: IconButton(
-          icon: Icon(Icons.add),//Icon(FontAwesomeIcons.searchPlus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal++;
-            _plus(zoomVal);
-          }),
-    );
-  }
-
-  Future<void> _minus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.712776, -74.005974), zoom: zoomVal)));
-  }
-  Future<void> _plus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(36.989043, -122.058611), zoom: zoomVal)));
-  }
-
 
   Widget _buildContainer() {
     return Align(
@@ -416,22 +291,57 @@ class _ViewsState extends State<Views> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern", 'hola'),
+                  "https://lh5.googleusercontent.com/p/AF1QipMDxwJSE9UOylP6EmegE7yEQKsK_IB83YK9eGbx=w408-h739-k-no",
+                  37.004851356158554, -122.06020253899865,"Tree 9", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin", 'wassup'),
+                  "https://lh5.googleusercontent.com/p/AF1QipMrKKlNI9IaQEmofFisCV5MfbD8GGqATEaWrrvb=w408-h306-k-no",
+                  37.00660409811856, -122.06003603558892,"Buddha Statue", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Slug Maps", "DSC Solution Challenge"),
+                  "https://lh5.googleusercontent.com/p/AF1QipMY6SXi_MN_NoW73V3G7-1oHV_K7hmHHH_QcJ_h=w408-h306-k-no",
+                  37.024758967944, -122.0580458659901,"Garden of Eden - Henry Cowell Redwood State Park", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipP5uXSS6OVv5_qyHgNyrLR_A23Rs6aIq2-z4Cw=w408-h240-k-no-pi0-ya47.170418-ro0-fo100",
+                  36.99067567820772, -122.04909315971524,"Pogonip Vista Point", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOIKefoiJJ8tjGT6XYzXOTV_ntuBmNy0_pfp_Y=w408-h306-k-no",
+                  36.99550145357614, -122.04428228370232,"Pogonip", '333 Golf Club Dr, Santa Cruz, CA 95060'),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOpm9lF4mlqHVtgekifhteeOYmtIraNj8l-KM2v=w408-h306-k-no",
+                  37.00130432638354, -122.04928003710356,"Pogonip Historic Limekiln", 'Lime Kiln Trail, Santa Cruz, CA 95060'),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipPqN_Q-GAVRbGioHSPCHU1fqrthO-hoN2OEvlfS=w408-h306-k-no",
+                  36.99340877871167, -122.06515297320963,"Porter Squiggle", "200 Heller Dr, Santa Cruz, CA 95064"),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMWbGItmUxm723i7lxgGrdWV-utM1jHcatQMnmE=w408-h240-k-no-pi-0-ya155.2-ro-0-fo100",
+                  36.996041133200166, -122.05165615971505,"Stevenson Knoll", "Casa Sexta, Santa Cruz, CA 95064"),
             ),
           ],
         ),
@@ -439,7 +349,7 @@ class _ViewsState extends State<Views> {
     );
   }
 
-  Widget _boxes(String _image, double lat,double long,String restaurantName, String info) {
+  Widget _boxes(String _image, double lat,double long,String title, String snippet) {
     return  GestureDetector(
       onTap: () {
         _gotoLocation(lat,long);
@@ -479,7 +389,7 @@ class _ViewsState extends State<Views> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child:
-                      myDetailsContainer1(restaurantName, info),),
+                      myDetailsContainer1(title, snippet),),
                   )
 
                 ],)
@@ -489,14 +399,14 @@ class _ViewsState extends State<Views> {
     );
   }
 
-  Widget myDetailsContainer1(String restaurantName, String info) {
+  Widget myDetailsContainer1(String title, String snippet) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Container(
-              child: Text(restaurantName,
+              child: Text(title,
                 style: TextStyle(
                     color: Color(0xff6200ee),
                     fontSize: 24.0,
@@ -510,75 +420,14 @@ class _ViewsState extends State<Views> {
               children: <Widget>[
                 Container(
                     child: Text(
-                      info,
+                      snippet,
                       style: TextStyle(
                         color: Colors.black54,
                         fontSize: 18.0,
                       ),
                     )),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStarHalf,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //             child: Text(
-                //               "(946)",
-                //               style: TextStyle(
-                //                 color: Colors.black54,
-                //                 fontSize: 18.0,
-                //               ),
-                //             )),
               ],
             )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "American \u00B7 \u0024\u0024 \u00B7 1.6 mi",
-        //       style: TextStyle(
-        //         color: Colors.black54,
-        //         fontSize: 18.0,
-        //       ),
-        //     )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "Closed \u00B7 Opens 17:00 Thu",
-        //       style: TextStyle(
-        //           color: Colors.black54,
-        //           fontSize: 18.0,
-        //           fontWeight: FontWeight.bold),
-        //     )),
       ],
     );
   }

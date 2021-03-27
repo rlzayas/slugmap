@@ -36,12 +36,10 @@ class _CollegesState extends State<Colleges> {
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
-  List<Marker> allMarkers= [];
 
   _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
-
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
@@ -49,137 +47,8 @@ class _CollegesState extends State<Colleges> {
 
   double zoomVal=5.0;
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //
-  //   // Cowell College Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('CowellCollege'),
-  //     position: LatLng(36.99737038347433, -122.05427346220672),
-  //     infoWindow: InfoWindow(
-  //       title: 'Cowell College',
-  //       snippet: '1156 High St, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //     //   BitmapDescriptor.fromAssetImage(
-  //     //       ImageConfiguration(devicePixelRatio: 2.0),
-  //     //       'assets/marker_icons/College.svg'
-  //     // icon: BitmapDescriptor.fromAssetImage(ImageConfiguration(devicePixelRatio: 2.0), 'assets/marker_icons/College.svg')
-  //   ),
-  //   );
-  //
-  //   // Stevenson College Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('StevensonCollege'),
-  //     position: LatLng(36.99718747230962, -122.0519119377878),
-  //     infoWindow: InfoWindow(
-  //       title: 'Stevenson College',
-  //       snippet: '1156 High St, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  //
-  //   // Crown College Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('CrownCollege'),
-  //     position: LatLng(37.00044004525279, -122.05452639437944),
-  //     infoWindow: InfoWindow(
-  //       title: 'Crown College',
-  //       snippet: '628 Crown Rd, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  //
-  //   // Merill College Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('MerrillCollege'),
-  //     position: LatLng(36.99996850267072, -122.05330945824518),
-  //     infoWindow: InfoWindow(
-  //       title: 'Merrill College',
-  //       snippet: '641 Merrill Rd, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  //
-  //   // Porter College Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('PorterCollege'),
-  //     position: LatLng(36.99460980922041, -122.0653309811971),
-  //     infoWindow: InfoWindow(
-  //       title: 'Porter College',
-  //       snippet: '1156 High Street, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  //
-  //   // Kresge College Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('KresgeCollege'),
-  //     position: LatLng(36.99765919789214, -122.06676649796817),
-  //     infoWindow: InfoWindow(
-  //       title: 'Kresge College',
-  //       snippet: '510 Porter-Kresge Rd, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  //
-  //   // Oakes College Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('OaksCollege'),
-  //     position: LatLng(36.989929657499914, -122.06277255820748),
-  //     infoWindow: InfoWindow(
-  //       title: 'Oaks College',
-  //       snippet: '231 Oakes Rd, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  //
-  //   // Rachel Carson College Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('RachelCarsonCollege'),
-  //     position: LatLng(36.99151711141353, -122.0647350052343),
-  //     infoWindow: InfoWindow(
-  //       title: 'Rachel Carson College',
-  //       snippet: '356 Rachel Carson Rd, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  //
-  //   // College 9 Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('College9'),
-  //     position: LatLng(37.00173913642322, -122.05729768589005),
-  //     infoWindow: InfoWindow(
-  //       title: 'College 9',
-  //       snippet: '702 College Nine Rd, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  //
-  //   // College 10 Marker
-  //   allMarkers.add(Marker(
-  //     markerId: MarkerId('College10'),
-  //     position: LatLng(37.00083458438215, -122.05857488511316),
-  //     infoWindow: InfoWindow(
-  //       title: 'College 10',
-  //       snippet: '710 College Ten Rd, Santa Cruz, CA 95064',
-  //     ),
-  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-  //   ),
-  //   );
-  // }
-
-  List<Marker> CollegesList = [
+  List<Marker> collegesList = [
+    // Cowell College
     Marker(
       markerId: MarkerId('CowellCollege'),
       position: LatLng(36.99737038347433, -122.05427346220672),
@@ -188,11 +57,9 @@ class _CollegesState extends State<Colleges> {
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-      //   BitmapDescriptor.fromAssetImage(
-      //       ImageConfiguration(devicePixelRatio: 2.0),
-      //       'assets/marker_icons/College.svg')
-      // icon: BitmapDescriptor.fromAssetImage(ImageConfiguration(devicePixelRatio: 2.0), 'assets/marker_icons/College.svg')
     ),
+
+    // Stevenson College
     Marker(
       markerId: MarkerId('StevensonCollege'),
       position: LatLng(36.99718747230962, -122.0519119377878),
@@ -202,6 +69,8 @@ class _CollegesState extends State<Colleges> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
+
+    //Crown College
     Marker(
       markerId: MarkerId('CrownCollege'),
       position: LatLng(37.00044004525279, -122.05452639437944),
@@ -211,6 +80,8 @@ class _CollegesState extends State<Colleges> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
+
+    // Merrill College
     Marker(
       markerId: MarkerId('MerrillCollege'),
       position: LatLng(36.99996850267072, -122.05330945824518),
@@ -220,6 +91,8 @@ class _CollegesState extends State<Colleges> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
+
+    // Porter College
     Marker(
       markerId: MarkerId('PorterCollege'),
       position: LatLng(36.99460980922041, -122.0653309811971),
@@ -229,6 +102,8 @@ class _CollegesState extends State<Colleges> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
+
+    // Kresge College
     Marker(
       markerId: MarkerId('KresgeCollege'),
       position: LatLng(36.99765919789214, -122.06676649796817),
@@ -238,6 +113,8 @@ class _CollegesState extends State<Colleges> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
+
+    // Oaks College
     Marker(
       markerId: MarkerId('OaksCollege'),
       position: LatLng(36.989929657499914, -122.06277255820748),
@@ -247,6 +124,8 @@ class _CollegesState extends State<Colleges> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
+
+    // RCC College
     Marker(
       markerId: MarkerId('RachelCarsonCollege'),
       position: LatLng(36.99151711141353, -122.0647350052343),
@@ -256,6 +135,8 @@ class _CollegesState extends State<Colleges> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
+
+    // College 9
     Marker(
       markerId: MarkerId('College9'),
       position: LatLng(37.00173913642322, -122.05729768589005),
@@ -265,6 +146,8 @@ class _CollegesState extends State<Colleges> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
+
+    // College 10
     Marker(
       markerId: MarkerId('College10'),
       position: LatLng(37.00083458438215, -122.05857488511316),
@@ -275,30 +158,6 @@ class _CollegesState extends State<Colleges> {
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     ),
   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Colleges'),
-//       ),
-//       body: Center(
-//         child: Container(
-//           height: MediaQuery.of(context).size.height,
-//           width: MediaQuery.of(context).size.width,
-//           child: GoogleMap(
-//             initialCameraPosition: CameraPosition(
-//               target: LatLng(36.989043, -122.058611),
-//               zoom: 14.35,
-//             ),
-//             // markers: Set.from(allMarkers),
-//             markers: Set.from(DiningHallList),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
   Widget build(BuildContext context) {
     //phone dimensions
@@ -329,7 +188,7 @@ class _CollegesState extends State<Colleges> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(CollegesList),
+              markers: Set.from(collegesList),
             ),
 
             //Container 2: Full Search bar container
@@ -411,30 +270,7 @@ class _CollegesState extends State<Colleges> {
                         Navigator.push(
                             context,
 
-                            // MaterialPageRoute(
-                            //     builder: (context) => slugMapFilter()),
-
-                            // showPinsOnMap(),
-
-                            // MaterialPageRoute(builder: (context) => CollegesFilter()),
-                            // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                            // MaterialPageRoute(builder: (context) => EVFilterPage()), //works
-                            // MaterialPageRoute(builder: (context) => EVMap()),
-
-                            // MaterialPageRoute(builder: (context) => EVScreen()), //works
-
-                            // MaterialPageRoute(builder: (context) => Colleges()),
-                            MaterialPageRoute(builder: (context) => DiningHalls()),
-                            // MaterialPageRoute(builder: (context) => EVChargeStation()),
-                            // MaterialPageRoute(builder: (context) => WaterFillStation()),
-                            // MaterialPageRoute(builder: (context) => Views()),
-
-                            // MaterialPageRoute(builder: (context) => BusStops())
-                            // MaterialPageRoute(builder: (context) => Parking())
-                          // MaterialPageRoute(builder: (context) => Libraries())
-                          // MaterialPageRoute(builder: (context) => HikingTrails())
-
-                          // MaterialPageRoute(builder: (context) => EVScreen()), //works
+                            MaterialPageRoute(builder: (context) => slugMapFilter()),
 
                         );
                       }
@@ -458,50 +294,12 @@ class _CollegesState extends State<Colleges> {
               ),
 
             ),
-            _zoomminusfunction(),
-            _zoomplusfunction(),
             _buildContainer(),
           ],
         ),
       ),
     ); //812 x 375
   }
-
-
-  Widget _zoomminusfunction() {
-
-    return Align(
-      alignment: Alignment.topLeft,
-      child: IconButton(
-          icon: Icon(Icons.home),//Icon(FontAwesomeIcons.searchMinus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal--;
-            _minus( zoomVal);
-          }),
-    );
-  }
-  Widget _zoomplusfunction() {
-
-    return Align(
-      alignment: Alignment.topRight,
-      child: IconButton(
-          icon: Icon(Icons.add),//Icon(FontAwesomeIcons.searchPlus,color:Color(0xff6200ee)),
-          onPressed: () {
-            zoomVal++;
-            _plus(zoomVal);
-          }),
-    );
-  }
-
-  Future<void> _minus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.712776, -74.005974), zoom: zoomVal)));
-  }
-  Future<void> _plus(double zoomVal) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(36.989043, -122.058611), zoom: zoomVal)));
-  }
-
 
   Widget _buildContainer() {
     return Align(
@@ -516,22 +314,76 @@ class _CollegesState extends State<Colleges> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3VPL9m-b355xWeg4MXmOQTauFAEkavSluTtJU=w225-h160-k-no",
-                  40.738380, -73.988426,"Gramercy Tavern", 'hola'),
+                  "https://lh5.googleusercontent.com/p/AF1QipNhx5Qwz4qrEcYLREogVSdL-MDV6G4mu_G5AkJy=w426-h240-k-no",
+                  36.99737038347433, -122.05427346220672,"Cowell College", '1156 High St, Santa Cruz, CA 95064'),
+            ),
+
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMtC02MHqc4aC94j8QD5go2KnmDxSfS6-MPFUBW=w408-h240-k-no-pi-10-ya114.99999-ro-0-fo100",
+                  36.99718747230962, -122.0519119377878,"Stevenson College", '1156 High St, Santa Cruz, CA 95064'),
+            ),
+
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOIyhMhB0GE98kK-JGb--1uRW3QmK85sV424u1r=w408-h306-k-no",
+                  37.00044004525279, -122.05452639437944,"Crown College", "628 Crown Rd, Santa Cruz, CA 95064"),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMKRN-1zTYMUVPrH-CcKzfTo6Nai7wdL7D8PMkt=w340-h160-k-no",
-                  40.761421, -73.981667,"Le Bernardin", 'wassup'),
+                  "https://lh5.googleusercontent.com/p/AF1QipOuSZSryjYuT-8vlK_HuCUCmdSCQ6wLFSRPnHLO=w408-h306-k-no",
+                  36.99996850267072, -122.05330945824518,"Merrill College", '641 Merrill Rd, Santa Cruz, CA 95064'),
+            ),
+
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipPcPLt9ti9OeoGksu22-qZE0IKlfT_Y29BTeysC=w408-h306-k-no",
+                  36.99460980922041, -122.06533098119717,"Porter College", '1156 High Street, Santa Cruz, CA 95064'),
+            ),
+
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipNaGnwbY3Wq15t3GCBMSXQN1LbwcRz6eTTSxTh4=w408-h544-k-no",
+                  36.99765919789214, -122.06676649796817,"Kresge College", "510 Porter-Kresge Rd, Santa Cruz, CA 95064"),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                  40.732128, -73.999619,"Slug Maps", "DSC Solution Challenge"),
+                  "https://lh5.googleusercontent.com/p/AF1QipOLheqUoXkrxh7dCib6JHR6m2D7zjmjSCMvI9tu=w408-h240-k-no-pi-0-ya88-ro-0-fo100",
+                  36.989929657499914, -122.06277255820748,"Oaks College", '231 Oakes Rd, Santa Cruz, CA 95064'),
+            ),
+
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipO3r2y6WU1uLFQTgCZAAEXdbNBMQQIGUZsa3yvc=w408-h240-k-no-pi-20-ya123-ro0-fo100",
+                  36.99151711141353, -122.0647350052343,"Rachel Carson College", '356 Rachel Carson Rd, Santa Cruz, CA 95064'),
+            ),
+
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipPowPyR7t_8kEB9eR9SQfKPNLoYBfPYyVNQZk9j=w426-h240-k-no",
+                  37.00173913642322, -122.05729768589005,"College 9", "702 College Nine Rd, Santa Cruz, CA 95064"),
+            ),SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOhtB5Na-a36jWl3vxJ1DwTRqFo4mLLQxKu9Vj6=w408-h544-k-no",
+                  37.00083458438215, -122.05857488511316,"College 10", '710 College Ten Rd, Santa Cruz, CA 95064'),
             ),
           ],
         ),
@@ -539,7 +391,7 @@ class _CollegesState extends State<Colleges> {
     );
   }
 
-  Widget _boxes(String _image, double lat,double long,String restaurantName, String info) {
+  Widget _boxes(String _image, double lat,double long,String title, String snippet) {
     return  GestureDetector(
       onTap: () {
         _gotoLocation(lat,long);
@@ -579,7 +431,7 @@ class _CollegesState extends State<Colleges> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child:
-                      myDetailsContainer1(restaurantName, info),),
+                      myDetailsContainer1(title, snippet),),
                   )
 
                 ],)
@@ -589,14 +441,14 @@ class _CollegesState extends State<Colleges> {
     );
   }
 
-  Widget myDetailsContainer1(String restaurantName, String info) {
+  Widget myDetailsContainer1(String title, String snippet) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Container(
-              child: Text(restaurantName,
+              child: Text(title,
                 style: TextStyle(
                     color: Color(0xff6200ee),
                     fontSize: 24.0,
@@ -610,75 +462,14 @@ class _CollegesState extends State<Colleges> {
               children: <Widget>[
                 Container(
                     child: Text(
-                      info,
+                      snippet,
                       style: TextStyle(
                         color: Colors.black54,
                         fontSize: 18.0,
                       ),
                     )),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStar,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //           child: Icon(
-                //             FontAwesomeIcons.solidStarHalf,
-                //             color: Colors.amber,
-                //             size: 15.0,
-                //           ),
-                //         ),
-                //         Container(
-                //             child: Text(
-                //               "(946)",
-                //               style: TextStyle(
-                //                 color: Colors.black54,
-                //                 fontSize: 18.0,
-                //               ),
-                //             )),
               ],
             )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "American \u00B7 \u0024\u0024 \u00B7 1.6 mi",
-        //       style: TextStyle(
-        //         color: Colors.black54,
-        //         fontSize: 18.0,
-        //       ),
-        //     )),
-        // SizedBox(height:5.0),
-        // Container(
-        //     child: Text(
-        //       "Closed \u00B7 Opens 17:00 Thu",
-        //       style: TextStyle(
-        //           color: Colors.black54,
-        //           fontSize: 18.0,
-        //           fontWeight: FontWeight.bold),
-        //     )),
       ],
     );
   }
