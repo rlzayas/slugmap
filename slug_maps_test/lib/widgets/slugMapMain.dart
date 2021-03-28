@@ -441,20 +441,17 @@ class _MapState extends State<slugMapMain> {
                         Navigator.push(
                           context,
                           // showPinsOnMap(),
-<<<<<<< HEAD
                              MaterialPageRoute(builder: (context) => slugMapFilter()),);
                           // MaterialPageRoute(builder: (context) => Colleges()),
                           // MaterialPageRoute(builder: (context) => DiningHalls()),
                           // MaterialPageRoute(builder: (context) => EVChargeStation()),
                           // MaterialPageRoute(builder: (context) => WaterFillStation()),
                           // MaterialPageRoute(builder: (context) => Views()),
-=======
                           // MaterialPageRoute(builder: (context) => CollegesFilter()),
                           // MaterialPageRoute(builder: (context) => EVFilterMap()),
-                          MaterialPageRoute(builder: (context) => EVFilterPage()),
+                          //MaterialPageRoute(builder: (context) => EVFilterPage()),
                           // MaterialPageRoute(builder: (context) => EVMap()),
                           // MaterialPageRoute(builder: (context) => EVScreen()),
->>>>>>> parent of 5c06415 (Merge branch 'Abhi' into Test)
                         );
                       }
                   )
