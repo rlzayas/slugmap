@@ -13,21 +13,10 @@ import 'package:testing_app/widgets/EVChargeStation.dart';
 import 'package:testing_app/widgets/WaterFillStation.dart';
 import 'package:testing_app/widgets/Views.dart';
 
-<<<<<<< Updated upstream
-
-import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
-
-
-
-
-=======
 import 'package:testing_app/widgets/slugMapFilter.dart';
-import 'package:testing_app/widgets/slugMapMain.dart';
-import 'package:testing_app/widgets/slugSearch.dart';
 
->>>>>>> Stashed changes
 class slugMapMain extends StatefulWidget {
   @override
   _MapState createState() => _MapState();
@@ -364,11 +353,10 @@ class _MapState extends State<slugMapMain> {
             Container(
               margin: EdgeInsets.only(
                   top: phoneHeight * .05665024631, left: phoneWidth * .048),
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 
-
-=======
->>>>>>> Stashed changes
+//=======
+//>>>>>>> Stashed changes
               width: phoneWidth * .904,
               height: phoneHeight * .04310344828,
               decoration: BoxDecoration(
@@ -429,13 +417,11 @@ class _MapState extends State<slugMapMain> {
               height: phoneHeight * .02463054187,
               width: phoneWidth * .05866666667,
               margin: EdgeInsets.only(
-<<<<<<< Updated upstream
-                top: phoneHeight * .06650246305,
-                left: phoneWidth * .8693333333),
-=======
+//<<<<<<< Updated upstream
                   top: phoneHeight * .06650246305,
                   left: phoneWidth * .8693333333),
->>>>>>> Stashed changes
+
+//>>>>>>> Stashed changes
               child: Stack(
                 children: <Widget>[
                   FloatingActionButton(
@@ -450,21 +436,20 @@ class _MapState extends State<slugMapMain> {
                           MaterialPageRoute(
                               builder: (context) => slugMapFilter()),
                           // showPinsOnMap(),
-<<<<<<< Updated upstream
-                             MaterialPageRoute(builder: (context) => slugMapFilter()),);
+//<<<<<<< Updated upstream
                           // MaterialPageRoute(builder: (context) => Colleges()),
                           // MaterialPageRoute(builder: (context) => DiningHalls()),
                           // MaterialPageRoute(builder: (context) => EVChargeStation()),
                           // MaterialPageRoute(builder: (context) => WaterFillStation()),
                           // MaterialPageRoute(builder: (context) => Views()),
-=======
+//=======
                           // MaterialPageRoute(builder: (context) => CollegesFilter()),
                           // MaterialPageRoute(builder: (context) => EVFilterMap()),
                           // MaterialPageRoute(
                           //     builder: (context) => EVFilterPage()),
                           // MaterialPageRoute(builder: (context) => EVMap()),
                           // MaterialPageRoute(builder: (context) => EVScreen()),
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
                         );
                       })
                 ],
@@ -487,7 +472,7 @@ class _MapState extends State<slugMapMain> {
     ); //812 x 375
   }
 }
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+//=======
+//>>>>>>> Stashed changes
