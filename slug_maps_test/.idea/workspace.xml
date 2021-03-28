@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb71300-728d-46e3-bf8e-b769ecd67ffc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/widgets/CollegesFilter.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/evFilterMap.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/evFilterPage.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/evPage.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/evScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/Colleges.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/DiningHalls.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/EVChargeStation.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/Views.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/WaterFillStation.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/slugMapMain.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/slugMapMain.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
