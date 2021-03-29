@@ -55,7 +55,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'East Remote Parking Lot',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Vadim Parking
@@ -65,7 +65,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'Vadim Parking ',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // BikeLink - UCSC Engineering 2
@@ -75,7 +75,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'BikeLink - UCSC Engineering 2',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // BikeLink - UCSC Baskin
@@ -85,7 +85,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'BikeLink - UCSC Baskin',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // BikeLink - Science Library
@@ -95,7 +95,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'BikeLink - Science Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Parking Lot 114
@@ -105,7 +105,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'Parking Lot 114',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Zipcar
@@ -115,7 +115,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'Zipcar',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // North Perimeter
@@ -125,7 +125,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'North Perimeter Parking Lot 150',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Parking Lot 139A
@@ -135,7 +135,7 @@ class _ParkingState extends State<Parking> {
       infoWindow: InfoWindow(
         title: 'Parking Lot 139A',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
 

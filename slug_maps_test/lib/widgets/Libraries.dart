@@ -55,7 +55,7 @@ class _LibrariesState extends State<Libraries> {
       infoWindow: InfoWindow(
         title: 'Adlai E. Stevenson Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Page Smith Library
@@ -65,7 +65,7 @@ class _LibrariesState extends State<Libraries> {
       infoWindow: InfoWindow(
         title: 'Page Smith Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Merrill Library
@@ -75,7 +75,7 @@ class _LibrariesState extends State<Libraries> {
       infoWindow: InfoWindow(
         title: 'Merrill Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Crown Library
@@ -85,7 +85,7 @@ class _LibrariesState extends State<Libraries> {
       infoWindow: InfoWindow(
         title: 'Crown Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // McHenry Library
@@ -96,7 +96,7 @@ class _LibrariesState extends State<Libraries> {
         title: 'McHenry Library',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Science & Engineering Library
@@ -106,7 +106,7 @@ class _LibrariesState extends State<Libraries> {
       infoWindow: InfoWindow(
         title: 'Science & Engineering Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Kresge Student Library
@@ -116,7 +116,7 @@ class _LibrariesState extends State<Libraries> {
       infoWindow: InfoWindow(
         title: 'Kresge Student Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Oaks Library
@@ -126,7 +126,7 @@ class _LibrariesState extends State<Libraries> {
       infoWindow: InfoWindow(
         title: 'Oakes Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
 

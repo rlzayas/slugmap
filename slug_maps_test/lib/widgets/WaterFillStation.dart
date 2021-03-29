@@ -56,7 +56,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'ClassroomUnit',
         //snippet: '',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Science Hill
@@ -67,7 +67,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'Science Hill',
         //snippet: '',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Quarry Plaza
@@ -78,7 +78,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'BayTree Bookstore/Quarry Plaza',
         //snippet: '',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     //McHenry Library
@@ -89,7 +89,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'McHenry Library',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Media Theater
@@ -100,7 +100,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'Media Theater',
         snippet: '453 Kerr Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Earth & Marine Sciences Building
@@ -111,7 +111,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'Earth & Marine Sciences Building',
         // snippet: 'Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Opers East Field House
@@ -122,7 +122,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'OPERS Upper East Field House',
         // snippet: 'Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     //Jack baskin Engineering
@@ -133,7 +133,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'Jack Baskin Engineering',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
 

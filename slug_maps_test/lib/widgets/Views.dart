@@ -55,7 +55,7 @@ class _ViewsState extends State<Views> {
       infoWindow: InfoWindow(
         title: 'Cave Gulch',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
   // Stevenson Knoll Marker
@@ -66,7 +66,7 @@ class _ViewsState extends State<Views> {
           title: 'Stevenson Knoll',
           snippet: 'Casa Sexta, Santa Cruz, CA 95064',
         ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Porter Squiggle Marker
@@ -77,7 +77,7 @@ class _ViewsState extends State<Views> {
         title: 'Porter Squiggle',
         snippet: '200 Heller Dr, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Pogonip Vista Point Marker
@@ -88,7 +88,7 @@ class _ViewsState extends State<Views> {
         title: 'Pogonip Vista Point',
         snippet: 'Santa Cruz, CA 95060',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Pogonip Historic Limekiln
@@ -99,7 +99,7 @@ class _ViewsState extends State<Views> {
         title: 'Pogonip Historic Limekiln',
         snippet: 'Lime Kiln Trail, Santa Cruz, CA 95060',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Pogonip
@@ -110,7 +110,7 @@ class _ViewsState extends State<Views> {
         title: 'Pogonip',
         snippet: '333 Golf Club Dr, Santa Cruz, CA 95060',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Buddha Statue
@@ -121,7 +121,7 @@ class _ViewsState extends State<Views> {
         title: 'Buddha Statue',
         // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Tree 9
@@ -132,7 +132,7 @@ class _ViewsState extends State<Views> {
         title: 'Tree 9',
         // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Garden of Eden
@@ -142,7 +142,7 @@ class _ViewsState extends State<Views> {
         infoWindow: InfoWindow(
           title: 'Garden of Eden',
         ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
 

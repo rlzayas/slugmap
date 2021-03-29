@@ -55,7 +55,7 @@ class _HikingTrailsState extends State<HikingTrails> {
       infoWindow: InfoWindow(
         title: 'Cave Gulch Trailhead',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
   // Great Meadow
@@ -65,7 +65,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Great Meadow',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Heller Drive Trailhead
@@ -75,7 +75,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Heller Drive  Trailhead',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // College 9 Trailhead
@@ -85,7 +85,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'College 9 Trailhead',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // College 10 Trailhead
@@ -95,7 +95,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'College 10 Trailhead',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Chinquapin Road Trailhead
@@ -105,7 +105,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Chinquapin Road Trailhead',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // U-Con Trail Trailhead
@@ -115,7 +115,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'U-Con Trail Trailhead',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Koi Pond
@@ -125,7 +125,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Koi Pond',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Pogonip Historic Limekiln
@@ -135,7 +135,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Pogonip Historic Limekiln',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Empire Cave
@@ -145,7 +145,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Empire Cave',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Porter Koi Pond
@@ -155,7 +155,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Porter Koi Pond',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Crown Meadow
@@ -165,7 +165,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Crown Meadow',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Crown Meadow
@@ -175,7 +175,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Crown Meadow',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
 
   // Seep Zone Interpretive Trail
@@ -185,7 +185,7 @@ class _HikingTrailsState extends State<HikingTrails> {
   infoWindow: InfoWindow(
   title: 'Seep Zone Interpretive Trail',
   ),
-  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
   ),
   ];
 

@@ -54,7 +54,7 @@ class _EVChargeStationState extends State<EVChargeStation> {
         title: 'EV ChargePoint Charging Station',
         snippet: '701 Ocean St, Santa Cruz, CA 95060',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange)
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan)
     ),
 
     // EV Charging Station 2 Marker
@@ -65,7 +65,7 @@ class _EVChargeStationState extends State<EVChargeStation> {
         title: 'EV ChargePoint Charging Station',
         snippet: ' McLaughlin Dr, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // EV Charging Station 3 Marker
@@ -76,7 +76,7 @@ class _EVChargeStationState extends State<EVChargeStation> {
         title: 'EV ChargePoint Charging Station',
         snippet: '911 Soquel Ave, Santa Cruz, CA 95062',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
   ];

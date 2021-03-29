@@ -56,7 +56,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Cowell College',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Stevenson College
@@ -67,7 +67,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Stevenson College',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     //Crown College
@@ -78,7 +78,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Crown College',
         snippet: '628 Crown Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Merrill College
@@ -89,7 +89,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Merrill College',
         snippet: '641 Merrill Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Porter College
@@ -100,7 +100,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Porter College',
         snippet: '1156 High Street, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Kresge College
@@ -111,7 +111,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Kresge College',
         snippet: '510 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Oaks College
@@ -122,7 +122,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Oakes College',
         snippet: '231 Oakes Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // RCC College
@@ -133,7 +133,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Rachel Carson College',
         snippet: '356 Rachel Carson Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // College 9
@@ -144,7 +144,7 @@ class _CollegesState extends State<Colleges> {
         title: 'College 9',
         snippet: '702 College Nine Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // College 10
@@ -155,7 +155,7 @@ class _CollegesState extends State<Colleges> {
         title: 'College 10',
         snippet: '710 College Ten Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
 

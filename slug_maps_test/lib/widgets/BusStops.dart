@@ -55,7 +55,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Crown Merrill Apartments',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Crown College
@@ -65,7 +65,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Crown College',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // McLaughlin Dr Crown & Merrill
@@ -75,7 +75,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'McLaughlin Dr - Crown & Merrill',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // McLaughlin Dr College 9 & 10
@@ -85,7 +85,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'McLaughlin Dr - College 9 & 10',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Hagar Dr Bookstore Cowell & Stevenson
@@ -95,7 +95,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Hagar Dr - Bookstore Cowell & Stevenson',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // College 9 & 10 - Health Ctr
@@ -105,7 +105,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'College 9 & 10 - Health Ctr',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Quarry Plaza
@@ -115,7 +115,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Quarry Plaza',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // McHenry Library
@@ -125,7 +125,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'McHenry Library',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Hagar Dr - Bookstore, Cowell & Stevenson
@@ -135,7 +135,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Hagar Dr - Bookstore, Cowell & Stevenson',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Cowell College
@@ -145,7 +145,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Cowell College',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Stevenson College
@@ -155,7 +155,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Stevenson College',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // East Field House
@@ -165,7 +165,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'East Field House',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // East Remote Lot Interior
@@ -175,7 +175,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'East Remote Lot Interior',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Hagar Dr - East Remote Parking
@@ -185,7 +185,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Hagar Dr - East Remote Parking',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Hagar Dr - East Remote Parking 2
@@ -195,7 +195,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Hagar Dr - East Remote Parking',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Hagar Dr & Village Rd
@@ -205,7 +205,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Hagar Dr & Village Rd',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Hagar Dr & Village Rd 2
@@ -215,7 +215,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Hagar Dr & Village Rd',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Sciences Hill
@@ -225,7 +225,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Sciences Hill',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Science Hill
@@ -235,7 +235,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Science Hill',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Kresge
@@ -245,7 +245,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Kresge',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Heller Dr - MacLaughlin Dr
@@ -255,7 +255,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Heller Dr - MacLaughlin Dr',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Thimann Labs
@@ -265,7 +265,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Thimann Labs',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Kerr Hall
@@ -275,7 +275,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Kerr Hall',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Kerr Hall 2
@@ -285,7 +285,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Kerr Hall',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Media Theater
@@ -295,7 +295,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Media Theater',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Recital Hall
@@ -305,7 +305,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Recital Hall',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Heller Dr - RCC & Porter
@@ -315,7 +315,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Heller Dr - Rachel Carson & Porter',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Heller Dr - RCC & Porter 2
@@ -325,7 +325,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Heller Dr - Rachel Carson & Porter',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Family Student Housing
@@ -335,7 +335,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Family Student Housing',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Oakes College
@@ -345,7 +345,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Oakes College',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Oakes College 2
@@ -355,7 +355,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'Oakes College',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // West Remote Lot
@@ -365,7 +365,7 @@ class _BusStopsState extends State<BusStops> {
       infoWindow: InfoWindow(
         title: 'West Remote Lot',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
 

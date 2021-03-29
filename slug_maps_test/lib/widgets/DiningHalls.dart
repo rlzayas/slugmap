@@ -56,7 +56,7 @@ class _DiningHallsState extends State<DiningHalls> {
         title: 'Colleges 9 & 10 Dining Hall',
         snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Crown/Merrill Dining Hall
@@ -67,7 +67,7 @@ class _DiningHallsState extends State<DiningHalls> {
         title: 'Crown/Merrill Dining Hall',
         snippet: '630 Crown Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Cowell/ Stevenson Dining Hall
@@ -78,7 +78,7 @@ class _DiningHallsState extends State<DiningHalls> {
         title: 'Cowell/Stevenson Dining Hall',
         snippet: '520 Cowell-Stevenson Road, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Porter Kresge Dining Hall
@@ -89,7 +89,7 @@ class _DiningHallsState extends State<DiningHalls> {
         title: 'Porter/Kresge Dining Hall',
         snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
     // Rachel Carson/Oaks College Dining Hall
@@ -100,7 +100,7 @@ class _DiningHallsState extends State<DiningHalls> {
         title: 'Rachel Carson/Oakes Dining Hall',
         snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
 
