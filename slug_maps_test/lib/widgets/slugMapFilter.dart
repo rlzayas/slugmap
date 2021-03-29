@@ -1,17 +1,20 @@
-import 'dart:async';
+//import 'dart:html';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:testing_app/widgets/slugMapMain.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
 import 'package:testing_app/widgets/DiningHalls.dart';
 import 'package:testing_app/widgets/EVChargeStation.dart';
-import 'package:testing_app/widgets/FilterInMainTest.dart';
 import 'package:testing_app/widgets/WaterFillStation.dart';
 import 'package:testing_app/widgets/Views.dart';
 
@@ -20,17 +23,14 @@ import 'package:testing_app/widgets/Libraries.dart';
 import 'package:testing_app/widgets/Parking.dart';
 import 'package:testing_app/widgets/BusStops.dart';
 
-import 'package:testing_app/widgets/slugMapFilter.dart';
-import 'package:testing_app/widgets/slugMapMain.dart';
-import 'package:testing_app/widgets/slugSearch.dart';
-import 'package:testing_app/widgets/newTestMap.dart';
-
-class slugMapMain extends StatefulWidget {
+class slugMapFilter extends StatefulWidget {
   @override
-  _MapState createState() => _MapState();
+  _FilterState createState() => _FilterState();
 }
-class _MapState extends State<slugMapMain> {
-  //GoogleMapController mapController;
+
+class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
+  ScrollController scrollController;
+  bool dialVisible = true;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
@@ -40,19 +40,51 @@ class _MapState extends State<slugMapMain> {
     _controller.complete(controller);
   }
 
-
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
   }
 
-  SpeedDial buildSpeedDial() {
-    double phoneWidth = MediaQuery.of(context).size.width;
-    double phoneHeight = MediaQuery.of(context).size.height;
+  @override
+  void initState() {
+    super.initState();
 
+    scrollController = ScrollController()
+      ..addListener(() {
+        setDialVisible(scrollController.position.userScrollDirection ==
+            ScrollDirection.forward);
+      });
+  }
+
+  void setDialVisible(bool value) {
+    setState(() {
+      dialVisible = value;
+    });
+  }
+
+  Widget buildBody() {
+    return Scaffold(
+        body: Stack(
+          children: <Widget>[
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: _center,
+                zoom: 14.35,
+              ),
+              mapType: _currentMapType,
+              onCameraMove: _onCameraMove,
+              myLocationButtonEnabled: true,
+              myLocationEnabled: true,
+            ),
+          ],
+        ));
+  }
+
+  SpeedDial buildSpeedDial() {
     return SpeedDial(
       /// both default to 16
       marginEnd: 18,
-      marginBottom: phoneHeight -160,
+      marginBottom: 670,
       animatedIcon: AnimatedIcons.menu_close,
       animatedIconTheme: IconThemeData(size: 22.0),
 
@@ -106,8 +138,7 @@ class _MapState extends State<slugMapMain> {
       ),
       children: [
         SpeedDialChild(
-          child: Icon(Icons.apartment),
-          // child: SvgPicture.asset('assets/images/apartment-black-18dp.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/Colleges_Icon.svg'),
           label: 'Colleges',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -116,20 +147,15 @@ class _MapState extends State<slugMapMain> {
             letterSpacing: 2.7,
           ),
           onTap: () {
-            // currentMarkers.clear();
-            // currentMarkers.addAll(evStationList);
-            //
             Navigator.push(
               context,
-              //
               MaterialPageRoute(builder: (context) => Colleges()),
             );
           },
           onLongPress: () => print('FIRST CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          // child: Icon(Icons),
-          child: SvgPicture.asset('assets/images/restaurant-black-18dp.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/Dining_Hall_Icon.svg'),
           label: 'Dining halls',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -146,7 +172,7 @@ class _MapState extends State<slugMapMain> {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/import_contacts-24px.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/Library_Icon.svg'),
           label: 'Libraries',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -163,7 +189,7 @@ class _MapState extends State<slugMapMain> {
           onLongPress: () => print('THIRD CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/directions_bus-24px.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/Bus_Stop_Icon.svg'),
           label: 'Bus stops',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -180,7 +206,7 @@ class _MapState extends State<slugMapMain> {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/local_parking-24px.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/Parking_Icon.svg'),
           label: 'Parking',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -197,7 +223,7 @@ class _MapState extends State<slugMapMain> {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/directions_walk-24px.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/Hiking_Trail_Icon.svg'),
           label: 'Hiking Trails',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -214,7 +240,7 @@ class _MapState extends State<slugMapMain> {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/local_see-24px.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/Views_Icon.svg'),
           label: 'Views',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -231,7 +257,7 @@ class _MapState extends State<slugMapMain> {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/opacity-24px.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/Water_Station_Icon.svg'),
           label: 'Water fill station',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -248,7 +274,7 @@ class _MapState extends State<slugMapMain> {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/ev_station-24px.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/EV_Station_Icon.svg'),
           label: 'EV charge station',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -265,7 +291,7 @@ class _MapState extends State<slugMapMain> {
           onLongPress: () => print('SECOND CHILD LONG PRESS'),
         ),
         SpeedDialChild(
-          child: SvgPicture.asset('assets/images/explore-24px.svg'),
+          child: SvgPicture.asset('assets/images/marker_icons/School_Tour_Icon.svg'),
           label: 'School Tour',
           labelStyle: TextStyle(
             fontSize: 15,
@@ -285,147 +311,11 @@ class _MapState extends State<slugMapMain> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-    //phone dimensions
-    double phoneWidth = MediaQuery
-        .of(context)
-        .size
-        .width; //375
-    double phoneHeight = MediaQuery
-        .of(context)
-        .size
-        .height; //812
-
-
-
-
     return Scaffold(
-      body: Container(
-        //Stack: Map, Search/filter selection
-        child: Stack(
-          children: <Widget>[
-            //Google map background
-            GoogleMap(
-              onMapCreated: _onMapCreated,
-              initialCameraPosition: CameraPosition(
-              target: _center,
-              zoom: 14.35,
-
-              ),
-              mapType: _currentMapType,
-              onCameraMove: _onCameraMove,
-              myLocationButtonEnabled: true,
-              myLocationEnabled: true,
-            ),
-
-            //Container 2: Full Search bar container
-            Container(
-
-              margin: EdgeInsets.only(
-                  top: phoneHeight * .05665024631, left: phoneWidth * .048),
-
-              width: phoneWidth * .904,
-              height: phoneHeight * .04310344828,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x3f000000),
-                    blurRadius: 4,
-                    offset: Offset(0, 4),
-                  ),
-                ],
-                color: Color(0xffececec),
-              ),
-            ),
-            //*
-            //Text for "SEARCH LOATION" *************************************
-            //*
-            Container(
-              width: phoneWidth * .4106666667,
-              height: phoneHeight * .02093596059,
-              margin: EdgeInsets.only(
-                  left: phoneWidth * .1653333333,
-                  top: phoneHeight * .06773399015),
-              child: Text(
-                "Search location",
-                style: TextStyle(
-                  color: Color(0xff7b7575),
-                  fontSize: 12,
-                  fontFamily: "Montserrat",
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 2.7,
-                ),
-              ),
-            ),
-            //Container 3: container for search option with search text
-            Container(
-              width: phoneWidth * .8106666667,
-              height: phoneHeight * .04310344828,
-              margin: EdgeInsets.only(
-                  top: phoneHeight * .05665024631, left: phoneWidth * .048),
-
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => slugSearch()),);
-                },
-              ),
-            ),
-
-            //
-            //The filter button *****************************************
-            //
-            Container(
-              height: phoneHeight * .02463054187,
-              width: phoneWidth * .05866666667,
-              margin: EdgeInsets.only(top: phoneHeight * .06650246305,
-                  left: phoneWidth * .8693333333),
-              child: Stack(
-                children: <Widget>[
-
-                  FloatingActionButton(
-                    backgroundColor: Color(0xffececec),
-                      elevation: 0,
-                      // child: SvgPicture.asset('assets/images/Filter_menu.svg',
-                      // ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => FilterInMainTest()),
-                          // MaterialPageRoute(builder: (context) => slugMapFilter()),
-                        );
-                      }
-                  )
-
-                ],
-
-              ),
-
-            ),
-
-
-            Container(
-              margin: EdgeInsets.only(
-                  left: phoneWidth * .05866666667,
-                  top: phoneHeight * .05911330049),
-              width: phoneWidth * .08,
-              height: phoneHeight * .03694581281,
-              child: Image.asset(
-                'assets/images/Slug_Logo.png',
-              ),
-
-            ),
-          ],
-        ),
-      ),
+      body: buildBody(),
       floatingActionButton: buildSpeedDial(),
-    ); //812 x 375
+    );
   }
 }
