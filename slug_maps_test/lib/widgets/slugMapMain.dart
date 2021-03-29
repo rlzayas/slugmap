@@ -7,6 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+// Google Maps API Polyline
+import 'package:google_map_polyline/google_map_polyline.dart';
+import 'package:permission/permission.dart';
+
+
 
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -30,16 +35,55 @@ class slugMapMain extends StatefulWidget {
   _MapState createState() => _MapState();
 }
 class _MapState extends State<slugMapMain> {
-  //GoogleMapController mapController;
-  Completer<GoogleMapController> _controller = Completer();
+  GoogleMapController _controller;
+  final Set<Polyline> polyline = {};
+  List<LatLng> routeCoords;
+  GoogleMapPolyline googleMapPolyline =
+     new GoogleMapPolyline(apiKey: "AIzaSyBlvEwbDiEqcUOGnc_c1MdQ0yRogCSSuyQ");
+
+  getSomePoints() async {
+
+    var permission = await Permission.getPermissionsStatus([PermissionName.Location]);
+    if(permission[0].permissionStatus == PermissionStatus.notAgain) {
+
+      var askpermission = await Permission.requestPermissions([PermissionName.Location]);
+    }
+
+    else {
+      routeCoords = await googleMapPolyline.getCoordinatesWithLocation(
+
+          origin: LatLng(36.9970, 122.0519), // Stevenson College
+          destination: LatLng(37.0003, 122.0545), // Crown College
+          mode: RouteMode.driving);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getSomePoints();
+  }
+
+  Completer<GoogleMapController> controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
 
-  _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);
-  }
+  void _onMapCreated(GoogleMapController controller) {
+      setState(() {
+        _controller = controller;
 
+      polyline.add(Polyline(
+        polylineId: PolylineId('route1'),
+        visible: true,
+        points: routeCoords,
+        width: 4,
+        color: Colors.orange,
+        startCap: Cap.roundCap,
+        endCap: Cap.buttCap
+      ));
+    });
+  }
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
@@ -57,9 +101,6 @@ class _MapState extends State<slugMapMain> {
         .size
         .height; //812
 
-
-
-
     return Scaffold(
       body: Container(
         //Stack: Map, Search/filter selection
@@ -68,6 +109,7 @@ class _MapState extends State<slugMapMain> {
             //Google map background
             GoogleMap(
               onMapCreated: _onMapCreated,
+              polylines: polyline,
               initialCameraPosition: CameraPosition(
               target: _center,
               zoom: 14.35,
@@ -75,8 +117,8 @@ class _MapState extends State<slugMapMain> {
               ),
               mapType: _currentMapType,
               onCameraMove: _onCameraMove,
-              myLocationButtonEnabled: true,
-              myLocationEnabled: true,
+              // myLocationButtonEnabled: true,
+              // myLocationEnabled: true,
             ),
 
             //Container 2: Full Search bar container
