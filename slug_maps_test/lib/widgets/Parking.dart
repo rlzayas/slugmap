@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -26,12 +25,12 @@ import 'package:testing_app/widgets/slugSearch.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Views extends StatefulWidget {
+class Parking extends StatefulWidget {
   @override
-  _ViewsState createState() => _ViewsState();
+  _ParkingState createState() => _ParkingState();
 }
 
-class _ViewsState extends State<Views> {
+class _ParkingState extends State<Parking> {
 //GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
@@ -48,105 +47,99 @@ class _ViewsState extends State<Views> {
 
   double zoomVal=5.0;
 
-  List<Marker> viewsList = [
-    // Cave Gulch
+  List<Marker> parkingLotList = [
+    // East Remote Parking Lot
     Marker(
-      markerId: MarkerId('CaveGulch'),
-      position: LatLng(36.99403252521436, -122.0690402904878),
+      markerId: MarkerId('EastRemoteParkingLot'),
+      position: LatLng(36.99203741631251, -122.05312085074124),
       infoWindow: InfoWindow(
-        title: 'Cave Gulch',
+        title: 'East Remote Parking Lot',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-  // Stevenson Knoll Marker
+    // Vadim Parking
     Marker(
-        markerId: MarkerId('Stevenson Knoll'),
-        position: LatLng(36.996041133200166, -122.05165615971505),
-        infoWindow: InfoWindow(
-          title: 'Stevenson Knoll',
-          snippet: 'Casa Sexta, Santa Cruz, CA 95064',
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // Porter Squiggle Marker
-    Marker(
-      markerId: MarkerId('Porter Squiggle'),
-      position: LatLng(36.99340877871167, -122.06515297320963),
+      markerId: MarkerId('VadimParking'),
+      position: LatLng(37.003064125211885, -122.05382987511449),
       infoWindow: InfoWindow(
-        title: 'Porter Squiggle',
-        snippet: '200 Heller Dr, Santa Cruz, CA 95064',
-      ),
-
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // Pogonip Vista Point Marker
-    Marker(
-      markerId: MarkerId('Pogonip Vista Point'),
-      position: LatLng(36.99067567820772, -122.04909315971524),
-      infoWindow: InfoWindow(
-        title: 'Pogonip Vista Point',
-        snippet: 'Santa Cruz, CA 95060',
+        title: 'Vadim Parking ',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Pogonip Historic Limekiln
+    // BikeLink - UCSC Engineering 2
     Marker(
-      markerId: MarkerId('PogonipHistoricLimekiln'),
-      position: LatLng(37.00130432638354, -122.04928003710356),
+      markerId: MarkerId('BikeLinkUCSCEngineering2'),
+      position: LatLng(37.00091361781477, -122.06214367853134),
       infoWindow: InfoWindow(
-        title: 'Pogonip Historic Limekiln',
-        snippet: 'Lime Kiln Trail, Santa Cruz, CA 95060',
+        title: 'BikeLink - UCSC Engineering 2',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Pogonip
+    // BikeLink - UCSC Baskin
     Marker(
-      markerId: MarkerId('Pogonip'),
-      position: LatLng(36.99550145357614, -122.04428228370232),
+      markerId: MarkerId('BikeLinkUCSCBaskin'),
+      position: LatLng(37.000448611438934, -122.06263563208518),
       infoWindow: InfoWindow(
-        title: 'Pogonip',
-        snippet: '333 Golf Club Dr, Santa Cruz, CA 95060',
+        title: 'BikeLink - UCSC Baskin',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Buddha Statue
+    // BikeLink - Science Library
     Marker(
-      markerId: MarkerId('BuddhaStatue'),
-      position: LatLng(37.00660409811856, -122.06003603558892),
+      markerId: MarkerId('BikeLinkScienceLibrary'),
+      position: LatLng(36.99894224131143, -122.06073235461466),
       infoWindow: InfoWindow(
-        title: 'Buddha Statue',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
+        title: 'BikeLink - Science Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Tree 9
+    // Parking Lot 114
     Marker(
-      markerId: MarkerId('Tree9'),
-      position: LatLng(37.004851356158554, -122.06020253899865),
+      markerId: MarkerId('ParkingLot114'),
+      position: LatLng(37.00018773303434, -122.05896582287743),
       infoWindow: InfoWindow(
-        title: 'Tree 9',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
+        title: 'Parking Lot 114',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Garden of Eden
+    // Zipcar
     Marker(
-        markerId: MarkerId('GardenOfEden'),
-        position: LatLng(37.024758967944, -122.0580458659901),
-        infoWindow: InfoWindow(
-          title: 'Garden of Eden',
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+      markerId: MarkerId('Zipcar'),
+      position: LatLng(37.000142793660984, -122.05899759905863),
+      infoWindow: InfoWindow(
+        title: 'Zipcar',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // North Perimeter
+    Marker(
+      markerId: MarkerId('NorthPerimeter'),
+      position: LatLng(37.00254987296524, -122.06590202346045),
+      infoWindow: InfoWindow(
+        title: 'North Perimeter Parking Lot 150',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // Parking Lot 139A
+    Marker(
+      markerId: MarkerId('ParkingLot139A'),
+      position: LatLng(37.001553656934625, -122.06244957438545),
+      infoWindow: InfoWindow(
+        title: 'Parking Lot 139A',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
+
+
 
   //Visibility for our screen for speed dial
   bool _visible = true;
@@ -185,7 +178,7 @@ class _ViewsState extends State<Views> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(viewsList),
+              markers: Set.from(parkingLotList),
             ),
 
             //Container 2: Full Search bar container
@@ -294,64 +287,64 @@ class _ViewsState extends State<Views> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMDxwJSE9UOylP6EmegE7yEQKsK_IB83YK9eGbx=w408-h739-k-no",
-                  37.004851356158554, -122.06020253899865,"Tree 9", ''),
+                  "https://geo1.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJqc3s6XRBjoARG5Dso9ZUKTQqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.001553656934625, -122.06244957438545,"Parking Lot 139A", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMrKKlNI9IaQEmofFisCV5MfbD8GGqATEaWrrvb=w408-h306-k-no",
-                  37.00660409811856, -122.06003603558892,"Buddha Statue", ''),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kVkqVqDR6BQpkriwNIDF4g&cb_client=search.gws-prod.gps&w=408&h=240&yaw=94.35598&pitch=0&thumbfov=100",
+                  37.00254987296524, -122.06590202346045,"North Perimeter Parking Lot 150", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMY6SXi_MN_NoW73V3G7-1oHV_K7hmHHH_QcJ_h=w408-h306-k-no",
-                  37.024758967944, -122.0580458659901,"Garden of Eden - Henry Cowell Redwood State Park", ""),
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJZ392kQpBjoARs9UJ7qw7LHgqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.000142793660984, -122.05899759905863,"ZipCar", ""),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipP5uXSS6OVv5_qyHgNyrLR_A23Rs6aIq2-z4Cw=w408-h240-k-no-pi0-ya47.170418-ro0-fo100",
-                  36.99067567820772, -122.04909315971524,"Pogonip Vista Point", ''),
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJZ392kQpBjoARs9UJ7qw7LHgqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.00018773303434, -122.05896582287743,"Parking Lot 114", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOIKefoiJJ8tjGT6XYzXOTV_ntuBmNy0_pfp_Y=w408-h306-k-no",
-                  36.99550145357614, -122.04428228370232,"Pogonip", '333 Golf Club Dr, Santa Cruz, CA 95060'),
+                  "",
+                  36.99894224131143, -122.06073235461466,"BikeLink - Science Library", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOpm9lF4mlqHVtgekifhteeOYmtIraNj8l-KM2v=w408-h306-k-no",
-                  37.00130432638354, -122.04928003710356,"Pogonip Historic Limekiln", 'Lime Kiln Trail, Santa Cruz, CA 95060'),
+                  "",
+                  37.000448611438934, -122.06263563208518,"BikeLink - UCSC Baskin", ""),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPqN_Q-GAVRbGioHSPCHU1fqrthO-hoN2OEvlfS=w408-h306-k-no",
-                  36.99340877871167, -122.06515297320963,"Porter Squiggle", "200 Heller Dr, Santa Cruz, CA 95064"),
+                  "https://lh5.googleusercontent.com/p/AF1QipMZg93kzYRE5QvAoxVuug4Cp-7v81GhwyI3K7Tb=w426-h240-k-no",
+                  37.00091361781477, -122.06214367853134,"BikeLink - UCSC Engineering 2", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMWbGItmUxm723i7lxgGrdWV-utM1jHcatQMnmE=w408-h240-k-no-pi-0-ya155.2-ro-0-fo100",
-                  36.996041133200166, -122.05165615971505,"Stevenson Knoll", "Casa Sexta, Santa Cruz, CA 95064"),
+                  "",
+                  37.003064125211885, -122.05382987511449,"Vadim Parking", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMjeePUYmsJo-2hu2D6DL-bzd8IGLf0Tzd_wTzq=w408-h544-k-no",
-                  36.99403252521436, -122.0690402904878,"Cave Gulch", ''),
+                  "",
+                  36.99203741631251, -122.05312085074124,"East Remote Parking Lot", ""),
             ),
           ],
         ),
@@ -397,7 +390,6 @@ class _ViewsState extends State<Views> {
       ),
     );
   }
-
 
   Widget myDetailsContainer1(String title, String snippet) {
     return Column(
