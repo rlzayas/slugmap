@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -26,12 +25,12 @@ import 'package:testing_app/widgets/slugSearch.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Views extends StatefulWidget {
+class HikingTrails extends StatefulWidget {
   @override
-  _ViewsState createState() => _ViewsState();
+  _HikingTrailsState createState() => _HikingTrailsState();
 }
 
-class _ViewsState extends State<Views> {
+class _HikingTrailsState extends State<HikingTrails> {
 //GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
@@ -48,104 +47,146 @@ class _ViewsState extends State<Views> {
 
   double zoomVal=5.0;
 
-  List<Marker> viewsList = [
-    // Cave Gulch
+  List<Marker> hikingTrailList = [
+    // Cave Gulch Trailhead
     Marker(
-      markerId: MarkerId('CaveGulch'),
-      position: LatLng(36.99403252521436, -122.0690402904878),
+      markerId: MarkerId('GreatMeadow'),
+      position: LatLng(36.98786124866043, -122.06890251669269),
       infoWindow: InfoWindow(
-        title: 'Cave Gulch',
+        title: 'Cave Gulch Trailhead',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-  // Stevenson Knoll Marker
-    Marker(
-        markerId: MarkerId('Stevenson Knoll'),
-        position: LatLng(36.996041133200166, -122.05165615971505),
-        infoWindow: InfoWindow(
-          title: 'Stevenson Knoll',
-          snippet: 'Casa Sexta, Santa Cruz, CA 95064',
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Great Meadow
+  Marker(
+  markerId: MarkerId('GreatMeadow'),
+  position: LatLng(36.99232292142072, -122.05782280429814),
+  infoWindow: InfoWindow(
+  title: 'Great Meadow',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Porter Squiggle Marker
-    Marker(
-      markerId: MarkerId('Porter Squiggle'),
-      position: LatLng(36.99340877871167, -122.06515297320963),
-      infoWindow: InfoWindow(
-        title: 'Porter Squiggle',
-        snippet: '200 Heller Dr, Santa Cruz, CA 95064',
-      ),
+  // Heller Drive Trailhead
+  Marker(
+  markerId: MarkerId('HellerHillRoadTrailhead'),
+  position: LatLng(37.00348848930636, -122.06596338499335),
+  infoWindow: InfoWindow(
+  title: 'Heller Drive  Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // College 9 Trailhead
+  Marker(
+  markerId: MarkerId('College9Trailhead'),
+  position: LatLng(37.00196297615762, -122.05787660963959),
+  infoWindow: InfoWindow(
+  title: 'College 9 Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Pogonip Vista Point Marker
-    Marker(
-      markerId: MarkerId('Pogonip Vista Point'),
-      position: LatLng(36.99067567820772, -122.04909315971524),
-      infoWindow: InfoWindow(
-        title: 'Pogonip Vista Point',
-        snippet: 'Santa Cruz, CA 95060',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // College 10 Trailhead
+  Marker(
+  markerId: MarkerId('College10Trailhead'),
+  position: LatLng(37.003746885938995, -122.05874986883879),
+  infoWindow: InfoWindow(
+  title: 'College 10 Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Pogonip Historic Limekiln
-    Marker(
-      markerId: MarkerId('PogonipHistoricLimekiln'),
-      position: LatLng(37.00130432638354, -122.04928003710356),
-      infoWindow: InfoWindow(
-        title: 'Pogonip Historic Limekiln',
-        snippet: 'Lime Kiln Trail, Santa Cruz, CA 95060',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Chinquapin Road Trailhead
+  Marker(
+  markerId: MarkerId('ChinquapinRoadTrailhead'),
+  position: LatLng(37.002261789871916, -122.05607049993415),
+  infoWindow: InfoWindow(
+  title: 'Chinquapin Road Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Pogonip
-    Marker(
-      markerId: MarkerId('Pogonip'),
-      position: LatLng(36.99550145357614, -122.04428228370232),
-      infoWindow: InfoWindow(
-        title: 'Pogonip',
-        snippet: '333 Golf Club Dr, Santa Cruz, CA 95060',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // U-Con Trail Trailhead
+  Marker(
+  markerId: MarkerId('UConTrailTrailhead'),
+  position: LatLng(37.00225807152155, -122.05200633736733),
+  infoWindow: InfoWindow(
+  title: 'U-Con Trail Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Buddha Statue
-    Marker(
-      markerId: MarkerId('BuddhaStatue'),
-      position: LatLng(37.00660409811856, -122.06003603558892),
-      infoWindow: InfoWindow(
-        title: 'Buddha Statue',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Koi Pond
+  Marker(
+  markerId: MarkerId('Koi Pond'),
+  position: LatLng(37.00024830740773, -122.04829250486237),
+  infoWindow: InfoWindow(
+  title: 'Koi Pond',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Tree 9
-    Marker(
-      markerId: MarkerId('Tree9'),
-      position: LatLng(37.004851356158554, -122.06020253899865),
-      infoWindow: InfoWindow(
-        title: 'Tree 9',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Pogonip Historic Limekiln
+  Marker(
+  markerId: MarkerId('PogonipHistoricLimekiln'),
+  position: LatLng(37.001319840045156, -122.04933310285453),
+  infoWindow: InfoWindow(
+  title: 'Pogonip Historic Limekiln',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Garden of Eden
-    Marker(
-        markerId: MarkerId('GardenOfEden'),
-        position: LatLng(37.024758967944, -122.0580458659901),
-        infoWindow: InfoWindow(
-          title: 'Garden of Eden',
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Empire Cave
+  Marker(
+  markerId: MarkerId('EmpireCave'),
+  position: LatLng(36.99617636224744, -122.06883543180497),
+  infoWindow: InfoWindow(
+  title: 'Empire Cave',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
+
+  // Porter Koi Pond
+  Marker(
+  markerId: MarkerId('PorterKoiPond'),
+  position: LatLng(36.99420990009598, -122.06536281070382),
+  infoWindow: InfoWindow(
+  title: 'Porter Koi Pond',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
+
+  // Crown Meadow
+  Marker(
+  markerId: MarkerId('CrownMeadow'),
+  position: LatLng(37.002720138086666, -122.05264625461085),
+  infoWindow: InfoWindow(
+  title: 'Crown Meadow',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
+
+  // Crown Meadow
+  Marker(
+  markerId: MarkerId('CrownMeadow2'),
+  position: LatLng(37.00457530902208, -122.05735124061187),
+  infoWindow: InfoWindow(
+  title: 'Crown Meadow',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
+
+  // Seep Zone Interpretive Trail
+  Marker(
+  markerId: MarkerId('SeepZoneInterpretiveTrail'),
+  position: LatLng(37.003359289995295, -122.06094499992527),
+  infoWindow: InfoWindow(
+  title: 'Seep Zone Interpretive Trail',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
   ];
 
   //Visibility for our screen for speed dial
@@ -185,7 +226,7 @@ class _ViewsState extends State<Views> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(viewsList),
+              markers: Set.from(hikingTrailList),
             ),
 
             //Container 2: Full Search bar container
@@ -294,64 +335,99 @@ class _ViewsState extends State<Views> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMDxwJSE9UOylP6EmegE7yEQKsK_IB83YK9eGbx=w408-h739-k-no",
-                  37.004851356158554, -122.06020253899865,"Tree 9", ''),
+                  "https://lh5.googleusercontent.com/p/AF1QipNV2EASZ1r2d7sqiIoATtob5X6TbcOc1gK1599E=w408-h306-k-no",
+                  37.00457530902208, -122.05735124061187,"Crown Meadow", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMrKKlNI9IaQEmofFisCV5MfbD8GGqATEaWrrvb=w408-h306-k-no",
-                  37.00660409811856, -122.06003603558892,"Buddha Statue", ''),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kWYAvhy8jAbbn09wgOczlg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=39.63612&pitch=0&thumbfov=100",
+                  37.002720138086666, -122.05264625461085,"Crown Meadow", ""),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMY6SXi_MN_NoW73V3G7-1oHV_K7hmHHH_QcJ_h=w408-h306-k-no",
-                  37.024758967944, -122.0580458659901,"Garden of Eden - Henry Cowell Redwood State Park", ""),
+                  "https://lh5.googleusercontent.com/p/AF1QipOSUXXSw0BZnjnuJu7FT18OMs0-wtjNnx7B6CBj=w408-h306-k-no",
+                  36.99420990009598, -122.06536281070382,"Porter Koi Pond", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipP5uXSS6OVv5_qyHgNyrLR_A23Rs6aIq2-z4Cw=w408-h240-k-no-pi0-ya47.170418-ro0-fo100",
-                  36.99067567820772, -122.04909315971524,"Pogonip Vista Point", ''),
-            ),
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOIKefoiJJ8tjGT6XYzXOTV_ntuBmNy0_pfp_Y=w408-h306-k-no",
-                  36.99550145357614, -122.04428228370232,"Pogonip", '333 Golf Club Dr, Santa Cruz, CA 95060'),
+                  "https://lh5.googleusercontent.com/p/AF1QipPqSfA7hQahboiKZrKQ-3foIkwmIMrR3RxiLVk8=w408-h272-k-no",
+                  36.99617636224744, -122.06883543180497,"Empire Cave", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://lh5.googleusercontent.com/p/AF1QipOpm9lF4mlqHVtgekifhteeOYmtIraNj8l-KM2v=w408-h306-k-no",
-                  37.00130432638354, -122.04928003710356,"Pogonip Historic Limekiln", 'Lime Kiln Trail, Santa Cruz, CA 95060'),
+                  37.001319840045156, -122.04933310285453,"Pogonip Historic Limekiln", ""),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPqN_Q-GAVRbGioHSPCHU1fqrthO-hoN2OEvlfS=w408-h306-k-no",
-                  36.99340877871167, -122.06515297320963,"Porter Squiggle", "200 Heller Dr, Santa Cruz, CA 95064"),
+                  "https://lh5.googleusercontent.com/p/AF1QipOWpeQWQQf9MDphEQVoLeP4LaI1mNZFlZx_hmGN=w408-h544-k-no",
+                  37.00024830740773, -122.04829250486237,"Koi Pond", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMWbGItmUxm723i7lxgGrdWV-utM1jHcatQMnmE=w408-h240-k-no-pi-0-ya155.2-ro-0-fo100",
-                  36.996041133200166, -122.05165615971505,"Stevenson Knoll", "Casa Sexta, Santa Cruz, CA 95064"),
+                  "https://lh5.googleusercontent.com/p/AF1QipOC_IAby6ud2BAna3UoctR6uMzzcHQGo7ET2QkC=w408-h725-k-no",
+                  37.00225807152155, -122.05200633736733,"U-Con Trail Trailhead", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMjeePUYmsJo-2hu2D6DL-bzd8IGLf0Tzd_wTzq=w408-h544-k-no",
-                  36.99403252521436, -122.0690402904878,"Cave Gulch", ''),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=zhkfbQr0s1joFOHDMC05KQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=294.63983&pitch=0&thumbfov=100",
+                  37.002261789871916, -122.05607049993415,"Chinquapin Road Trailhead", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=eeitTZLxkwoUNQvK6sEXMA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=17.917072&pitch=0&thumbfov=100",
+                  37.003746885938995, -122.05874986883879,"College 10 Trailhead", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6FUAOnpO5DXa8KBiHpFzNg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=40.259354&pitch=0&thumbfov=100",
+                  37.00196297615762, -122.05787660963959,"College 9 Trailhead", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOaIRzm9bNkX5dZQdfhhPCKS79vYUo3_SfdZ6MM=w408-h306-k-no",
+                  37.00336248460905, -122.06083630318761,"Seep Zone Interpretive Trail", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6oV1bTg6ORsn7XOZ43yFfA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=352.02844&pitch=0&thumbfov=100",
+                  37.00348848930636, -122.06596338499335,"Heller Drive  Trailhead", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMcXF_5rz-Dk85CaEkaeZ0uVHU8atUhibZjqh6T=w574-h240-k-no",
+                  36.99232292142072, -122.05782280429814,"Great Meadow", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMuDhKBg5y2al4IqdGC_ug0cOHb54NAzDrLpt4h=w408-h240-k-no-pi-20-ya339-ro-0-fo100",
+                  36.98786124866043, -122.06890251669269,"Cave Gulch Trailhead", ''),
             ),
           ],
         ),
@@ -384,6 +460,17 @@ class _ViewsState extends State<Views> {
                         image: NetworkImage(_image),
                       ),
                     ),),
+                  // Container(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child:
+                  //       myDetailsContainer1(restaurantName),
+                  //   ),
+                  // child: Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: myDetailsContainer1(info),
+                  // ),
+                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -397,7 +484,6 @@ class _ViewsState extends State<Views> {
       ),
     );
   }
-
 
   Widget myDetailsContainer1(String title, String snippet) {
     return Column(

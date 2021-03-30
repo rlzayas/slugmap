@@ -26,7 +26,6 @@ class _SearchState extends State<slugSearch> {
         child: Stack(
           children: <Widget>[
             Container(
-
               margin: EdgeInsets.only(top: 0),
               width: phoneWidth,
               height: phoneHeight * .2130541872,
@@ -35,7 +34,6 @@ class _SearchState extends State<slugSearch> {
                 borderRadius: BorderRadius.circular(5),
                 boxShadow: [
                   BoxShadow(color: Color(0xffe5e2e2)),
-
                   BoxShadow(
                     color: Color(0xffe2e0e0),
                     blurRadius: 12,
@@ -52,7 +50,6 @@ class _SearchState extends State<slugSearch> {
                 color: Color(0xffececec),
                 borderRadius: BorderRadius.circular(5),
                 boxShadow: [
-
                   BoxShadow(color: Color(0xffe5e2e2)),
                   BoxShadow(
                     color: Color(0xffe2e0e0),
@@ -86,7 +83,6 @@ class _SearchState extends State<slugSearch> {
               height: phoneHeight * .04310344828,
               margin: EdgeInsets.only(
                   top: phoneHeight * .05665024631, left: phoneWidth * .048),
-
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
               ),
@@ -95,10 +91,11 @@ class _SearchState extends State<slugSearch> {
                   // Navigator.push(
                   // context,
                   //MaterialPageRoute(builder: (context) => slugMapMain()), );
-
                 },
               ),
             ),
+
+            //Go back button
             Container(
               margin: EdgeInsets.only(
                   left: phoneWidth * .05866666667,
@@ -106,22 +103,21 @@ class _SearchState extends State<slugSearch> {
               width: phoneWidth * .08,
               height: phoneHeight * .03694581281,
               child: Stack(
-                children: <Widget> [
+                children: <Widget>[
                   FloatingActionButton(
                       backgroundColor: Color(0xffececec),
                       elevation: 0,
-                      child: SvgPicture.asset('assets/images/Go_back.svg',),
-                      onPressed:() {
+                      child: SvgPicture.asset(
+                        'assets/images/Go_back.svg',
+                      ),
+                      onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => slugMapMain()),
+                          MaterialPageRoute(
+                              builder: (context) => slugMapMain()),
                         );
-                      }
-                  ),
-
+                      }),
                 ],
-
-
               ),
             ),
           ],

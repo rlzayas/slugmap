@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -26,13 +25,13 @@ import 'package:testing_app/widgets/slugSearch.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Views extends StatefulWidget {
+class Libraries extends StatefulWidget {
   @override
-  _ViewsState createState() => _ViewsState();
+  _LibrariesState createState() => _LibrariesState();
 }
 
-class _ViewsState extends State<Views> {
-//GoogleMapController mapController;
+class _LibrariesState extends State<Libraries> {
+  //GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
@@ -48,103 +47,86 @@ class _ViewsState extends State<Views> {
 
   double zoomVal=5.0;
 
-  List<Marker> viewsList = [
-    // Cave Gulch
+  List<Marker> librariesList = [
+    // Adlai E. Stevenson Library
     Marker(
-      markerId: MarkerId('CaveGulch'),
-      position: LatLng(36.99403252521436, -122.0690402904878),
+      markerId: MarkerId('AdlaiEStevensonLibrary'),
+      position: LatLng(36.99722897221115, -122.05151323142576),
       infoWindow: InfoWindow(
-        title: 'Cave Gulch',
+        title: 'Adlai E. Stevenson Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-  // Stevenson Knoll Marker
+    // Page Smith Library
     Marker(
-        markerId: MarkerId('Stevenson Knoll'),
-        position: LatLng(36.996041133200166, -122.05165615971505),
-        infoWindow: InfoWindow(
-          title: 'Stevenson Knoll',
-          snippet: 'Casa Sexta, Santa Cruz, CA 95064',
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // Porter Squiggle Marker
-    Marker(
-      markerId: MarkerId('Porter Squiggle'),
-      position: LatLng(36.99340877871167, -122.06515297320963),
+      markerId: MarkerId('PageSmithLibrary'),
+      position: LatLng(36.99716490316114, -122.0536526692152),
       infoWindow: InfoWindow(
-        title: 'Porter Squiggle',
-        snippet: '200 Heller Dr, Santa Cruz, CA 95064',
-      ),
-
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // Pogonip Vista Point Marker
-    Marker(
-      markerId: MarkerId('Pogonip Vista Point'),
-      position: LatLng(36.99067567820772, -122.04909315971524),
-      infoWindow: InfoWindow(
-        title: 'Pogonip Vista Point',
-        snippet: 'Santa Cruz, CA 95060',
+        title: 'Page Smith Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Pogonip Historic Limekiln
+    // Merrill Library
     Marker(
-      markerId: MarkerId('PogonipHistoricLimekiln'),
-      position: LatLng(37.00130432638354, -122.04928003710356),
+      markerId: MarkerId('MerrillLibrary'),
+      position: LatLng(36.999711831435256, -122.05336351136583),
       infoWindow: InfoWindow(
-        title: 'Pogonip Historic Limekiln',
-        snippet: 'Lime Kiln Trail, Santa Cruz, CA 95060',
+        title: 'Merrill Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Pogonip
+    // Crown Library
     Marker(
-      markerId: MarkerId('Pogonip'),
-      position: LatLng(36.99550145357614, -122.04428228370232),
+      markerId: MarkerId('CrownLibrary'),
+      position: LatLng(36.99993912279547, -122.05486909133349),
       infoWindow: InfoWindow(
-        title: 'Pogonip',
-        snippet: '333 Golf Club Dr, Santa Cruz, CA 95060',
+        title: 'Crown Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Buddha Statue
+    // McHenry Library
     Marker(
-      markerId: MarkerId('BuddhaStatue'),
-      position: LatLng(37.00660409811856, -122.06003603558892),
+      markerId: MarkerId('McHenryLibrary'),
+      position: LatLng(36.99578136536548, -122.05888865898311),
       infoWindow: InfoWindow(
-        title: 'Buddha Statue',
-        // snippet: '6 College Eight Service Rd, Santa Cruz, CA 95064',
+        title: 'McHenry Library',
+        snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Tree 9
+    // Science & Engineering Library
     Marker(
-      markerId: MarkerId('Tree9'),
-      position: LatLng(37.004851356158554, -122.06020253899865),
+      markerId: MarkerId('Science&EngineeringLibrary'),
+      position: LatLng(36.99910517369182, -122.06059399782959),
       infoWindow: InfoWindow(
-        title: 'Tree 9',
-        // snippet: '411 Porter-Kresge Rd, Santa Cruz, CA 95064',
+        title: 'Science & Engineering Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Garden of Eden
+    // Kresge Student Library
     Marker(
-        markerId: MarkerId('GardenOfEden'),
-        position: LatLng(37.024758967944, -122.0580458659901),
-        infoWindow: InfoWindow(
-          title: 'Garden of Eden',
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+      markerId: MarkerId('KresgeStudentLibrary'),
+      position: LatLng(36.997603292930194, -122.06623329784122),
+      infoWindow: InfoWindow(
+        title: 'Kresge Student Library',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // Oaks Library
+    Marker(
+      markerId: MarkerId('Oaks Library'),
+      position: LatLng(36.989953862713904, -122.06289888474468),
+      infoWindow: InfoWindow(
+        title: 'Oakes Library',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
   ];
 
@@ -185,7 +167,7 @@ class _ViewsState extends State<Views> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(viewsList),
+              markers: Set.from(librariesList),
             ),
 
             //Container 2: Full Search bar container
@@ -294,64 +276,57 @@ class _ViewsState extends State<Views> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMDxwJSE9UOylP6EmegE7yEQKsK_IB83YK9eGbx=w408-h739-k-no",
-                  37.004851356158554, -122.06020253899865,"Tree 9", ''),
+                  "",
+                  36.989953862713904, -122.06289888474468,"Oakes Library", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMrKKlNI9IaQEmofFisCV5MfbD8GGqATEaWrrvb=w408-h306-k-no",
-                  37.00660409811856, -122.06003603558892,"Buddha Statue", ''),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=EJHh29hjUbF6q51jbkt_AA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=356.90012&pitch=0&thumbfov=100",
+                  36.997603292930194, -122.06623329784122,"Kresge Student Library", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMY6SXi_MN_NoW73V3G7-1oHV_K7hmHHH_QcJ_h=w408-h306-k-no",
-                  37.024758967944, -122.0580458659901,"Garden of Eden - Henry Cowell Redwood State Park", ""),
+                  "https://lh5.googleusercontent.com/p/AF1QipMZDLGPVvuBNpFWzfSRk2ipI2r0ez7bZlfZkG2l=w738-h240-k-no",
+                  36.99910517369182, -122.06059399782959,"Science & Engineering Library", ""),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipP5uXSS6OVv5_qyHgNyrLR_A23Rs6aIq2-z4Cw=w408-h240-k-no-pi0-ya47.170418-ro0-fo100",
-                  36.99067567820772, -122.04909315971524,"Pogonip Vista Point", ''),
+                  "https://lh5.googleusercontent.com/p/AF1QipN_mpikHGXgPU5572_4u_4GjBl5HVED6eFeAAmE=w742-h240-k-no",
+                  36.99578136536548, -122.05888865898311,"McHenry Library", '1156 High St, Santa Cruz, CA 95064'),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOIKefoiJJ8tjGT6XYzXOTV_ntuBmNy0_pfp_Y=w408-h306-k-no",
-                  36.99550145357614, -122.04428228370232,"Pogonip", '333 Golf Club Dr, Santa Cruz, CA 95060'),
+                  "https://lh5.googleusercontent.com/p/AF1QipOIl1Ea0Nx8Gyvq7Ho_ncHp2gkneph5KIlnxRKx=w408-h306-k-no",
+                  36.99993912279547, -122.05486909133349,"Crown Library", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOpm9lF4mlqHVtgekifhteeOYmtIraNj8l-KM2v=w408-h306-k-no",
-                  37.00130432638354, -122.04928003710356,"Pogonip Historic Limekiln", 'Lime Kiln Trail, Santa Cruz, CA 95060'),
+                  "https://lh5.googleusercontent.com/p/AF1QipPrP89C45E0KJxyWFzRsKA3w2HLn0Rw-7NG4kYo=w408-h306-k-no",
+                  36.999711831435256, -122.05336351136583,"Merrill Library", ""),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPqN_Q-GAVRbGioHSPCHU1fqrthO-hoN2OEvlfS=w408-h306-k-no",
-                  36.99340877871167, -122.06515297320963,"Porter Squiggle", "200 Heller Dr, Santa Cruz, CA 95064"),
+                  "https://lh5.googleusercontent.com/p/AF1QipODJvSj_iAoLa96hbIHsi_G2M_f9zFKJdTrWSM-=w408-h306-k-no",
+                  36.99716490316114, -122.0536526692152,"Page Smith Library", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMWbGItmUxm723i7lxgGrdWV-utM1jHcatQMnmE=w408-h240-k-no-pi-0-ya155.2-ro-0-fo100",
-                  36.996041133200166, -122.05165615971505,"Stevenson Knoll", "Casa Sexta, Santa Cruz, CA 95064"),
-            ),
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMjeePUYmsJo-2hu2D6DL-bzd8IGLf0Tzd_wTzq=w408-h544-k-no",
-                  36.99403252521436, -122.0690402904878,"Cave Gulch", ''),
+                  "https://lh5.googleusercontent.com/p/AF1QipN6yv9ZwEYF1HZGR2UB27nDqDnm2ir5JqUw0_E6=w408-h306-k-no",
+                  36.99722897221115, -122.05151323142576,"Adlai E. Stevenson Library", ''),
             ),
           ],
         ),
@@ -397,7 +372,6 @@ class _ViewsState extends State<Views> {
       ),
     );
   }
-
 
   Widget myDetailsContainer1(String title, String snippet) {
     return Column(
