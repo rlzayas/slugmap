@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -26,13 +25,13 @@ import 'package:testing_app/widgets/slugSearch.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Colleges extends StatefulWidget {
+class HikingTrails extends StatefulWidget {
   @override
-  _CollegesState createState() => _CollegesState();
+  _HikingTrailsState createState() => _HikingTrailsState();
 }
 
-class _CollegesState extends State<Colleges> {
-  //GoogleMapController mapController;
+class _HikingTrailsState extends State<HikingTrails> {
+//GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
@@ -48,119 +47,146 @@ class _CollegesState extends State<Colleges> {
 
   double zoomVal=5.0;
 
-  List<Marker> collegesList = [
-    // Cowell College
+  List<Marker> hikingTrailList = [
+    // Cave Gulch Trailhead
     Marker(
-      markerId: MarkerId('CowellCollege'),
-      position: LatLng(36.99737038347433, -122.05427346220672),
+      markerId: MarkerId('GreatMeadow'),
+      position: LatLng(36.98786124866043, -122.06890251669269),
       infoWindow: InfoWindow(
-        title: 'Cowell College',
-        snippet: '1156 High St, Santa Cruz, CA 95064',
-      ),
-
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // Stevenson College
-    Marker(
-      markerId: MarkerId('StevensonCollege'),
-      position: LatLng(36.99718747230962, -122.0519119377878),
-      infoWindow: InfoWindow(
-        title: 'Stevenson College',
-        snippet: '1156 High St, Santa Cruz, CA 95064',
+        title: 'Cave Gulch Trailhead',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    //Crown College
-    Marker(
-      markerId: MarkerId('CrownCollege'),
-      position: LatLng(37.00044004525279, -122.05452639437944),
-      infoWindow: InfoWindow(
-        title: 'Crown College',
-        snippet: '628 Crown Rd, Santa Cruz, CA 95064',
-      ),
+  // Great Meadow
+  Marker(
+  markerId: MarkerId('GreatMeadow'),
+  position: LatLng(36.99232292142072, -122.05782280429814),
+  infoWindow: InfoWindow(
+  title: 'Great Meadow',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Heller Drive Trailhead
+  Marker(
+  markerId: MarkerId('HellerHillRoadTrailhead'),
+  position: LatLng(37.00348848930636, -122.06596338499335),
+  infoWindow: InfoWindow(
+  title: 'Heller Drive  Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Merrill College
-    Marker(
-      markerId: MarkerId('MerrillCollege'),
-      position: LatLng(36.99996850267072, -122.05330945824518),
-      infoWindow: InfoWindow(
-        title: 'Merrill College',
-        snippet: '641 Merrill Rd, Santa Cruz, CA 95064',
-      ),
+  // College 9 Trailhead
+  Marker(
+  markerId: MarkerId('College9Trailhead'),
+  position: LatLng(37.00196297615762, -122.05787660963959),
+  infoWindow: InfoWindow(
+  title: 'College 9 Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // College 10 Trailhead
+  Marker(
+  markerId: MarkerId('College10Trailhead'),
+  position: LatLng(37.003746885938995, -122.05874986883879),
+  infoWindow: InfoWindow(
+  title: 'College 10 Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Porter College
-    Marker(
-      markerId: MarkerId('PorterCollege'),
-      position: LatLng(36.99460980922041, -122.0653309811971),
-      infoWindow: InfoWindow(
-        title: 'Porter College',
-        snippet: '1156 High Street, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Chinquapin Road Trailhead
+  Marker(
+  markerId: MarkerId('ChinquapinRoadTrailhead'),
+  position: LatLng(37.002261789871916, -122.05607049993415),
+  infoWindow: InfoWindow(
+  title: 'Chinquapin Road Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Kresge College
-    Marker(
-      markerId: MarkerId('KresgeCollege'),
-      position: LatLng(36.99765919789214, -122.06676649796817),
-      infoWindow: InfoWindow(
-        title: 'Kresge College',
-        snippet: '510 Porter-Kresge Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // U-Con Trail Trailhead
+  Marker(
+  markerId: MarkerId('UConTrailTrailhead'),
+  position: LatLng(37.00225807152155, -122.05200633736733),
+  infoWindow: InfoWindow(
+  title: 'U-Con Trail Trailhead',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // Oaks College
-    Marker(
-      markerId: MarkerId('OaksCollege'),
-      position: LatLng(36.989929657499914, -122.06277255820748),
-      infoWindow: InfoWindow(
-        title: 'Oakes College',
-        snippet: '231 Oakes Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Koi Pond
+  Marker(
+  markerId: MarkerId('Koi Pond'),
+  position: LatLng(37.00024830740773, -122.04829250486237),
+  infoWindow: InfoWindow(
+  title: 'Koi Pond',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // RCC College
-    Marker(
-      markerId: MarkerId('RachelCarsonCollege'),
-      position: LatLng(36.99151711141353, -122.0647350052343),
-      infoWindow: InfoWindow(
-        title: 'Rachel Carson College',
-        snippet: '356 Rachel Carson Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Pogonip Historic Limekiln
+  Marker(
+  markerId: MarkerId('PogonipHistoricLimekiln'),
+  position: LatLng(37.001319840045156, -122.04933310285453),
+  infoWindow: InfoWindow(
+  title: 'Pogonip Historic Limekiln',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // College 9
-    Marker(
-      markerId: MarkerId('College9'),
-      position: LatLng(37.00173913642322, -122.05729768589005),
-      infoWindow: InfoWindow(
-        title: 'College 9',
-        snippet: '702 College Nine Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Empire Cave
+  Marker(
+  markerId: MarkerId('EmpireCave'),
+  position: LatLng(36.99617636224744, -122.06883543180497),
+  infoWindow: InfoWindow(
+  title: 'Empire Cave',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
 
-    // College 10
-    Marker(
-      markerId: MarkerId('College10'),
-      position: LatLng(37.00083458438215, -122.05857488511316),
-      infoWindow: InfoWindow(
-        title: 'College 10',
-        snippet: '710 College Ten Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
+  // Porter Koi Pond
+  Marker(
+  markerId: MarkerId('PorterKoiPond'),
+  position: LatLng(36.99420990009598, -122.06536281070382),
+  infoWindow: InfoWindow(
+  title: 'Porter Koi Pond',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
+
+  // Crown Meadow
+  Marker(
+  markerId: MarkerId('CrownMeadow'),
+  position: LatLng(37.002720138086666, -122.05264625461085),
+  infoWindow: InfoWindow(
+  title: 'Crown Meadow',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
+
+  // Crown Meadow
+  Marker(
+  markerId: MarkerId('CrownMeadow2'),
+  position: LatLng(37.00457530902208, -122.05735124061187),
+  infoWindow: InfoWindow(
+  title: 'Crown Meadow',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
+
+  // Seep Zone Interpretive Trail
+  Marker(
+  markerId: MarkerId('SeepZoneInterpretiveTrail'),
+  position: LatLng(37.003359289995295, -122.06094499992527),
+  infoWindow: InfoWindow(
+  title: 'Seep Zone Interpretive Trail',
+  ),
+  icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  ),
   ];
 
   SpeedDial buildSpeedDial() {
@@ -434,7 +460,7 @@ class _CollegesState extends State<Colleges> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(collegesList),
+              markers: Set.from(hikingTrailList),
             ),
 
             //Container 2: Full Search bar container
@@ -514,9 +540,8 @@ class _CollegesState extends State<Colleges> {
                       ),
                       onPressed: () {
                         Navigator.push(
-                            context,
-
-                            MaterialPageRoute(builder: (context) => slugMapFilter()),
+                          context,
+                          MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
                   )
@@ -560,76 +585,99 @@ class _CollegesState extends State<Colleges> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipNhx5Qwz4qrEcYLREogVSdL-MDV6G4mu_G5AkJy=w426-h240-k-no",
-                  36.99737038347433, -122.05427346220672,"Cowell College", '1156 High St, Santa Cruz, CA 95064'),
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMtC02MHqc4aC94j8QD5go2KnmDxSfS6-MPFUBW=w408-h240-k-no-pi-10-ya114.99999-ro-0-fo100",
-                  36.99718747230962, -122.0519119377878,"Stevenson College", '1156 High St, Santa Cruz, CA 95064'),
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOIyhMhB0GE98kK-JGb--1uRW3QmK85sV424u1r=w408-h306-k-no",
-                  37.00044004525279, -122.05452639437944,"Crown College", "628 Crown Rd, Santa Cruz, CA 95064"),
+                  "https://lh5.googleusercontent.com/p/AF1QipNV2EASZ1r2d7sqiIoATtob5X6TbcOc1gK1599E=w408-h306-k-no",
+                  37.00457530902208, -122.05735124061187,"Crown Meadow", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOuSZSryjYuT-8vlK_HuCUCmdSCQ6wLFSRPnHLO=w408-h306-k-no",
-                  36.99996850267072, -122.05330945824518,"Merrill College", '641 Merrill Rd, Santa Cruz, CA 95064'),
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPcPLt9ti9OeoGksu22-qZE0IKlfT_Y29BTeysC=w408-h306-k-no",
-                  36.99460980922041, -122.06533098119717,"Porter College", '1156 High Street, Santa Cruz, CA 95064'),
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipNaGnwbY3Wq15t3GCBMSXQN1LbwcRz6eTTSxTh4=w408-h544-k-no",
-                  36.99765919789214, -122.06676649796817,"Kresge College", "510 Porter-Kresge Rd, Santa Cruz, CA 95064"),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kWYAvhy8jAbbn09wgOczlg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=39.63612&pitch=0&thumbfov=100",
+                  37.002720138086666, -122.05264625461085,"Crown Meadow", ""),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOLheqUoXkrxh7dCib6JHR6m2D7zjmjSCMvI9tu=w408-h240-k-no-pi-0-ya88-ro-0-fo100",
-                  36.989929657499914, -122.06277255820748,"Oakes College", '231 Oakes Rd, Santa Cruz, CA 95064'),
+                  "https://lh5.googleusercontent.com/p/AF1QipOSUXXSw0BZnjnuJu7FT18OMs0-wtjNnx7B6CBj=w408-h306-k-no",
+                  36.99420990009598, -122.06536281070382,"Porter Koi Pond", ''),
             ),
-
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3r2y6WU1uLFQTgCZAAEXdbNBMQQIGUZsa3yvc=w408-h240-k-no-pi-20-ya123-ro0-fo100",
-                  36.99151711141353, -122.0647350052343,"Rachel Carson College", '356 Rachel Carson Rd, Santa Cruz, CA 95064'),
+                  "https://lh5.googleusercontent.com/p/AF1QipPqSfA7hQahboiKZrKQ-3foIkwmIMrR3RxiLVk8=w408-h272-k-no",
+                  36.99617636224744, -122.06883543180497,"Empire Cave", ''),
             ),
-
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPowPyR7t_8kEB9eR9SQfKPNLoYBfPYyVNQZk9j=w426-h240-k-no",
-                  37.00173913642322, -122.05729768589005,"College 9", "702 College Nine Rd, Santa Cruz, CA 95064"),
-            ),SizedBox(width: 10.0),
+                  "https://lh5.googleusercontent.com/p/AF1QipOpm9lF4mlqHVtgekifhteeOYmtIraNj8l-KM2v=w408-h306-k-no",
+                  37.001319840045156, -122.04933310285453,"Pogonip Historic Limekiln", ""),
+            ),
+            SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOhtB5Na-a36jWl3vxJ1DwTRqFo4mLLQxKu9Vj6=w408-h544-k-no",
-                  37.00083458438215, -122.05857488511316,"College 10", '710 College Ten Rd, Santa Cruz, CA 95064'),
+                  "https://lh5.googleusercontent.com/p/AF1QipOWpeQWQQf9MDphEQVoLeP4LaI1mNZFlZx_hmGN=w408-h544-k-no",
+                  37.00024830740773, -122.04829250486237,"Koi Pond", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOC_IAby6ud2BAna3UoctR6uMzzcHQGo7ET2QkC=w408-h725-k-no",
+                  37.00225807152155, -122.05200633736733,"U-Con Trail Trailhead", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=zhkfbQr0s1joFOHDMC05KQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=294.63983&pitch=0&thumbfov=100",
+                  37.002261789871916, -122.05607049993415,"Chinquapin Road Trailhead", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=eeitTZLxkwoUNQvK6sEXMA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=17.917072&pitch=0&thumbfov=100",
+                  37.003746885938995, -122.05874986883879,"College 10 Trailhead", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6FUAOnpO5DXa8KBiHpFzNg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=40.259354&pitch=0&thumbfov=100",
+                  37.00196297615762, -122.05787660963959,"College 9 Trailhead", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOaIRzm9bNkX5dZQdfhhPCKS79vYUo3_SfdZ6MM=w408-h306-k-no",
+                  37.00336248460905, -122.06083630318761,"Seep Zone Interpretive Trail", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6oV1bTg6ORsn7XOZ43yFfA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=352.02844&pitch=0&thumbfov=100",
+                  37.00348848930636, -122.06596338499335,"Heller Drive  Trailhead", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMcXF_5rz-Dk85CaEkaeZ0uVHU8atUhibZjqh6T=w574-h240-k-no",
+                  36.99232292142072, -122.05782280429814,"Great Meadow", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMuDhKBg5y2al4IqdGC_ug0cOHb54NAzDrLpt4h=w408-h240-k-no-pi-20-ya339-ro-0-fo100",
+                  36.98786124866043, -122.06890251669269,"Cave Gulch Trailhead", ''),
             ),
           ],
         ),
@@ -662,6 +710,17 @@ class _CollegesState extends State<Colleges> {
                         image: NetworkImage(_image),
                       ),
                     ),),
+                  // Container(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child:
+                  //       myDetailsContainer1(restaurantName),
+                  //   ),
+                  // child: Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: myDetailsContainer1(info),
+                  // ),
+                  // ),
                   Container(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

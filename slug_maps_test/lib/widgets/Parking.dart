@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -26,13 +25,13 @@ import 'package:testing_app/widgets/slugSearch.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Colleges extends StatefulWidget {
+class Parking extends StatefulWidget {
   @override
-  _CollegesState createState() => _CollegesState();
+  _ParkingState createState() => _ParkingState();
 }
 
-class _CollegesState extends State<Colleges> {
-  //GoogleMapController mapController;
+class _ParkingState extends State<Parking> {
+//GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
@@ -48,116 +47,93 @@ class _CollegesState extends State<Colleges> {
 
   double zoomVal=5.0;
 
-  List<Marker> collegesList = [
-    // Cowell College
+  List<Marker> parkingLotList = [
+    // East Remote Parking Lot
     Marker(
-      markerId: MarkerId('CowellCollege'),
-      position: LatLng(36.99737038347433, -122.05427346220672),
+      markerId: MarkerId('EastRemoteParkingLot'),
+      position: LatLng(36.99203741631251, -122.05312085074124),
       infoWindow: InfoWindow(
-        title: 'Cowell College',
-        snippet: '1156 High St, Santa Cruz, CA 95064',
-      ),
-
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // Stevenson College
-    Marker(
-      markerId: MarkerId('StevensonCollege'),
-      position: LatLng(36.99718747230962, -122.0519119377878),
-      infoWindow: InfoWindow(
-        title: 'Stevenson College',
-        snippet: '1156 High St, Santa Cruz, CA 95064',
+        title: 'East Remote Parking Lot',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    //Crown College
+    // Vadim Parking
     Marker(
-      markerId: MarkerId('CrownCollege'),
-      position: LatLng(37.00044004525279, -122.05452639437944),
+      markerId: MarkerId('VadimParking'),
+      position: LatLng(37.003064125211885, -122.05382987511449),
       infoWindow: InfoWindow(
-        title: 'Crown College',
-        snippet: '628 Crown Rd, Santa Cruz, CA 95064',
-      ),
-
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // Merrill College
-    Marker(
-      markerId: MarkerId('MerrillCollege'),
-      position: LatLng(36.99996850267072, -122.05330945824518),
-      infoWindow: InfoWindow(
-        title: 'Merrill College',
-        snippet: '641 Merrill Rd, Santa Cruz, CA 95064',
-      ),
-
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // Porter College
-    Marker(
-      markerId: MarkerId('PorterCollege'),
-      position: LatLng(36.99460980922041, -122.0653309811971),
-      infoWindow: InfoWindow(
-        title: 'Porter College',
-        snippet: '1156 High Street, Santa Cruz, CA 95064',
+        title: 'Vadim Parking ',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Kresge College
+    // BikeLink - UCSC Engineering 2
     Marker(
-      markerId: MarkerId('KresgeCollege'),
-      position: LatLng(36.99765919789214, -122.06676649796817),
+      markerId: MarkerId('BikeLinkUCSCEngineering2'),
+      position: LatLng(37.00091361781477, -122.06214367853134),
       infoWindow: InfoWindow(
-        title: 'Kresge College',
-        snippet: '510 Porter-Kresge Rd, Santa Cruz, CA 95064',
+        title: 'BikeLink - UCSC Engineering 2',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Oaks College
+    // BikeLink - UCSC Baskin
     Marker(
-      markerId: MarkerId('OaksCollege'),
-      position: LatLng(36.989929657499914, -122.06277255820748),
+      markerId: MarkerId('BikeLinkUCSCBaskin'),
+      position: LatLng(37.000448611438934, -122.06263563208518),
       infoWindow: InfoWindow(
-        title: 'Oakes College',
-        snippet: '231 Oakes Rd, Santa Cruz, CA 95064',
+        title: 'BikeLink - UCSC Baskin',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // RCC College
+    // BikeLink - Science Library
     Marker(
-      markerId: MarkerId('RachelCarsonCollege'),
-      position: LatLng(36.99151711141353, -122.0647350052343),
+      markerId: MarkerId('BikeLinkScienceLibrary'),
+      position: LatLng(36.99894224131143, -122.06073235461466),
       infoWindow: InfoWindow(
-        title: 'Rachel Carson College',
-        snippet: '356 Rachel Carson Rd, Santa Cruz, CA 95064',
+        title: 'BikeLink - Science Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // College 9
+    // Parking Lot 114
     Marker(
-      markerId: MarkerId('College9'),
-      position: LatLng(37.00173913642322, -122.05729768589005),
+      markerId: MarkerId('ParkingLot114'),
+      position: LatLng(37.00018773303434, -122.05896582287743),
       infoWindow: InfoWindow(
-        title: 'College 9',
-        snippet: '702 College Nine Rd, Santa Cruz, CA 95064',
+        title: 'Parking Lot 114',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // College 10
+    // Zipcar
     Marker(
-      markerId: MarkerId('College10'),
-      position: LatLng(37.00083458438215, -122.05857488511316),
+      markerId: MarkerId('Zipcar'),
+      position: LatLng(37.000142793660984, -122.05899759905863),
       infoWindow: InfoWindow(
-        title: 'College 10',
-        snippet: '710 College Ten Rd, Santa Cruz, CA 95064',
+        title: 'Zipcar',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // North Perimeter
+    Marker(
+      markerId: MarkerId('NorthPerimeter'),
+      position: LatLng(37.00254987296524, -122.06590202346045),
+      infoWindow: InfoWindow(
+        title: 'North Perimeter Parking Lot 150',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // Parking Lot 139A
+    Marker(
+      markerId: MarkerId('ParkingLot139A'),
+      position: LatLng(37.001553656934625, -122.06244957438545),
+      infoWindow: InfoWindow(
+        title: 'Parking Lot 139A',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
@@ -434,7 +410,7 @@ class _CollegesState extends State<Colleges> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              markers: Set.from(collegesList),
+              markers: Set.from(parkingLotList),
             ),
 
             //Container 2: Full Search bar container
@@ -515,7 +491,6 @@ class _CollegesState extends State<Colleges> {
                       onPressed: () {
                         Navigator.push(
                             context,
-
                             MaterialPageRoute(builder: (context) => slugMapFilter()),
                         );
                       }
@@ -560,76 +535,64 @@ class _CollegesState extends State<Colleges> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipNhx5Qwz4qrEcYLREogVSdL-MDV6G4mu_G5AkJy=w426-h240-k-no",
-                  36.99737038347433, -122.05427346220672,"Cowell College", '1156 High St, Santa Cruz, CA 95064'),
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipMtC02MHqc4aC94j8QD5go2KnmDxSfS6-MPFUBW=w408-h240-k-no-pi-10-ya114.99999-ro-0-fo100",
-                  36.99718747230962, -122.0519119377878,"Stevenson College", '1156 High St, Santa Cruz, CA 95064'),
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOIyhMhB0GE98kK-JGb--1uRW3QmK85sV424u1r=w408-h306-k-no",
-                  37.00044004525279, -122.05452639437944,"Crown College", "628 Crown Rd, Santa Cruz, CA 95064"),
+                  "https://geo1.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJqc3s6XRBjoARG5Dso9ZUKTQqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.001553656934625, -122.06244957438545,"Parking Lot 139A", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOuSZSryjYuT-8vlK_HuCUCmdSCQ6wLFSRPnHLO=w408-h306-k-no",
-                  36.99996850267072, -122.05330945824518,"Merrill College", '641 Merrill Rd, Santa Cruz, CA 95064'),
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPcPLt9ti9OeoGksu22-qZE0IKlfT_Y29BTeysC=w408-h306-k-no",
-                  36.99460980922041, -122.06533098119717,"Porter College", '1156 High Street, Santa Cruz, CA 95064'),
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipNaGnwbY3Wq15t3GCBMSXQN1LbwcRz6eTTSxTh4=w408-h544-k-no",
-                  36.99765919789214, -122.06676649796817,"Kresge College", "510 Porter-Kresge Rd, Santa Cruz, CA 95064"),
+                  "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kVkqVqDR6BQpkriwNIDF4g&cb_client=search.gws-prod.gps&w=408&h=240&yaw=94.35598&pitch=0&thumbfov=100",
+                  37.00254987296524, -122.06590202346045,"North Perimeter Parking Lot 150", ''),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOLheqUoXkrxh7dCib6JHR6m2D7zjmjSCMvI9tu=w408-h240-k-no-pi-0-ya88-ro-0-fo100",
-                  36.989929657499914, -122.06277255820748,"Oakes College", '231 Oakes Rd, Santa Cruz, CA 95064'),
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJZ392kQpBjoARs9UJ7qw7LHgqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.000142793660984, -122.05899759905863,"ZipCar", ""),
             ),
-
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipO3r2y6WU1uLFQTgCZAAEXdbNBMQQIGUZsa3yvc=w408-h240-k-no-pi-20-ya123-ro0-fo100",
-                  36.99151711141353, -122.0647350052343,"Rachel Carson College", '356 Rachel Carson Rd, Santa Cruz, CA 95064'),
+                  "https://geo0.ggpht.com/maps/photothumb/fd/v1?bpb=ChEKD3NlYXJjaC5nd3MtcHJvZBIgChIJZ392kQpBjoARs9UJ7qw7LHgqCg0AAAAAFQAAAAAaBgjwARCYAw&gl=US",
+                  37.00018773303434, -122.05896582287743,"Parking Lot 114", ''),
             ),
-
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPowPyR7t_8kEB9eR9SQfKPNLoYBfPYyVNQZk9j=w426-h240-k-no",
-                  37.00173913642322, -122.05729768589005,"College 9", "702 College Nine Rd, Santa Cruz, CA 95064"),
-            ),SizedBox(width: 10.0),
+                  "",
+                  36.99894224131143, -122.06073235461466,"BikeLink - Science Library", ''),
+            ),
+            SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOhtB5Na-a36jWl3vxJ1DwTRqFo4mLLQxKu9Vj6=w408-h544-k-no",
-                  37.00083458438215, -122.05857488511316,"College 10", '710 College Ten Rd, Santa Cruz, CA 95064'),
+                  "",
+                  37.000448611438934, -122.06263563208518,"BikeLink - UCSC Baskin", ""),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMZg93kzYRE5QvAoxVuug4Cp-7v81GhwyI3K7Tb=w426-h240-k-no",
+                  37.00091361781477, -122.06214367853134,"BikeLink - UCSC Engineering 2", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "",
+                  37.003064125211885, -122.05382987511449,"Vadim Parking", ''),
+            ),
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "",
+                  36.99203741631251, -122.05312085074124,"East Remote Parking Lot", ""),
             ),
           ],
         ),
