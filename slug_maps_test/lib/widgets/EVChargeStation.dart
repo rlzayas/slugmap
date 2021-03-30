@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -20,6 +21,7 @@ import 'package:testing_app/widgets/Parking.dart';
 import 'package:testing_app/widgets/BusStops.dart';
 
 import 'package:testing_app/widgets/slugMapFilter.dart';
+
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
 
@@ -29,6 +31,7 @@ class EVChargeStation extends StatefulWidget {
 }
 
 class _EVChargeStationState extends State<EVChargeStation> {
+
   //GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
@@ -578,5 +581,4 @@ class _EVChargeStationState extends State<EVChargeStation> {
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(lat, long), zoom: 15,tilt: 50.0,
       bearing: 45.0,)));
   }
-
 }

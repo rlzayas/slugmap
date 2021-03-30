@@ -11,7 +11,9 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:testing_app/widgets/Colleges.dart';
 import 'package:testing_app/widgets/DiningHalls.dart';
 import 'package:testing_app/widgets/EVChargeStation.dart';
+
 import 'package:testing_app/widgets/FilterInMainTest.dart';
+
 import 'package:testing_app/widgets/WaterFillStation.dart';
 import 'package:testing_app/widgets/Views.dart';
 
@@ -400,6 +402,7 @@ class _MapState extends State<slugMapMain> {
                           context,
                           MaterialPageRoute(builder: (context) => FilterInMainTest()),
                           // MaterialPageRoute(builder: (context) => slugMapFilter()),
+
                         );
                       }
                   )

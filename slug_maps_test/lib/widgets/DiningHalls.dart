@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -24,6 +25,7 @@ import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/slugSearch.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class DiningHalls extends StatefulWidget {
   @override
@@ -616,5 +618,4 @@ class _DiningHallsState extends State<DiningHalls> {
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(lat, long), zoom: 15,tilt: 50.0,
       bearing: 45.0,)));
   }
-
 }

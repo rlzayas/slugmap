@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -56,6 +57,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Cowell College',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
+
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
@@ -78,6 +80,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Crown College',
         snippet: '628 Crown Rd, Santa Cruz, CA 95064',
       ),
+
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
@@ -89,6 +92,7 @@ class _CollegesState extends State<Colleges> {
         title: 'Merrill College',
         snippet: '641 Merrill Rd, Santa Cruz, CA 95064',
       ),
+
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 

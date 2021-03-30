@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:testing_app/widgets/Colleges.dart';
@@ -31,6 +32,7 @@ class WaterFillStation extends StatefulWidget {
 }
 
 class _WaterFillStationState extends State<WaterFillStation> {
+
 //GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
@@ -56,6 +58,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'ClassroomUnit',
         //snippet: '',
       ),
+
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
@@ -78,6 +81,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'BayTree Bookstore/Quarry Plaza',
         //snippet: '',
       ),
+
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
@@ -89,6 +93,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'McHenry Library',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
+
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
@@ -100,6 +105,7 @@ class _WaterFillStationState extends State<WaterFillStation> {
         title: 'Media Theater',
         snippet: '453 Kerr Rd, Santa Cruz, CA 95064',
       ),
+
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
