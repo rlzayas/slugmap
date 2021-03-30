@@ -20,17 +20,12 @@ class slugSearch extends StatefulWidget {
   @override
   _SearchState createState() => _SearchState();
 }
+
 class _SearchState extends State<slugSearch> {
   Widget build(BuildContext context) {
     //phone dimensions
-    double phoneWidth = MediaQuery
-        .of(context)
-        .size
-        .width; //375
-    double phoneHeight = MediaQuery
-        .of(context)
-        .size
-        .height; //812
+    double phoneWidth = MediaQuery.of(context).size.width; //375
+    double phoneHeight = MediaQuery.of(context).size.height; //812
 
 
     return Scaffold(
@@ -43,17 +38,14 @@ class _SearchState extends State<slugSearch> {
         child: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(
-                  top: 0),
+              margin: EdgeInsets.only(top: 0),
               width: phoneWidth,
               height: phoneHeight * .2130541872,
               decoration: BoxDecoration(
                 color: Color(0xffececec),
                 borderRadius: BorderRadius.circular(5),
                 boxShadow: [
-                  BoxShadow(
-                      color: Color(0xffe5e2e2)
-                  ),
+                  BoxShadow(color: Color(0xffe5e2e2)),
                   BoxShadow(
                     color: Color(0xffe2e0e0),
                     blurRadius: 12,
@@ -63,17 +55,14 @@ class _SearchState extends State<slugSearch> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(
-                  top: phoneHeight * .2192118227),
+              margin: EdgeInsets.only(top: phoneHeight * .2192118227),
               width: phoneWidth,
               height: phoneHeight * .7807881773,
               decoration: BoxDecoration(
                 color: Color(0xffececec),
                 borderRadius: BorderRadius.circular(5),
                 boxShadow: [
-                  BoxShadow(
-                      color: Color(0xffe5e2e2)
-                  ),
+                  BoxShadow(color: Color(0xffe5e2e2)),
                   BoxShadow(
                     color: Color(0xffe2e0e0),
                     blurRadius: 12,
@@ -81,7 +70,6 @@ class _SearchState extends State<slugSearch> {
                   ),
                 ],
               ),
-
             ),
             //Container 2: Full Search bar container
             Container(
@@ -107,7 +95,6 @@ class _SearchState extends State<slugSearch> {
               height: phoneHeight * .04310344828,
               margin: EdgeInsets.only(
                   top: phoneHeight * .05665024631, left: phoneWidth * .048),
-
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
               ),
@@ -116,7 +103,6 @@ class _SearchState extends State<slugSearch> {
                   // Navigator.push(
                   // context,
                   //MaterialPageRoute(builder: (context) => slugMapMain()), );
-
                 },
               ),
             ),
@@ -133,27 +119,28 @@ class _SearchState extends State<slugSearch> {
                   FloatingActionButton(
                       backgroundColor: Color(0xffececec),
                       elevation: 0,
+
                       child: SvgPicture.asset('assets/images/Go_back.svg',),
+
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => slugMapMain()),
                         );
-                      }
-                  ),
-
+                      }),
                 ],
-
-
               ),
             ),
+
             _buildFilterSlider(phoneWidth, phoneHeight),
+
           ],
         ),
       ),
     );
   }
+
 
   Container filterSlide(double phoneWidth, double phoneHeight, String asset, String hero, Widget goFilter) {
     return Container(
