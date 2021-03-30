@@ -106,6 +106,8 @@ class _SearchState extends State<slugSearch> {
                 },
               ),
             ),
+
+            //Go back button
             Container(
               margin: EdgeInsets.only(
                   left: phoneWidth * .05866666667,
