@@ -30,6 +30,7 @@ import 'package:testing_app/widgets/newTestMap.dart';
 import 'slugMapFilter.dart';
 
 class slugMapMain extends StatefulWidget {
+
   @override
   _MapState createState() => _MapState();
 }

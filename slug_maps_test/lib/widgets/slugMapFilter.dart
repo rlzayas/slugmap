@@ -341,35 +341,30 @@ import 'package:testing_app/widgets/BusStops.dart';
 //***************************************************
 
 
+
 SpeedDial buildSpeedDial(BuildContext context, double phoneWidth, double phoneHeight, bool _visible) {
 //812 x 375
   return SpeedDial(
+      marginEnd: phoneWidth * .04, //15
+      marginBottom: phoneHeight * .8842364532, //718
 
-    marginEnd: phoneWidth * .04266666667,
-    //16
-    marginBottom: phoneHeight * .8842364532,
-    //718
     animatedIcon: AnimatedIcons.menu_close,
-    animatedIconTheme: IconThemeData(size: phoneWidth * .06266666667),
-    //23
-    buttonSize: phoneWidth * .06666666667,
-    //25
+    animatedIconTheme: IconThemeData(size: phoneWidth * .06666666667), //23
+    buttonSize: phoneWidth * .06666666667, //23
     visible: _visible,
     curve: Curves.easeIn,
     backgroundColor: Color(0xffececec),
     foregroundColor: Colors.black,
     elevation: 0,
     orientation: SpeedDialOrientation.Down,
-    childMarginBottom: 15,
-    childMarginTop: 15,
+    childMarginBottom: phoneHeight * .0184729064, //15
+    childMarginTop: phoneHeight * .0184729064, //15
 
     // onOpen: () => print('OPENING DIAL'),
     // onClose: () => print('CLOSING DIAL'),
     children: [
-
       //Colleges filter
       SpeedDialChild(
-
         child: SvgPicture.asset("assets/images/CollegeIcon.svg"),
         label: 'Colleges',
         labelStyle: TextStyle(
