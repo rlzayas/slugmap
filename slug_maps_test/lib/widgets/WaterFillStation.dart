@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -34,8 +33,7 @@ class WaterFillStation extends StatefulWidget {
 
 class _WaterFillStationState extends State<WaterFillStation> {
 
-  //GoogleMapController mapController;
-  GoogleMapController newMapController;
+//GoogleMapController mapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
@@ -43,37 +41,13 @@ class _WaterFillStationState extends State<WaterFillStation> {
 
   _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
-    newMapController = controller;
-    locatePosition();
   }
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
   }
 
-  //Current location of the user
-  Position currentPosition;
-  var geoLocator = Geolocator();
-
-  void locatePosition() async
-  {
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    currentPosition = position;
-
-    LatLng latLngPosition = LatLng(position.latitude, position.longitude);
-
-    CameraPosition cameraPosition = new CameraPosition(target: latLngPosition, zoom: 14.35);
-    newMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
-  }
-
-
-  //Visibility for our screen for speed dial
-  bool _visible = true;
-  void setDialVisible(bool value) {
-    setState(() {
-      _visible = value;
-    });
-  }
+  double zoomVal=5.0;
 
   List<Marker> waterStationList = [
     // Classroom Unit
@@ -170,6 +144,14 @@ class _WaterFillStationState extends State<WaterFillStation> {
   ];
 
 
+//Visibility for our screen for speed dial
+  bool _visible = true;
+  void setDialVisible(bool value) {
+    setState(() {
+      _visible = value;
+    });
+  }
+
   Widget build(BuildContext context) {
     //phone dimensions
     double phoneWidth = MediaQuery
@@ -199,8 +181,6 @@ class _WaterFillStationState extends State<WaterFillStation> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              zoomGesturesEnabled: true,
-              zoomControlsEnabled: true,
               markers: Set.from(waterStationList),
             ),
 
