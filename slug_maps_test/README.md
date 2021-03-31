@@ -49,3 +49,8 @@ Follow the steps below to navigate successfully within the application
 * Google Cloud Platform: https://console.cloud.google.com/
   - Google Maps API (Android/IOS)
   - Firebase
+
+### Known Errors and Features to be Finished
+* Fixing android filter button to be correctly formatted onto the page
+* Fixing current location so that it does not pop up at the top right of the screen when we click on a location or on the filter button
+* Fixing padding and spacing of the filter carousel in the search page
