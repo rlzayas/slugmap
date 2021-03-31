@@ -148,7 +148,7 @@ class _SearchState extends State<slugSearch> {
 
               ),
             ),
-            _buildFilterSlider(phoneWidth, phoneHeight),
+            _buildFilterSlider(context, phoneWidth, phoneHeight),
           ],
         ),
       ),
@@ -157,35 +157,32 @@ class _SearchState extends State<slugSearch> {
 
   Container filterSlide(double phoneWidth, double phoneHeight, String asset, String hero, Widget goFilter) {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: phoneWidth * .02666666667),
       width: phoneWidth * .12, //45
       height: phoneHeight * .05541871921, //45
       child: Stack(
         children: <Widget>[
           FloatingActionButton(
-            heroTag: hero,
+              heroTag: hero,
               backgroundColor: Color(0xffececec),
               elevation: 2,
               child: SvgPicture.asset(asset,),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => goFilter),
+                Navigator.push(context, MaterialPageRoute(builder: (context) => goFilter),
                 );
               }
           ),
-
         ],
-
       ),
     );
+
   }
 
-  //Creating list carousel view for the diffrent filters
-  Widget _buildFilterSlider(double phoneWidth, double phoneHeight) {
+  Widget _buildFilterSlider(BuildContext Context, double phoneWidth, double phoneHeight) {
+
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 100, horizontal: 20),
-      height: 60,
+      margin: EdgeInsets.symmetric(vertical: phoneHeight * .1231527094, horizontal: phoneWidth * .02666666667), //100, 10
+      //height: 60,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[

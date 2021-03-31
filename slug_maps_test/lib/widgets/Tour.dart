@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -27,34 +29,14 @@ import 'package:testing_app/widgets/slugSearch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Tour extends StatefulWidget {
+  Tour({Key key}) : super(key: key);
   @override
   _TourState createState() => _TourState();
 }
 
 class _TourState extends State<Tour> {
-  //GoogleMapController mapController;
-  Completer<GoogleMapController> _controller = Completer();
-  static const LatLng _center = const LatLng(36.989043, -122.058611);
-  LatLng _lastMapPosition = _center;
-  MapType _currentMapType = MapType.normal;
 
-  _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);
-  }
-
-  _onCameraMove(CameraPosition position) {
-    _lastMapPosition = position.target;
-  }
-
-  double zoomVal=5.0;
-
-  // For holding Co-ordinates as LatLng
-  final List<LatLng> polyPoints = [];
-
-  //For holding instance of Polyline
-  final Set<Polyline> polyLines = {};
-
-  List<Marker> TourList = [
+  Set<Marker> TourList = {
     Marker(
       markerId: MarkerId('EastRemoteParkingLot'),
       position: LatLng(36.99203741631251, -122.05312085074124),
@@ -156,18 +138,7 @@ class _TourState extends State<Tour> {
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // College 9
-    Marker(
-      markerId: MarkerId('College9'),
-      position: LatLng(37.00173913642322, -122.05729768589005),
-      infoWindow: InfoWindow(
-        title: 'College 9',
-        snippet: '702 College Nine Rd, Santa Cruz, CA 95064',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-    ),
-
-    // College 10
+    // College 9/10
     Marker(
       markerId: MarkerId('College10'),
       position: LatLng(37.00083458438215, -122.05857488511316),
@@ -177,7 +148,62 @@ class _TourState extends State<Tour> {
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
-  ];
+  };
+
+  ///GoogleMapController mapController;
+  GoogleMapController newMapController;
+  Completer<GoogleMapController> _controller = Completer();
+  static const LatLng _center = const LatLng(36.989043, -122.058611);
+  LatLng _lastMapPosition = _center;
+  MapType _currentMapType = MapType.normal;
+
+  @override
+  void initState() {
+    super.initState();
+    locatePosition();
+    _setPolyLines();
+
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    _controller.complete(controller);
+    newMapController = controller;
+    locatePosition();
+  }
+
+  void _onCameraMove(CameraPosition position) {
+    _lastMapPosition = position.target;
+  }
+
+
+  //Current location of the user
+  Position _currentPosition;
+  var geoLocator = Geolocator();
+
+  void locatePosition() async
+  {
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    _currentPosition = position;
+
+    LatLng latLngPosition = LatLng(position.latitude, position.longitude);
+
+    CameraPosition cameraPosition = new CameraPosition(target: latLngPosition, zoom: 14.35);
+    newMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+  }
+
+
+  // For holding Co-ordinates as LatLng
+  final List<LatLng> polyCords = [];
+
+  //For holding instance of Polyline
+   Set<Polyline> polyLineSet = {};
+
+  void _setPolyLines() {
+
+  }
+
+
+
 
   //Visibility for our screen for speed dial
   bool _visible = true;
@@ -216,9 +242,11 @@ class _TourState extends State<Tour> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
-              tiltGesturesEnabled: false,
-              markers: Set.from(TourList),
-              polylines: polyLines,
+              zoomGesturesEnabled: true,
+              zoomControlsEnabled: true,
+              tiltGesturesEnabled: true,
+              markers: TourList != null ? Set<Marker>.from(TourList) : null,
+              polylines: polyLineSet,
             ),
 
             //Container 2: Full Search bar container
@@ -489,4 +517,56 @@ class _TourState extends State<Tour> {
       bearing: 45.0,)));
   }
 
+  // Future<void> getPlaceDirection() async
+  // {
+  //   var initialPos = Provider.of<AppData>(context, listen: false).pickuplocation;
+  //   var finalPos = Provider.of<AppData>(context, listen: false).pickuplocation;
+  //
+  //   var startLatLng = LatLng(initialPos.latitude, finalPos.longitude);
+  //   var destLatLng = LatLng(initialPos.latitude, finalPos.longitude);
+  //
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) => ProgressDialog(message: "Loading...",)
+  //   );
+  //   var details = await AssitMethods.obtainPlaceDirectionDetails(pickUpLatLng, dropOffLatLng);
+  //
+  //   Navigator.pop(context);
+  //
+  //   PolylinePoints polylinePoints = PolylinePoints();
+  //   List<PointLatLng> decodedPolyLinePointsResult = polylinePoints.decodePolyline(details.encodedPoints);
+  //
+  //   polyCords.clear();
+  //
+  //   if(decodedPolyLinePointsResult.isNotEmpty)
+  //     {
+  //       decodedPolyLinePointsResult.forEach((PointLatLng pointLatLng) {
+  //         polyCords.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
+  //       });
+  //     }
+  //
+  //   polyLineSet.clear();
+  //
+  //   setState(() {
+  //     Polyline polyline = Polyline(
+  //       color: Colors.tealAccent,
+  //       polylineId: PolylineId("PolylineID"),
+  //       jointType: JointType.round,
+  //       points: polyCords,
+  //       width: 6,
+  //       startCap: Cap.roundCap,
+  //       endCap: Cap.roundCap,
+  //       geodesic: true,
+  //     );
+  //
+  //     polyLineSet.add(polyline);
+  //   });
+  // }
+
 }
+
+//  // For holding Co-ordinates as LatLng
+//   final List<LatLng> polyCords = [];
+//
+//   //For holding instance of Polyline
+//    Set<Polyline> polyLines = {};
