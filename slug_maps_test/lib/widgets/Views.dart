@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -32,7 +33,8 @@ class Views extends StatefulWidget {
 }
 
 class _ViewsState extends State<Views> {
-//GoogleMapController mapController;
+  //GoogleMapController mapController;
+  GoogleMapController newMapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
@@ -40,15 +42,49 @@ class _ViewsState extends State<Views> {
 
   _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
+    newMapController = controller;
+    locatePosition();
   }
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
   }
 
-  double zoomVal=5.0;
+  //Current location of the user
+  Position currentPosition;
+  var geoLocator = Geolocator();
+
+  void locatePosition() async
+  {
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    currentPosition = position;
+
+    LatLng latLngPosition = LatLng(position.latitude, position.longitude);
+
+    CameraPosition cameraPosition = new CameraPosition(target: latLngPosition, zoom: 14.35);
+    newMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+  }
+
+
+  //Visibility for our screen for speed dial
+  bool _visible = true;
+  void setDialVisible(bool value) {
+    setState(() {
+      _visible = value;
+    });
+  }
 
   List<Marker> viewsList = [
+    // Cave Gulch
+    Marker(
+      markerId: MarkerId('C10Garden'),
+      position: LatLng(37.000147, -122.057486),
+      infoWindow: InfoWindow(
+        title: 'College 10 Garden',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
     // Cave Gulch
     Marker(
       markerId: MarkerId('CaveGulch'),
@@ -148,13 +184,7 @@ class _ViewsState extends State<Views> {
     ),
   ];
 
-  //Visibility for our screen for speed dial
-  bool _visible = true;
-  void setDialVisible(bool value) {
-    setState(() {
-      _visible = value;
-    });
-  }
+
 
   Widget build(BuildContext context) {
     //phone dimensions
@@ -185,6 +215,8 @@ class _ViewsState extends State<Views> {
               onCameraMove: _onCameraMove,
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
+              zoomGesturesEnabled: true,
+              zoomControlsEnabled: true,
               markers: Set.from(viewsList),
             ),
 
@@ -281,6 +313,7 @@ class _ViewsState extends State<Views> {
     ); //812 x 375
   }
 
+
   Widget _buildContainer() {
     return Align(
       alignment: Alignment.bottomLeft,
@@ -290,6 +323,13 @@ class _ViewsState extends State<Views> {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: <Widget>[
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://scontent-lax3-1.xx.fbcdn.net/v/t1.18169-9/11141147_891237167581803_121545451108427757_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=9267fe&_nc_ohc=v7jLp4_ua40AX-YVjZ7&_nc_ht=scontent-lax3-1.xx&oh=d798ff4a1d65d6be170810ee351ff3ae&oe=608A55AD",
+                  37.000147, -122.057486,"College 10 Garden", ''),
+            ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
