@@ -77,6 +77,16 @@ class _ViewsState extends State<Views> {
   List<Marker> viewsList = [
     // Cave Gulch
     Marker(
+      markerId: MarkerId('C10Garden'),
+      position: LatLng(37.000147, -122.057486),
+      infoWindow: InfoWindow(
+        title: 'College 10 Garden',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // Cave Gulch
+    Marker(
       markerId: MarkerId('CaveGulch'),
       position: LatLng(36.99403252521436, -122.0690402904878),
       infoWindow: InfoWindow(
@@ -303,6 +313,7 @@ class _ViewsState extends State<Views> {
     ); //812 x 375
   }
 
+
   Widget _buildContainer() {
     return Align(
       alignment: Alignment.bottomLeft,
@@ -312,6 +323,13 @@ class _ViewsState extends State<Views> {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: <Widget>[
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://scontent-lax3-1.xx.fbcdn.net/v/t1.18169-9/11141147_891237167581803_121545451108427757_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=9267fe&_nc_ohc=v7jLp4_ua40AX-YVjZ7&_nc_ht=scontent-lax3-1.xx&oh=d798ff4a1d65d6be170810ee351ff3ae&oe=608A55AD",
+                  37.000147, -122.057486,"College 10 Garden", ''),
+            ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),

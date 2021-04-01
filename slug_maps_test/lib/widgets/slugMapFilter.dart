@@ -23,6 +23,8 @@ import 'package:testing_app/widgets/Libraries.dart';
 import 'package:testing_app/widgets/Parking.dart';
 import 'package:testing_app/widgets/BusStops.dart';
 
+import 'Tour.dart';
+
 
 //***************************************************
 //* Speed dial, contains all of the filter options
@@ -40,7 +42,9 @@ SpeedDial buildSpeedDial(BuildContext context, double phoneWidth, double phoneHe
     animatedIcon: AnimatedIcons.menu_close,
     animatedIconTheme: IconThemeData(size: phoneWidth * .06666666667), //23
     buttonSize: phoneWidth * .06666666667, //23
-    visible: _visible,
+    visible: true,
+    overlayColor: Colors.black,
+    overlayOpacity: .5,
     curve: Curves.easeIn,
     backgroundColor: Color(0xffececec),
     foregroundColor: Colors.black,
@@ -233,7 +237,7 @@ SpeedDial buildSpeedDial(BuildContext context, double phoneWidth, double phoneHe
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => EVChargeStation()),
+            MaterialPageRoute(builder: (context) => Tour()),
           );
         },
       ),

@@ -76,6 +76,7 @@ flutter:
   assets:
     - assets/images/
     - assets/marker_icons/
+    - assets/marker_num/
 
 #  fonts:
 #    - family: Montserrat

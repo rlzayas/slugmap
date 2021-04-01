@@ -37,21 +37,24 @@ class Tour extends StatefulWidget {
 class _TourState extends State<Tour> {
 
   Set<Marker> TourList = {
+
+    //east remote
     Marker(
       markerId: MarkerId('EastRemoteParkingLot'),
       position: LatLng(36.99203741631251, -122.05312085074124),
       infoWindow: InfoWindow(
-        title: 'East Remote Parking Lot',
+        title: '1: East Remote Parking Lot',
       ),
 
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
-    // Cowell College
+
+    // Opers field
     Marker(
       markerId: MarkerId('OPERS field'),
       position: LatLng(36.992914, -122.052347),
       infoWindow: InfoWindow(
-        title: 'OPERS field',
+        title: '2: OPERS field',
         snippet: 'Santa Cruz, CA 95064',
 
       ),
@@ -64,9 +67,35 @@ class _TourState extends State<Tour> {
       markerId: MarkerId('StevensonCollege'),
       position: LatLng(36.99718747230962, -122.0519119377878),
       infoWindow: InfoWindow(
-        title: 'Stevenson College',
+        title: '3: Stevenson College',
         snippet: '1156 High St, Santa Cruz, CA 95064',
       ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // Cowell College
+    Marker(
+      markerId: MarkerId('CowellCollege'),
+      position: LatLng(36.99737038347433, -122.05427346220672),
+      infoWindow: InfoWindow(
+        title: '4: Cowell College',
+        snippet: '1156 High St, Santa Cruz, CA 95064',
+      ),
+
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+
+
+    // Quarry plaza
+    Marker(
+      markerId: MarkerId('QuarryPlaza'),
+      position: LatLng(36.997645, -122.055714),
+      infoWindow: InfoWindow(
+        title: '5: Quarry Plaza',
+        snippet: '1156 High St, Santa Cruz, CA 95064',
+      ),
+
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
@@ -75,7 +104,7 @@ class _TourState extends State<Tour> {
       markerId: MarkerId('CrownCollege'),
       position: LatLng(37.00044004525279, -122.05452639437944),
       infoWindow: InfoWindow(
-        title: 'Crown College',
+        title: '6: Crown College',
         snippet: '628 Crown Rd, Santa Cruz, CA 95064',
       ),
 
@@ -87,20 +116,51 @@ class _TourState extends State<Tour> {
       markerId: MarkerId('MerrillCollege'),
       position: LatLng(36.99996850267072, -122.05330945824518),
       infoWindow: InfoWindow(
-        title: 'Merrill College',
+        title: '7: Merrill College',
         snippet: '641 Merrill Rd, Santa Cruz, CA 95064',
       ),
 
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
+    // College 9/10
+    Marker(
+      markerId: MarkerId('College10'),
+      position: LatLng(37.00083458438215, -122.05857488511316),
+      infoWindow: InfoWindow(
+        title: '8: College 9/10',
+        snippet: '710 College Ten Rd, Santa Cruz, CA 95064',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // Jack baskin engineering
+    Marker(
+      markerId: MarkerId('JackBaskin'),
+      position: LatLng(37.000653, -122.062137),
+      infoWindow: InfoWindow(
+        title: '9: Jack Baskin Engineering Buildings',
+        snippet: 'Parking Lot 139, Santa Cruz, CA 95064',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
     // Porter College
     Marker(
-      markerId: MarkerId('PorterCollege'),
-      position: LatLng(36.99460980922041, -122.0653309811971),
+      markerId: MarkerId('PhysialSci'),
+      position: LatLng(36.999741, -122.061455),
       infoWindow: InfoWindow(
-        title: 'Porter College',
+        title: '10: Physical Science Buildings',
         snippet: '1156 High Street, Santa Cruz, CA 95064',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+    // Science & Engineering Library
+    Marker(
+      markerId: MarkerId('Science&EngineeringLibrary'),
+      position: LatLng(36.99910517369182, -122.06059399782959),
+      infoWindow: InfoWindow(
+        title: '11: Science & Engineering Library',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
@@ -110,19 +170,19 @@ class _TourState extends State<Tour> {
       markerId: MarkerId('KresgeCollege'),
       position: LatLng(36.99765919789214, -122.06676649796817),
       infoWindow: InfoWindow(
-        title: 'Kresge College',
+        title: '12: Kresge College',
         snippet: '510 Porter-Kresge Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // Oaks College
+    // Porter College
     Marker(
-      markerId: MarkerId('OaksCollege'),
-      position: LatLng(36.989929657499914, -122.06277255820748),
+      markerId: MarkerId('PorterCollege'),
+      position: LatLng(36.99460980922041, -122.0653309811971),
       infoWindow: InfoWindow(
-        title: 'Oakes College',
-        snippet: '231 Oakes Rd, Santa Cruz, CA 95064',
+        title: '13: Porter College',
+        snippet: '1156 High Street, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
@@ -132,22 +192,37 @@ class _TourState extends State<Tour> {
       markerId: MarkerId('RachelCarsonCollege'),
       position: LatLng(36.99151711141353, -122.0647350052343),
       infoWindow: InfoWindow(
-        title: 'Rachel Carson College',
+        title: '14: Rachel Carson College',
         snippet: '356 Rachel Carson Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
 
-    // College 9/10
+    // Oaks College
     Marker(
-      markerId: MarkerId('College10'),
-      position: LatLng(37.00083458438215, -122.05857488511316),
+      markerId: MarkerId('OaksCollege'),
+      position: LatLng(36.989929657499914, -122.06277255820748),
       infoWindow: InfoWindow(
-        title: 'College 10',
-        snippet: '710 College Ten Rd, Santa Cruz, CA 95064',
+        title: '15: Oakes College',
+        snippet: '231 Oakes Rd, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
     ),
+
+    // McHenry Library
+    Marker(
+      markerId: MarkerId('McHenryLibrary'),
+      position: LatLng(36.99578136536548, -122.05888865898311),
+      infoWindow: InfoWindow(
+        title: '16: McHenry Library',
+        snippet: '1156 High St, Santa Cruz, CA 95064',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+    ),
+
+
+
+
   };
 
   ///GoogleMapController mapController;
@@ -351,67 +426,125 @@ class _TourState extends State<Tour> {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: <Widget>[
+            //east remote
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://sustainability.ucsc.edu/initiatives/images/ucsc-solar.png",
-                  36.99203741631251, -122.05312085074124,"East Remote Parking Lot", ""),
+                  36.99203741631251, -122.05312085074124, "1: East Remote Parking Lot",
+                  "Parking lot to start at."),
             ),
+
+            //Opers
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://denelecampbell.files.wordpress.com/2014/10/ucsc-view.jpg",
-                  36.992914, -122.052347,"OPERS field", 'UCSC, Santa Cruz, CA 95064'),
+                  36.992914, -122.052347,"2: OPERS field", 'Open field space for yoga, sports, or simply enjoying the view' ),
             ),
 
+            //Stevenson College
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://lh5.googleusercontent.com/p/AF1QipMtC02MHqc4aC94j8QD5go2KnmDxSfS6-MPFUBW=w408-h240-k-no-pi-10-ya114.99999-ro-0-fo100",
-                  36.99718747230962, -122.0519119377878,"Stevenson College", '1156 High St, Santa Cruz, CA 95064'),
+                  36.99718747230962, -122.0519119377878,"3: Stevenson College", '1156 High St, Santa Cruz, CA 95064'),
             ),
 
+            //Cowell
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOIyhMhB0GE98kK-JGb--1uRW3QmK85sV424u1r=w408-h306-k-no",
-                  37.00044004525279, -122.05452639437944,"Crown College", "628 Crown Rd, Santa Cruz, CA 95064"),
+                  "https://lh5.googleusercontent.com/p/AF1QipNhx5Qwz4qrEcYLREogVSdL-MDV6G4mu_G5AkJy=w426-h240-k-no",
+                  36.99737038347433, -122.05427346220672,"4: Cowell College", '1156 High St, Santa Cruz, CA 95064'),
             ),
+
+            //Quarry
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://lh5.googleusercontent.com/p/AF1QipOuSZSryjYuT-8vlK_HuCUCmdSCQ6wLFSRPnHLO=w408-h306-k-no",
-                  36.99996850267072, -122.05330945824518,"Merrill College", '641 Merrill Rd, Santa Cruz, CA 95064'),
+                  36.99996850267072, -122.05330945824518,"5: Quarry Plaza", '1156 High St, Santa Cruz, CA 95064'),
             ),
 
+            //Cowell College
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPcPLt9ti9OeoGksu22-qZE0IKlfT_Y29BTeysC=w408-h306-k-no",
-                  36.99460980922041, -122.06533098119717,"Porter College", '1156 High Street, Santa Cruz, CA 95064'),
+                  "https://lh5.googleusercontent.com/p/AF1QipOIyhMhB0GE98kK-JGb--1uRW3QmK85sV424u1r=w408-h306-k-no",
+                  37.00044004525279, -122.05452639437944,"6: Crown College", "628 Crown Rd, Santa Cruz, CA 95064"),
             ),
 
+            //Merril
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipOuSZSryjYuT-8vlK_HuCUCmdSCQ6wLFSRPnHLO=w408-h306-k-no",
+                  36.99996850267072, -122.05330945824518,"7: Merrill College", '641 Merrill Rd, Santa Cruz, CA 95064'),
+            ),
+
+            //College 9/10
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipPowPyR7t_8kEB9eR9SQfKPNLoYBfPYyVNQZk9j=w426-h240-k-no",
+                  37.00173913642322, -122.05729768589005,"8: College 9/10", "702 College Nine Rd, Santa Cruz, CA 95064"),
+            ),
+
+            //Jack Baskin
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/BaskEng1Eng2Plza.JPG/400px-BaskEng1Eng2Plza.JPG",
+                  37.000653, -122.062137,"9: Jack Baskin Engineering", '1156 High Street, Santa Cruz, CA 95064'),
+            ),
+
+            //Physical Sceince buildings
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/BaskEng1Eng2Plza.JPG/400px-BaskEng1Eng2Plza.JPG",
+                  36.999741, -122.06145,"10: Physical Science Buildings", '1156 High Street, Santa Cruz, CA 95064'),
+            ),
+
+            //S and E
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  "https://lh5.googleusercontent.com/p/AF1QipMZDLGPVvuBNpFWzfSRk2ipI2r0ez7bZlfZkG2l=w738-h240-k-no",
+                  36.99910517369182, -122.06059399782959,"11: Science & Engineering Library", ""),
+            ),
+
+            //Kresge
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
                   "https://lh5.googleusercontent.com/p/AF1QipNaGnwbY3Wq15t3GCBMSXQN1LbwcRz6eTTSxTh4=w408-h544-k-no",
-                  36.99765919789214, -122.06676649796817,"Kresge College", "510 Porter-Kresge Rd, Santa Cruz, CA 95064"),
+                  36.99765919789214, -122.06676649796817,"12: Kresge College", "510 Porter-Kresge Rd, Santa Cruz, CA 95064"),
             ),
+
+            //Porter
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOLheqUoXkrxh7dCib6JHR6m2D7zjmjSCMvI9tu=w408-h240-k-no-pi-0-ya88-ro-0-fo100",
-                  36.989929657499914, -122.06277255820748,"Oakes College", '231 Oakes Rd, Santa Cruz, CA 95064'),
+                  "https://lh5.googleusercontent.com/p/AF1QipPcPLt9ti9OeoGksu22-qZE0IKlfT_Y29BTeysC=w408-h306-k-no",
+                  36.99460980922041, -122.06533098119717,"13: Porter College", '1156 High Street, Santa Cruz, CA 95064'),
             ),
 
+            //RC
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -420,18 +553,20 @@ class _TourState extends State<Tour> {
                   36.99151711141353, -122.0647350052343,"Rachel Carson College", '356 Rachel Carson Rd, Santa Cruz, CA 95064'),
             ),
 
+            //Oaks College
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipPowPyR7t_8kEB9eR9SQfKPNLoYBfPYyVNQZk9j=w426-h240-k-no",
-                  37.00173913642322, -122.05729768589005,"College 9", "702 College Nine Rd, Santa Cruz, CA 95064"),
-            ),SizedBox(width: 10.0),
+                  "https://lh5.googleusercontent.com/p/AF1QipOLheqUoXkrxh7dCib6JHR6m2D7zjmjSCMvI9tu=w408-h240-k-no-pi-0-ya88-ro-0-fo100",
+                  36.989929657499914, -122.06277255820748,"Oakes College", '231 Oakes Rd, Santa Cruz, CA 95064'),
+            ),
+            SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: _boxes(
-                  "https://lh5.googleusercontent.com/p/AF1QipOhtB5Na-a36jWl3vxJ1DwTRqFo4mLLQxKu9Vj6=w408-h544-k-no",
-                  37.00083458438215, -122.05857488511316,"College 10", '710 College Ten Rd, Santa Cruz, CA 95064'),
+                  "https://lh5.googleusercontent.com/p/AF1QipN_mpikHGXgPU5572_4u_4GjBl5HVED6eFeAAmE=w742-h240-k-no",
+                  36.99578136536548, -122.05888865898311,"McHenry Library", 'Last Stop on the tour!'),
             ),
           ],
         ),
