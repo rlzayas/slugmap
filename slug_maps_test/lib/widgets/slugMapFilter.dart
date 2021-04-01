@@ -23,8 +23,6 @@ import 'package:testing_app/widgets/Libraries.dart';
 import 'package:testing_app/widgets/Parking.dart';
 import 'package:testing_app/widgets/BusStops.dart';
 
-import 'Tour.dart';
-
 
 //***************************************************
 //* Speed dial, contains all of the filter options
@@ -237,7 +235,7 @@ SpeedDial buildSpeedDial(BuildContext context, double phoneWidth, double phoneHe
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Tour()),
+            MaterialPageRoute(builder: (context) => EVChargeStation()),
           );
         },
       ),

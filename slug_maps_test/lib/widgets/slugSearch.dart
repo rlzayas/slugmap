@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -23,6 +24,7 @@ import 'package:testing_app/widgets/Parking.dart';
 import 'package:testing_app/widgets/BusStops.dart';
 
 import 'package:testing_app/widgets/slugMapFilter.dart';
+
 import 'package:testing_app/widgets/slugMapMain.dart';
 import 'package:testing_app/widgets/newTestMap.dart';
 
@@ -158,11 +160,13 @@ class _SearchState extends State<slugSearch> {
               ),
             ),
             _buildFilterSlider(context, phoneWidth, phoneHeight),
+
           ],
         ),
       ),
     );
   }
+
 
   Container filterSlide(double phoneWidth, double phoneHeight, String asset, String hero, Widget goFilter) {
     return Container(
