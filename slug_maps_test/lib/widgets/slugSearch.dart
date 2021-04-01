@@ -158,7 +158,6 @@ class _SearchState extends State<slugSearch> {
               ),
             ),
             _buildFilterSlider(context, phoneWidth, phoneHeight),
-
           ],
         ),
       ),
