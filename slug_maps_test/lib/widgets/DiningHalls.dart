@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:geolocator/geolocator.dart';
 
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
@@ -33,7 +35,7 @@ class DiningHalls extends StatefulWidget {
 }
 
 class _DiningHallsState extends State<DiningHalls> {
-  //GoogleMapController mapController;
+  GoogleMapController newMapController;
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(36.989043, -122.058611);
   LatLng _lastMapPosition = _center;
@@ -41,11 +43,33 @@ class _DiningHallsState extends State<DiningHalls> {
 
   _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
+    newMapController = controller;
+    locatePosition();
   }
 
   _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
   }
+
+  //Current location of the user
+  Position currentPosition;
+  var geoLocator = Geolocator();
+
+  void locatePosition() async
+  {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    currentPosition = position;
+
+
+    LatLng latLngPosition = LatLng(position.latitude, position.longitude);
+
+    CameraPosition cameraPosition = new CameraPosition(
+        target: latLngPosition, zoom: 14.35);
+    newMapController.animateCamera(
+        CameraUpdate.newCameraPosition(cameraPosition));
+  }
+
 
   double zoomVal=5.0;
 
@@ -59,6 +83,7 @@ class _DiningHallsState extends State<DiningHalls> {
         snippet: 'McLaughlin Dr, Santa Cruz, CA 95064',
       ),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+
     ),
 
     // Crown/Merrill Dining Hall
@@ -106,6 +131,8 @@ class _DiningHallsState extends State<DiningHalls> {
     ),
   ];
 
+
+
   //Visibility for our screen for speed dial
   bool _visible = true;
   void setDialVisible(bool value) {
@@ -144,6 +171,7 @@ class _DiningHallsState extends State<DiningHalls> {
               myLocationButtonEnabled: true,
               myLocationEnabled: true,
               markers: Set.from(diningHallList),
+              // polylines: _polylines,
             ),
 
             //Container 2: Full Search bar container

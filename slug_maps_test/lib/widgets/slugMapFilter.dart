@@ -17,6 +17,13 @@ import 'package:testing_app/widgets/DiningHalls.dart';
 import 'package:testing_app/widgets/EVChargeStation.dart';
 import 'package:testing_app/widgets/WaterFillStation.dart';
 import 'package:testing_app/widgets/Views.dart';
+import 'package:testing_app/widgets/HikingTrails.dart';
+import 'package:testing_app/widgets/Libraries.dart';
+import 'package:testing_app/widgets/Parking.dart';
+import 'package:testing_app/widgets/BusStops.dart';
+import 'Tour.dart';
+
+
 
 class slugMapFilter extends StatefulWidget {
   @override
@@ -322,13 +329,6 @@ class _FilterState extends State<slugMapFilter> with TickerProviderStateMixin {
     );
   }
 }
-import 'package:testing_app/widgets/HikingTrails.dart';
-import 'package:testing_app/widgets/Libraries.dart';
-import 'package:testing_app/widgets/Parking.dart';
-import 'package:testing_app/widgets/BusStops.dart';
-
-import 'Tour.dart';
-
 
 //***************************************************
 //* Speed dial, contains all of the filter options
