@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:testing_app/widgets/BusStops.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Locations {
   String name;
@@ -530,29 +530,29 @@ class _SearchState extends State<slugSearch> {
     );
   }
 
-  //GoogleMapController mapController;
-  Completer<GoogleMapController> _controller = Completer();
-  static const LatLng _center = const LatLng(36.989043, -122.058611);
-  LatLng _lastMapPosition = _center;
-  MapType _currentMapType = MapType.normal;
+  // //GoogleMapController mapController;
+  // Completer<GoogleMapController> _controller = Completer();
+  // static const LatLng _center = const LatLng(36.989043, -122.058611);
+  // LatLng _lastMapPosition = _center;
+  // MapType _currentMapType = MapType.normal;
 
-  _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);
-  }
+  // _onMapCreated(GoogleMapController controller) {
+  //   _controller.complete(controller);
+  // }
 
-  _onCameraMove(CameraPosition position) {
-    _lastMapPosition = position.target;
-  }
+  // _onCameraMove(CameraPosition position) {
+  //   _lastMapPosition = position.target;
+  // }
 
-  double zoomVal = 5.0;
+  // double zoomVal = 5.0;
 
-  Future<void> _gotoLocation(double lat, double long) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-      target: LatLng(lat, long),
-      zoom: 15,
-      tilt: 50.0,
-      bearing: 45.0,
-    )));
-  }
+  // Future<void> _gotoLocation(double lat, double long) async {
+  //   final GoogleMapController controller = await _controller.future;
+  //   controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+  //     target: LatLng(lat, long),
+  //     zoom: 15,
+  //     tilt: 50.0,
+  //     bearing: 45.0,
+  //   )));
+  // }
 }
