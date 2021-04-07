@@ -1,9 +1,12 @@
 import 'dart:ui';
+import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:testing_app/widgets/BusStops.dart';
 import 'package:testing_app/widgets/slugMapMain.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Locations {
   String name;
@@ -12,7 +15,7 @@ class Locations {
   double longitude;
   double latitude;
 
-  Locations(this.name, this.filter, this.longitude, this.latitude);
+  Locations(this.name, this.filter, this.latitude, this.longitude);
 }
 
 class SearchResult {
@@ -47,7 +50,7 @@ class _SearchState extends State<slugSearch> {
   );
   final key = new GlobalKey<ScaffoldState>();
   final TextEditingController _searchQuery = new TextEditingController();
-  List<SearchResult> _list = [];
+  List<Locations> _list = [];
   bool _IsSearching;
   String _searchText = "";
   String selectedSearchValue = "";
@@ -68,7 +71,7 @@ class _SearchState extends State<slugSearch> {
     createSearchResultList();
   }
 
-  void createSearchResultList() {
+  createSearchResultList() {
     //List<Locations> santaCruzLocations = [];
     //new Locations("", "", , ),
 
@@ -267,9 +270,14 @@ class _SearchState extends State<slugSearch> {
           -122.06244957438545),
     ];
 
+    int indexFound = 0;
     var locationCount = santaCruzLocations.length;
-    for (int i = 0; i < locationCount; i++) {
-      _list.add(new SearchResult(santaCruzLocations[i].name));
+    for (indexFound; indexFound < locationCount; indexFound++) {
+      _list.add(new Locations(
+          santaCruzLocations[indexFound].name,
+          santaCruzLocations[indexFound].filter,
+          santaCruzLocations[indexFound].latitude,
+          santaCruzLocations[indexFound].longitude));
     }
   }
 
@@ -278,7 +286,7 @@ class _SearchState extends State<slugSearch> {
   }
 
   ListView searchList() {
-    List<SearchResult> results = _buildSearchList();
+    List<Locations> results = _buildSearchList();
     var suggestionTap = new BoolReference(false);
     return ListView.builder(
       padding: const EdgeInsets.only(
@@ -298,6 +306,17 @@ class _SearchState extends State<slugSearch> {
             onTap: () {
               suggestionTap.isTrue = true;
               _displayTextField(results.elementAt(index).name, suggestionTap);
+
+              // ADD CODE
+              // print(results[index].latitude);
+              // print(results[index].longitude);
+
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => new BusStops(
+                          results[index].latitude, results[index].longitude)));
+              // _gotoLocation(results[index].latitude, results[index].longitude);
             },
             title: Text(results.elementAt(index).name,
                 style: new TextStyle(fontSize: 18.0)),
@@ -307,23 +326,28 @@ class _SearchState extends State<slugSearch> {
     );
   }
 
-  List<SearchResult> _buildList() {
-    return _list.map((result) => new SearchResult(result.name)).toList();
+  List<Locations> _buildList() {
+    return _list.map((result) => new Locations(
+        result.name, result.filter, result.latitude, result.longitude));
   }
 
-  List<SearchResult> _buildSearchList() {
+  List<Locations> _buildSearchList() {
     if (_searchText.isEmpty) {
-      return _list.map((result) => new SearchResult(result.name)).toList();
+      return _list
+          .map((result) => new Locations(
+              result.name, result.filter, result.latitude, result.longitude))
+          .toList();
     } else {
-      List<SearchResult> _searchList = List();
+      List<Locations> _searchList = List();
       for (int i = 0; i < _list.length; i++) {
-        SearchResult result = _list.elementAt(i);
+        Locations result = _list.elementAt(i);
         if ((result.name).toLowerCase().contains(_searchText.toLowerCase())) {
           _searchList.add(result);
         }
       }
       return _searchList
-          .map((result) => new SearchResult(result.name))
+          .map((result) => new Locations(
+              result.name, result.filter, result.latitude, result.longitude))
           .toList();
     }
   }
@@ -504,5 +528,31 @@ class _SearchState extends State<slugSearch> {
         ),
       ),
     );
+  }
+
+  //GoogleMapController mapController;
+  Completer<GoogleMapController> _controller = Completer();
+  static const LatLng _center = const LatLng(36.989043, -122.058611);
+  LatLng _lastMapPosition = _center;
+  MapType _currentMapType = MapType.normal;
+
+  _onMapCreated(GoogleMapController controller) {
+    _controller.complete(controller);
+  }
+
+  _onCameraMove(CameraPosition position) {
+    _lastMapPosition = position.target;
+  }
+
+  double zoomVal = 5.0;
+
+  Future<void> _gotoLocation(double lat, double long) async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+      target: LatLng(lat, long),
+      zoom: 15,
+      tilt: 50.0,
+      bearing: 45.0,
+    )));
   }
 }
