@@ -1,13 +1,37 @@
-import 'dart:ui';
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:testing_app/widgets/BusStops.dart';
-import 'package:testing_app/widgets/slugMapMain.dart';
-// import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+
+import 'package:testing_app/widgets/Colleges.dart';
+import 'package:testing_app/widgets/DiningHalls.dart';
+import 'package:testing_app/widgets/EVChargeStation.dart';
+
+import 'package:testing_app/widgets/FilterInMainTest.dart';
+
+import 'package:testing_app/widgets/WaterFillStation.dart';
+import 'package:testing_app/widgets/Views.dart';
+import 'package:testing_app/widgets/HikingTrails.dart';
+import 'package:testing_app/widgets/Libraries.dart';
+import 'package:testing_app/widgets/Parking.dart';
+import 'package:testing_app/widgets/BusStops.dart';
+
+import 'package:testing_app/widgets/slugMapFilter.dart';
+
+import 'package:testing_app/widgets/slugMapMain.dart';
+import 'package:testing_app/widgets/newTestMap.dart';
+
+import 'Tour.dart';
+import 'slugMapFilter.dart';
+
+// List of type locations created from map pins
 class Locations {
   String name;
   String filter;
@@ -18,12 +42,15 @@ class Locations {
   Locations(this.name, this.filter, this.latitude, this.longitude);
 }
 
+// Used as a pointer to permanently store the search result into search bar
 class SearchResult {
   String name;
 
   SearchResult(this.name);
 }
 
+// Used as a pointer to permanently store a bool if we tapped on a suggestion,
+// also used to update the search bar with the suggestion when tapped
 class BoolReference {
   bool isTrue;
   BoolReference(this.isTrue);
@@ -31,33 +58,23 @@ class BoolReference {
 
 class slugSearch extends StatefulWidget {
   @override
-  slugSearch({Key key, this.name}) : super(key: key);
-
-  final String name;
-
   _SearchState createState() => new _SearchState();
 }
 
 class _SearchState extends State<slugSearch> {
   ///////////////////////////////////////////////////////////////////////////
-  Widget appBarTitle = new Text(
-    "",
-    style: new TextStyle(color: Colors.white),
-  );
-  Icon actionIcon = new Icon(
-    Icons.search,
-    color: Colors.white,
-  );
+  // <BEGINNING> IMPLEMENTATION OF SEARCH BAR & SUGGESTIONS <BEGINNING>
+  ///////////////////////////////////////////////////////////////////////////
   final key = new GlobalKey<ScaffoldState>();
   final TextEditingController _searchQuery = new TextEditingController();
   List<Locations> _list = [];
   bool _IsSearching;
   String _searchText = "";
-  String selectedSearchValue = "";
 
   _SearchState() {
     _searchQuery.addListener(() {
       setState(() {
+        // SEARCH SUGGESTIONS TRUE AT LAUNCH, AND SEARCH FOR THE STRING IN SEARCH BOX / QUERY
         _IsSearching = true;
         _searchText = _searchQuery.text;
       });
@@ -71,10 +88,8 @@ class _SearchState extends State<slugSearch> {
     createSearchResultList();
   }
 
+  // SEARCH SUGGESTIONS HARD-CODED
   createSearchResultList() {
-    //List<Locations> santaCruzLocations = [];
-    //new Locations("", "", , ),
-
     List<Locations> santaCruzLocations = [
       new Locations("ChargePoint Charging Station (Ocean St)",
           "EV Charge Stations", 36.9788943336269, -122.0223634179128),
@@ -160,7 +175,7 @@ class _SearchState extends State<slugSearch> {
           36.994357248831975, -122.05555567118188),
       new Locations("East Remote Lot Interior Bus Stop", "Bus Stops",
           36.99083982740803, -122.05214599406385),
-      new Locations("Hagar Dr - East Remote Parking Bus Stop", "Bus Stops",
+      new Locations("Hagar Dr - East Remote Parking (Bus Stop)", "Bus Stops",
           36.99143835860411, -122.05467777622509),
       new Locations("Hagar Dr & Village Rd Bus Stop #1", "Bus Stops",
           36.98611771147566, -122.053570734405),
@@ -270,6 +285,7 @@ class _SearchState extends State<slugSearch> {
           -122.06244957438545),
     ];
 
+    // ADD ELEMENTS FROM HARD-CODED LIST INTO SEARCH SUGGESTION LIST
     int indexFound = 0;
     var locationCount = santaCruzLocations.length;
     for (indexFound; indexFound < locationCount; indexFound++) {
@@ -281,10 +297,12 @@ class _SearchState extends State<slugSearch> {
     }
   }
 
+  // RETURNS A WIDGET SHOWING SEARCH BAR
   Widget displaySearchResults() {
     return new Align(alignment: Alignment.topCenter, child: searchList());
   }
 
+// RETURNS A WIDGET SHOWING LIST TILES W/ SEARCH SUGGESTIONS / LIST
   ListView searchList() {
     List<Locations> results = _buildSearchList();
     var suggestionTap = new BoolReference(false);
@@ -306,17 +324,21 @@ class _SearchState extends State<slugSearch> {
             onTap: () {
               suggestionTap.isTrue = true;
               _displayTextField(results.elementAt(index).name, suggestionTap);
-
-              // ADD CODE
-              // print(results[index].latitude);
-              // print(results[index].longitude);
-
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => new BusStops(
-                          results[index].latitude, results[index].longitude)));
-              // _gotoLocation(results[index].latitude, results[index].longitude);
+                context,
+                MaterialPageRoute(builder: (context) => slugMapMain()),
+              );
+
+              // TEST CODE (SHOWS WORKING LAT / LONG VAL FROM TAPPED SUGG.)
+              print(results[index].latitude);
+              print(results[index].longitude);
+
+              // THIS CODE TRANSFERS COORDINATES TO A DIFFERENT PAGE
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => new BusStops(
+              //             results[index].latitude, results[index].longitude)));
             },
             title: Text(results.elementAt(index).name,
                 style: new TextStyle(fontSize: 18.0)),
@@ -326,11 +348,7 @@ class _SearchState extends State<slugSearch> {
     );
   }
 
-  List<Locations> _buildList() {
-    return _list.map((result) => new Locations(
-        result.name, result.filter, result.latitude, result.longitude));
-  }
-
+  // BUILDS A LIST OF LOCATIONS DEPENDING ON WHAT IS TYPED IN THE SEARCH BAR
   List<Locations> _buildSearchList() {
     if (_searchText.isEmpty) {
       return _list
@@ -352,13 +370,7 @@ class _SearchState extends State<slugSearch> {
     }
   }
 
-  String selectedPopupRoute = "My Home";
-  final List<String> popupRoutes = <String>[
-    "My Home",
-    "Favorite Room 1",
-    "Favorite Room 2"
-  ];
-
+  // PART OF SEARCH BAR, ALSO FORMATS THE SEARCH BAR
   Widget _displayTextField(String searchInput, BoolReference suggestionTap) {
     setState(() {
       if (suggestionTap.isTrue) {
@@ -391,33 +403,21 @@ class _SearchState extends State<slugSearch> {
     );
   }
 
+  // START SEARCHING WHEN APP IS LAUNCHED
   void _handleSearchStart() {
     setState(() {
       _IsSearching = true;
     });
   }
 
-  void _handleSearchEnd() {
-    setState(() {
-      this.actionIcon = new Icon(
-        Icons.search,
-        color: Colors.white,
-      );
-      this.appBarTitle = new Text(
-        "",
-        style: new TextStyle(color: Colors.white),
-      );
-      //_IsSearching = false;
-      //_searchQuery.clear();
-    });
-  }
-
+  ///////////////////////////////////////////////////////////////////////////
+  // <END> IMPLEMENTATION OF SEARCH BAR & SUGGESTIONS <END>
   ///////////////////////////////////////////////////////////////////////////
   Widget build(BuildContext context) {
     //phone dimensions
+    BoolReference suggestionTap = new BoolReference(false);
     double phoneWidth = MediaQuery.of(context).size.width; //375
     double phoneHeight = MediaQuery.of(context).size.height; //812
-    BoolReference suggestionTap = new BoolReference(false);
 
     return Scaffold(
       body: Container(
@@ -432,24 +432,6 @@ class _SearchState extends State<slugSearch> {
               margin: EdgeInsets.only(top: 0),
               width: phoneWidth,
               height: phoneHeight * .2130541872,
-              decoration: BoxDecoration(
-                color: Color(0xffececec),
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: [
-                  BoxShadow(color: Color(0xffe5e2e2)),
-                  BoxShadow(
-                    color: Color(0xffe2e0e0),
-                    blurRadius: 12,
-                    spreadRadius: -12,
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              child: displaySearchResults(),
-              margin: EdgeInsets.only(top: phoneHeight * .2192118227),
-              width: phoneWidth,
-              height: phoneHeight * .7807881773,
               decoration: BoxDecoration(
                 color: Color(0xffececec),
                 borderRadius: BorderRadius.circular(5),
@@ -491,15 +473,9 @@ class _SearchState extends State<slugSearch> {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: _displayTextField("", suggestionTap),
-
-              // TextButton(
-              //   onPressed: () {
-              //     // Navigator.push(
-              //     // context,
-              //     //MaterialPageRoute(builder: (context) => slugMapMain()), );
-              //   },
-              // ),
             ),
+
+            //Go back button
             Container(
               margin: EdgeInsets.only(
                   left: phoneWidth * .05866666667,
@@ -524,35 +500,115 @@ class _SearchState extends State<slugSearch> {
                 ],
               ),
             ),
+            _buildFilterSlider(context, phoneWidth, phoneHeight),
+
+            //Container 1: search results container
+            Container(
+              child: displaySearchResults(),
+              margin: EdgeInsets.only(top: phoneHeight * .2192118227),
+              width: phoneWidth,
+              height: phoneHeight * .7807881773,
+              decoration: BoxDecoration(
+                color: Color(0xffececec),
+                borderRadius: BorderRadius.circular(5),
+                boxShadow: [
+                  BoxShadow(color: Color(0xffe5e2e2)),
+                  BoxShadow(
+                    color: Color(0xffe2e0e0),
+                    blurRadius: 12,
+                    spreadRadius: -12,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  // //GoogleMapController mapController;
-  // Completer<GoogleMapController> _controller = Completer();
-  // static const LatLng _center = const LatLng(36.989043, -122.058611);
-  // LatLng _lastMapPosition = _center;
-  // MapType _currentMapType = MapType.normal;
+  Container filterSlide(double phoneWidth, double phoneHeight, String asset,
+      String hero, Widget goFilter) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: phoneWidth * .02666666667),
+      width: phoneWidth * .12, //45
+      height: phoneHeight * .05541871921, //45
+      child: Stack(
+        children: <Widget>[
+          FloatingActionButton(
+              heroTag: hero,
+              backgroundColor: Color(0xffececec),
+              elevation: 2,
+              child: SvgPicture.asset(
+                asset,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => goFilter),
+                );
+              }),
+        ],
+      ),
+    );
+  }
 
-  // _onMapCreated(GoogleMapController controller) {
-  //   _controller.complete(controller);
-  // }
-
-  // _onCameraMove(CameraPosition position) {
-  //   _lastMapPosition = position.target;
-  // }
-
-  // double zoomVal = 5.0;
-
-  // Future<void> _gotoLocation(double lat, double long) async {
-  //   final GoogleMapController controller = await _controller.future;
-  //   controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-  //     target: LatLng(lat, long),
-  //     zoom: 15,
-  //     tilt: 50.0,
-  //     bearing: 45.0,
-  //   )));
-  // }
+  Widget _buildFilterSlider(
+      BuildContext Context, double phoneWidth, double phoneHeight) {
+    return Container(
+      margin: EdgeInsets.symmetric(
+          vertical: phoneHeight * .1231527094,
+          horizontal: phoneWidth * .02666666667), //100, 10
+      //height: 60,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: <Widget>[
+          filterSlide(phoneWidth, phoneHeight, 'assets/images/CollegeIcon.svg',
+              'btn1', Colleges()), //Colleges tile
+          filterSlide(
+              phoneWidth,
+              phoneHeight,
+              'assets/images/restaurant-black-18dp.svg',
+              'btn2',
+              DiningHalls()), //Dinning halls
+          filterSlide(
+              phoneWidth,
+              phoneHeight,
+              'assets/images/import_contacts-24px.svg',
+              'btn3',
+              Libraries()), //libraries
+          filterSlide(
+              phoneWidth,
+              phoneHeight,
+              'assets/images/directions_bus-24px.svg',
+              'btn4',
+              BusStops()), //bus stops
+          filterSlide(
+              phoneWidth,
+              phoneHeight,
+              'assets/images/local_parking-24px.svg',
+              'btn5',
+              Parking()), //parking lots
+          filterSlide(
+              phoneWidth,
+              phoneHeight,
+              'assets/images/directions_walk-24px.svg',
+              'btn6',
+              HikingTrails()), //Hiking
+          filterSlide(phoneWidth, phoneHeight,
+              'assets/images/local_see-24px.svg', 'btn7', Views()), //Views
+          filterSlide(phoneWidth, phoneHeight, 'assets/images/opacity-24px.svg',
+              'btn8', WaterFillStation()), //Water fill stations
+          filterSlide(
+              phoneWidth,
+              phoneHeight,
+              'assets/images/ev_station-24px.svg',
+              'btn9',
+              EVChargeStation()), //EV charge
+          filterSlide(phoneWidth, phoneHeight, 'assets/images/explore-24px.svg',
+              'btn10', Tour()), //School tour
+        ],
+      ),
+    );
+  }
 }
